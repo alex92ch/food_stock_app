@@ -18,16 +18,36 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     OverviewRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const OverviewPage());
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const OverviewPage(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
     },
     StockRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const StockPage());
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const StockPage(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
     },
     BaseDataRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
-          routeData: routeData, child: const BaseDataPage());
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const BaseDataPage(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
+    },
+    NewProductNameRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: const NewProductNamePage(),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -37,7 +57,8 @@ class _$AppRouter extends RootStackRouter {
             path: '/', redirectTo: '/overview', fullMatch: true),
         RouteConfig(OverviewRoute.name, path: '/overview'),
         RouteConfig(StockRoute.name, path: '/stock'),
-        RouteConfig(BaseDataRoute.name, path: '/base_data')
+        RouteConfig(BaseDataRoute.name, path: '/base_data'),
+        RouteConfig(NewProductNameRoute.name, path: '/new_product_name')
       ];
 }
 
@@ -63,4 +84,13 @@ class BaseDataRoute extends PageRouteInfo<void> {
   const BaseDataRoute() : super(BaseDataRoute.name, path: '/base_data');
 
   static const String name = 'BaseDataRoute';
+}
+
+/// generated route for
+/// [NewProductNamePage]
+class NewProductNameRoute extends PageRouteInfo<void> {
+  const NewProductNameRoute()
+      : super(NewProductNameRoute.name, path: '/new_product_name');
+
+  static const String name = 'NewProductNameRoute';
 }
