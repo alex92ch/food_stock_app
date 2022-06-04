@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:food_stock_app/presentation/shared/routes/routes.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
 import 'presentation/home/home_page.dart';
@@ -8,15 +10,18 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  const ProviderScope(
+    child: MyApp(),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends HookConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = ref.watch(routeProvider);
+    return MaterialApp.router(
       builder: (context, child) => ResponsiveWrapper.builder(
         child,
         maxWidth: 1200,
@@ -30,7 +35,8 @@ class MyApp extends StatelessWidget {
         ],
       ),
       title: 'FoodStock',
-      home: const HomePage(title: 'Home'),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
       debugShowCheckedModeBanner: true, //TODO change to false
     );
   }
