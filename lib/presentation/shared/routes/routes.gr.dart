@@ -18,36 +18,49 @@ class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     HomeRoute.name: (routeData) {
-      final args = routeData.argsAs<HomeRouteArgs>();
       return MaterialPageX<dynamic>(
-          routeData: routeData,
-          child: HomePage(key: args.key, title: args.title));
+          routeData: routeData, child: const HomePage());
+    },
+    StockRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const StockPage());
+    },
+    BaseDataRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+          routeData: routeData, child: const BaseDataPage());
     }
   };
 
   @override
-  List<RouteConfig> get routes => [RouteConfig(HomeRoute.name, path: '/')];
+  List<RouteConfig> get routes => [
+        RouteConfig('/#redirect',
+            path: '/', redirectTo: '/home', fullMatch: true),
+        RouteConfig(HomeRoute.name, path: '/home'),
+        RouteConfig(StockRoute.name, path: '/stock'),
+        RouteConfig(BaseDataRoute.name, path: '/base_data')
+      ];
 }
 
 /// generated route for
 /// [HomePage]
-class HomeRoute extends PageRouteInfo<HomeRouteArgs> {
-  HomeRoute({Key? key, required String title})
-      : super(HomeRoute.name,
-            path: '/', args: HomeRouteArgs(key: key, title: title));
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute() : super(HomeRoute.name, path: '/home');
 
   static const String name = 'HomeRoute';
 }
 
-class HomeRouteArgs {
-  const HomeRouteArgs({this.key, required this.title});
+/// generated route for
+/// [StockPage]
+class StockRoute extends PageRouteInfo<void> {
+  const StockRoute() : super(StockRoute.name, path: '/stock');
 
-  final Key? key;
+  static const String name = 'StockRoute';
+}
 
-  final String title;
+/// generated route for
+/// [BaseDataPage]
+class BaseDataRoute extends PageRouteInfo<void> {
+  const BaseDataRoute() : super(BaseDataRoute.name, path: '/base_data');
 
-  @override
-  String toString() {
-    return 'HomeRouteArgs{key: $key, title: $title}';
-  }
+  static const String name = 'BaseDataRoute';
 }

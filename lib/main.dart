@@ -4,15 +4,15 @@ import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
-import 'presentation/home/home_page.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  const ProviderScope(
+  runApp(const ProviderScope(
     child: MyApp(),
-  );
+  ));
 }
 
 class MyApp extends HookConsumerWidget {
