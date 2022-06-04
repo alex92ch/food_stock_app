@@ -13,8 +13,8 @@ final routeProvider = Provider<AppRouter>((ref) => AppRouter());
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(page: HomePage, path: "/home", initial: true),
-    AutoRoute(page: StockPage, path: "/stock", initial: true),
-    AutoRoute(page: BaseDataPage, path: "/base_data", initial: true),
+    AutoRoute(page: StockPage, path: "/stock"),
+    AutoRoute(page: BaseDataPage, path: "/base_data"),
   ],
 )
 class AppRouter extends _$AppRouter {}
