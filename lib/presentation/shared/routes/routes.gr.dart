@@ -17,9 +17,9 @@ class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
+    OverviewRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
-          routeData: routeData, child: const HomePage());
+          routeData: routeData, child: const OverviewPage());
     },
     StockRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
@@ -34,19 +34,19 @@ class _$AppRouter extends RootStackRouter {
   @override
   List<RouteConfig> get routes => [
         RouteConfig('/#redirect',
-            path: '/', redirectTo: '/home', fullMatch: true),
-        RouteConfig(HomeRoute.name, path: '/home'),
+            path: '/', redirectTo: '/overview', fullMatch: true),
+        RouteConfig(OverviewRoute.name, path: '/overview'),
         RouteConfig(StockRoute.name, path: '/stock'),
         RouteConfig(BaseDataRoute.name, path: '/base_data')
       ];
 }
 
 /// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute() : super(HomeRoute.name, path: '/home');
+/// [OverviewPage]
+class OverviewRoute extends PageRouteInfo<void> {
+  const OverviewRoute() : super(OverviewRoute.name, path: '/overview');
 
-  static const String name = 'HomeRoute';
+  static const String name = 'OverviewRoute';
 }
 
 /// generated route for

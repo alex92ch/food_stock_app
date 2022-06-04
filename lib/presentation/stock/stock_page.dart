@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,9 +13,7 @@ class StockPage extends HookConsumerWidget {
       body: const Center(
         child: Text("Stock"),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        router.push(const BaseDataRoute());
-      }),
+      floatingActionButton: Menu(router: router),
     );
   }
 }
