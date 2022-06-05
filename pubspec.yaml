@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   responsive_framework: ^0.2.0
   cached_network_image: ^3.2.1
+  smooth_page_indicator: ^1.0.0+2
 
 dev_dependencies:
   flutter_test:

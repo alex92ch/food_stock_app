@@ -41,10 +41,10 @@ class _$AppRouter extends RootStackRouter {
           opaque: true,
           barrierDismissible: false);
     },
-    NewProductNameRoute.name: (routeData) {
+    NewProductRoute.name: (routeData) {
       return CustomPage<dynamic>(
           routeData: routeData,
-          child: const NewProductNamePage(),
+          child: const NewProductPage(),
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
@@ -58,7 +58,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(OverviewRoute.name, path: '/overview'),
         RouteConfig(StockRoute.name, path: '/stock'),
         RouteConfig(BaseDataRoute.name, path: '/base_data'),
-        RouteConfig(NewProductNameRoute.name, path: '/new_product_name')
+        RouteConfig(NewProductRoute.name, path: '/new_product_page')
       ];
 }
 
@@ -87,10 +87,10 @@ class BaseDataRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [NewProductNamePage]
-class NewProductNameRoute extends PageRouteInfo<void> {
-  const NewProductNameRoute()
-      : super(NewProductNameRoute.name, path: '/new_product_name');
+/// [NewProductPage]
+class NewProductRoute extends PageRouteInfo<void> {
+  const NewProductRoute()
+      : super(NewProductRoute.name, path: '/new_product_page');
 
-  static const String name = 'NewProductNameRoute';
+  static const String name = 'NewProductRoute';
 }

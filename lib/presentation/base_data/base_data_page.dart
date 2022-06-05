@@ -21,7 +21,7 @@ class BaseDataPage extends HookConsumerWidget {
             FloatingActionButton(
               heroTag: null,
               onPressed: () {
-                router.push(const NewProductNameRoute());
+                router.push(const NewProductRoute());
               },
               child: const Icon(Icons.add),
             ),
