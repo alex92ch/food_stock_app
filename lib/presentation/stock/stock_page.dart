@@ -11,7 +11,7 @@ class StockPage extends HookConsumerWidget {
     final router = ref.read(routeProvider);
     return Scaffold(
       body: const Center(
-        child: Text("Stock"),
+        child: Text("Lager"),
       ),
       floatingActionButton: Menu(router: router),
     );

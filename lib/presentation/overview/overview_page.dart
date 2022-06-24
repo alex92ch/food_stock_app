@@ -11,7 +11,7 @@ class OverviewPage extends HookConsumerWidget {
     final router = ref.read(routeProvider);
     return Scaffold(
       body: const Center(
-        child: Text("Overview"),
+        child: Text("Übersicht"),
       ),
       floatingActionButton: Menu(router: router),
     );

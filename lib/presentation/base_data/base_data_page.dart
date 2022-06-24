@@ -11,7 +11,7 @@ class BaseDataPage extends HookConsumerWidget {
     final router = ref.read(routeProvider);
     return Scaffold(
       body: const Center(
-        child: Text("BaseData"),
+        child: Text("Stammdaten"),
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 31),
