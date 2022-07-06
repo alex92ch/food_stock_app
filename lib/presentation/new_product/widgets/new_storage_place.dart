@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewStoragePlace extends HookConsumerWidget {
-  const NewStoragePlace({Key? key}) : super(key: key);
+  final ValueNotifier<Product> _productHook;
+  const NewStoragePlace(this._productHook, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,23 +16,32 @@ class NewStoragePlace extends HookConsumerWidget {
           height: 200,
           child: ListView(
             children: [
-              RadioListTile(
+              RadioListTile<Storageplace>(
                 title: const Text("Kühlschrank"),
-                value: 1,
-                groupValue: 2,
-                onChanged: (_) {}, //TODO needs handler
+                value: Storageplace.fridge,
+                groupValue: _productHook.value.storageplace,
+                onChanged: (_) {
+                  _productHook.value =
+                      _productHook.value.copyWith(storageplace: _!);
+                },
               ),
-              RadioListTile(
+              RadioListTile<Storageplace>(
                 title: const Text("Tiefkühler"),
-                value: 1,
-                groupValue: 2,
-                onChanged: (_) {}, //TODO needs handler
+                value: Storageplace.freezer,
+                groupValue: _productHook.value.storageplace,
+                onChanged: (_) {
+                  _productHook.value =
+                      _productHook.value.copyWith(storageplace: _!);
+                },
               ),
-              RadioListTile(
+              RadioListTile<Storageplace>(
                 title: const Text("Schrank"),
-                value: 1,
-                groupValue: 2,
-                onChanged: (_) {}, //TODO needs handler
+                value: Storageplace.cupboard,
+                groupValue: _productHook.value.storageplace,
+                onChanged: (_) {
+                  _productHook.value =
+                      _productHook.value.copyWith(storageplace: _!);
+                },
               )
             ],
           ),
