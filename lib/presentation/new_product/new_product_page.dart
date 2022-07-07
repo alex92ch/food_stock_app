@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/domain/new_product/product.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_mass_unit.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_name.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_optionals.dart';
@@ -18,16 +18,16 @@ class NewProductPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
-    final productHook = useState(const Product());
+    final product = useState(const Product());
     final formKey = useState(GlobalKey<FormState>());
-    List<HookConsumerWidget> pages = [
-      NewName(productHook),
-      NewThreshold(productHook),
-      NewMassUnit(productHook),
-      NewStoragePlace(productHook),
-      NewOptionals(productHook)
-    ];
     final pageController = usePageController();
+    List<HookConsumerWidget> pages = [
+      NewName(product),
+      NewThreshold(product),
+      NewMassUnit(product),
+      NewStoragePlace(product),
+      NewOptionals(product, formKey)
+    ];
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -39,13 +39,13 @@ class NewProductPage extends HookConsumerWidget {
                   height: 400,
                   child: Form(
                     key: formKey.value,
-                    onChanged: () {}, //TODO needs maybe change
                     child: PageView.builder(
                       controller: pageController,
                       itemCount: 5,
                       itemBuilder: (_, index) {
                         return Padding(
-                          padding: const EdgeInsets.all(60.0),
+                          padding: const EdgeInsets.only(
+                              left: 60, right: 60, top: 100),
                           child: pages[index],
                         );
                       },
@@ -61,7 +61,7 @@ class NewProductPage extends HookConsumerWidget {
                     curve: Curves.easeInOut,
                   );
                 },
-              )
+              ),
             ],
           ),
         ),

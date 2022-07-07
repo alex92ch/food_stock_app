@@ -1,4 +1,4 @@
-import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
+import 'package:food_stock_app/domain/new_product/unit_of_measurement.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product.freezed.dart';
