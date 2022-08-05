@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'product.dart';
+part of 'product_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,10 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ProductDTO _$ProductDTOFromJson(Map<String, dynamic> json) {
+  return _ProductDTO.fromJson(json);
+}
+
 /// @nodoc
-mixin _$Product {
+mixin _$ProductDTO {
+  String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double get threshold => throw _privateConstructorUsedError;
+  @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
   Storageplace get storageplace => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -25,18 +31,22 @@ mixin _$Product {
       throw _privateConstructorUsedError; //TODO needs implementation
   bool get barcode => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $ProductDTOCopyWith<ProductDTO> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res>;
+abstract class $ProductDTOCopyWith<$Res> {
+  factory $ProductDTOCopyWith(
+          ProductDTO value, $Res Function(ProductDTO) then) =
+      _$ProductDTOCopyWithImpl<$Res>;
   $Res call(
-      {String name,
+      {String id,
+      String name,
       double threshold,
-      UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       Storageplace storageplace,
       String description,
       bool image,
@@ -46,15 +56,16 @@ abstract class $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
+  _$ProductDTOCopyWithImpl(this._value, this._then);
 
-  final Product _value;
+  final ProductDTO _value;
   // ignore: unused_field
-  final $Res Function(Product) _then;
+  final $Res Function(ProductDTO) _then;
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
@@ -64,6 +75,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? barcode = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -104,15 +119,17 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$_ProductDTOCopyWith<$Res>
+    implements $ProductDTOCopyWith<$Res> {
+  factory _$$_ProductDTOCopyWith(
+          _$_ProductDTO value, $Res Function(_$_ProductDTO) then) =
+      __$$_ProductDTOCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
+      {String id,
+      String name,
       double threshold,
-      UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       Storageplace storageplace,
       String description,
       bool image,
@@ -123,16 +140,18 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
-      : super(_value, (v) => _then(v as _$_Product));
+class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
+    implements _$$_ProductDTOCopyWith<$Res> {
+  __$$_ProductDTOCopyWithImpl(
+      _$_ProductDTO _value, $Res Function(_$_ProductDTO) _then)
+      : super(_value, (v) => _then(v as _$_ProductDTO));
 
   @override
-  _$_Product get _value => super._value as _$_Product;
+  _$_ProductDTO get _value => super._value as _$_ProductDTO;
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
@@ -141,7 +160,11 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? image = freezed,
     Object? barcode = freezed,
   }) {
-    return _then(_$_Product(
+    return _then(_$_ProductDTO(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -175,12 +198,13 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-class _$_Product extends _Product {
-  const _$_Product(
-      {this.name = '',
+@JsonSerializable()
+class _$_ProductDTO extends _ProductDTO {
+  const _$_ProductDTO(
+      {this.id = '',
+      this.name = '',
       this.threshold = 1,
-      this.unitOfMeasurement =
+      @UnitOfMeasurementConverter() this.unitOfMeasurement =
           const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
       this.storageplace = Storageplace.fridge,
       this.description = '',
@@ -188,6 +212,12 @@ class _$_Product extends _Product {
       this.barcode = false})
       : super._();
 
+  factory _$_ProductDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_ProductDTOFromJson(json);
+
+  @override
+  @JsonKey()
+  final String id;
   @override
   @JsonKey()
   final String name;
@@ -196,6 +226,7 @@ class _$_Product extends _Product {
   final double threshold;
   @override
   @JsonKey()
+  @UnitOfMeasurementConverter()
   final UnitOfMeasurement unitOfMeasurement;
   @override
   @JsonKey()
@@ -213,14 +244,15 @@ class _$_Product extends _Product {
 
   @override
   String toString() {
-    return 'Product(name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode)';
+    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$_ProductDTO &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.threshold, threshold) &&
             const DeepCollectionEquality()
@@ -233,9 +265,11 @@ class _$_Product extends _Product {
             const DeepCollectionEquality().equals(other.barcode, barcode));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(threshold),
       const DeepCollectionEquality().hash(unitOfMeasurement),
@@ -246,26 +280,38 @@ class _$_Product extends _Product {
 
   @JsonKey(ignore: true)
   @override
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$_ProductDTOCopyWith<_$_ProductDTO> get copyWith =>
+      __$$_ProductDTOCopyWithImpl<_$_ProductDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ProductDTOToJson(this);
+  }
 }
 
-abstract class _Product extends Product {
-  const factory _Product(
-      {final String name,
+abstract class _ProductDTO extends ProductDTO {
+  const factory _ProductDTO(
+      {final String id,
+      final String name,
       final double threshold,
-      final UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() final UnitOfMeasurement unitOfMeasurement,
       final Storageplace storageplace,
       final String description,
       final bool image,
-      final bool barcode}) = _$_Product;
-  const _Product._() : super._();
+      final bool barcode}) = _$_ProductDTO;
+  const _ProductDTO._() : super._();
 
+  factory _ProductDTO.fromJson(Map<String, dynamic> json) =
+      _$_ProductDTO.fromJson;
+
+  @override
+  String get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
   double get threshold => throw _privateConstructorUsedError;
   @override
+  @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
   @override
   Storageplace get storageplace => throw _privateConstructorUsedError;
@@ -277,6 +323,6 @@ abstract class _Product extends Product {
   bool get barcode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$_ProductDTOCopyWith<_$_ProductDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

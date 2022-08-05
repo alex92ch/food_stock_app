@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/domain/new_product/product.dart';
+import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewOptionals extends HookConsumerWidget {
@@ -49,7 +50,11 @@ class NewOptionals extends HookConsumerWidget {
         ElevatedButton(
           onPressed: () {
             if (formKey.value.currentState?.validate() ?? false) {
-              //TODO save entry to firebase
+              ref
+                  .read(productRepositoryProvider)
+                  .createProduct(product: product.value);
+              debugPrint(product.value.unitOfMeasurement.toString());
+              debugPrint(product.value.storageplace.toString());
             } else {
               debugPrint(formKey.value.currentState?.toString());
               debugPrint('validation failed');

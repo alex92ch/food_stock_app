@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:food_stock_app/domain/new_product/product.dart';
+import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_mass_unit.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_name.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_optionals.dart';

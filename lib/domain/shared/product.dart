@@ -1,4 +1,4 @@
-import 'package:food_stock_app/domain/new_product/unit_of_measurement.dart';
+import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'product.freezed.dart';
@@ -7,6 +7,7 @@ part 'product.freezed.dart';
 class Product with _$Product {
   const Product._();
   const factory Product({
+    @Default('') String id,
     @Default('') String name,
     @Default(1) double threshold,
     @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram))
