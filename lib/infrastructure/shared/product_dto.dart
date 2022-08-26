@@ -38,6 +38,7 @@ class ProductDTO with _$ProductDTO {
     @Default('') String description,
     @Default(false) bool image, //TODO needs implementation
     @Default(false) bool barcode, //TODO needs implementation
+    @Default('') String nameInsensitive,
   }) = _ProductDTO;
 
   factory ProductDTO.fromJson(Map<String, dynamic> json) =>
@@ -56,6 +57,7 @@ class ProductDTO with _$ProductDTO {
       description: product.description,
       image: product.image,
       barcode: product.barcode,
+      nameInsensitive: product.name.toUpperCase(),
     );
   }
   Product toDomain() {
@@ -85,6 +87,7 @@ class ProductDTO with _$ProductDTO {
       'description': description,
       'image': image,
       'barcode': barcode,
+      'nameInsensitive': nameInsensitive,
     });
   }
 }

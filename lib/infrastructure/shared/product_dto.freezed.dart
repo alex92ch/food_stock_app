@@ -29,7 +29,9 @@ mixin _$ProductDTO {
   String get description => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
-  bool get barcode => throw _privateConstructorUsedError;
+  bool get barcode =>
+      throw _privateConstructorUsedError; //TODO needs implementation
+  String get nameInsensitive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +52,8 @@ abstract class $ProductDTOCopyWith<$Res> {
       Storageplace storageplace,
       String description,
       bool image,
-      bool barcode});
+      bool barcode,
+      String nameInsensitive});
 
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
 }
@@ -73,6 +76,7 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
+    Object? nameInsensitive = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -107,6 +111,10 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as bool,
+      nameInsensitive: nameInsensitive == freezed
+          ? _value.nameInsensitive
+          : nameInsensitive // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -133,7 +141,8 @@ abstract class _$$_ProductDTOCopyWith<$Res>
       Storageplace storageplace,
       String description,
       bool image,
-      bool barcode});
+      bool barcode,
+      String nameInsensitive});
 
   @override
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
@@ -159,6 +168,7 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
+    Object? nameInsensitive = freezed,
   }) {
     return _then(_$_ProductDTO(
       id: id == freezed
@@ -193,6 +203,10 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as bool,
+      nameInsensitive: nameInsensitive == freezed
+          ? _value.nameInsensitive
+          : nameInsensitive // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -209,7 +223,8 @@ class _$_ProductDTO extends _ProductDTO {
       this.storageplace = Storageplace.fridge,
       this.description = '',
       this.image = false,
-      this.barcode = false})
+      this.barcode = false,
+      this.nameInsensitive = ''})
       : super._();
 
   factory _$_ProductDTO.fromJson(Map<String, dynamic> json) =>
@@ -241,10 +256,14 @@ class _$_ProductDTO extends _ProductDTO {
   @override
   @JsonKey()
   final bool barcode;
+//TODO needs implementation
+  @override
+  @JsonKey()
+  final String nameInsensitive;
 
   @override
   String toString() {
-    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode)';
+    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
   }
 
   @override
@@ -262,7 +281,9 @@ class _$_ProductDTO extends _ProductDTO {
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.barcode, barcode));
+            const DeepCollectionEquality().equals(other.barcode, barcode) &&
+            const DeepCollectionEquality()
+                .equals(other.nameInsensitive, nameInsensitive));
   }
 
   @JsonKey(ignore: true)
@@ -276,7 +297,8 @@ class _$_ProductDTO extends _ProductDTO {
       const DeepCollectionEquality().hash(storageplace),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(barcode));
+      const DeepCollectionEquality().hash(barcode),
+      const DeepCollectionEquality().hash(nameInsensitive));
 
   @JsonKey(ignore: true)
   @override
@@ -298,7 +320,8 @@ abstract class _ProductDTO extends ProductDTO {
       final Storageplace storageplace,
       final String description,
       final bool image,
-      final bool barcode}) = _$_ProductDTO;
+      final bool barcode,
+      final String nameInsensitive}) = _$_ProductDTO;
   const _ProductDTO._() : super._();
 
   factory _ProductDTO.fromJson(Map<String, dynamic> json) =
@@ -321,6 +344,8 @@ abstract class _ProductDTO extends ProductDTO {
   bool get image => throw _privateConstructorUsedError;
   @override //TODO needs implementation
   bool get barcode => throw _privateConstructorUsedError;
+  @override //TODO needs implementation
+  String get nameInsensitive => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_ProductDTOCopyWith<_$_ProductDTO> get copyWith =>

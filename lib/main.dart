@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:food_stock_app/application/product_notifier.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -21,6 +22,7 @@ class MyApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(routeProvider);
+    // ref.read(productsNotifierProvider.notifier).getProducts();
     return MaterialApp.router(
       builder: (context, child) => ResponsiveWrapper.builder(
         child,

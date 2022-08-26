@@ -24,10 +24,9 @@ final firebaseFirestoreProductProvider =
 });
 
 abstract class BaseProductRepository {
-  // Future<Either<DatabaseFailure, List<Product>>> getProductList(
-  //     {required int pageSize, required Product pageKey});
+  Future<Either<DatabaseFailure, List<Product>>> getProductList();
 
-  Future<Either<DatabaseFailure, Product>> createProduct(
+  Future<Either<DatabaseFailure, List<Product>>> createProduct(
       {required Product product});
   // Future<Either<DatabaseFailure, Product>> updateProduct(
   //     {required Product product});
@@ -39,38 +38,28 @@ class ProductRepository implements BaseProductRepository {
   final Reader _read;
   ProductRepository(this._read);
 
-  // @override
-  // Future<Either<DatabaseFailure, List<Product>>> getProductList(
-  //     {required int pageSize, Product? pageKey}) async {
-  //   try {
-  //     var q = _read(firebaseFirestoreProductProvider)
-  //         .collection('products')
-  //         .orderBy('date', descending: true);
+  @override
+  Future<Either<DatabaseFailure, List<Product>>> getProductList() async {
+    try {
+      var q = _read(firebaseFirestoreProductProvider)
+          .collection('products')
+          .orderBy('nameInsensitive', descending: true);
 
-  //     q = q.limit(pageSize);
-
-  //     q = pageKey!.id.isNotEmpty
-  //         ? q.startAfterDocument(await _read(firebaseFirestoreProductProvider)
-  //             .collection('products')
-  //             .doc(pageKey.id)
-  //             .get())
-  //         : q;
-
-  //     return await q
-  //         .get()
-  //         .then((value) => value.docs
-  //             .map((doc) => ProductDTO.fromDocument(doc))
-  //             .toList()
-  //             .map((e) => e.toDomain())
-  //             .toList())
-  //         .then((r) => right(r));
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
+      return await q
+          .get()
+          .then((value) => value.docs
+              .map((doc) => ProductDTO.fromDocument(doc))
+              .toList()
+              .map((e) => e.toDomain())
+              .toList())
+          .then((r) => right(r));
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 
   @override
-  Future<Either<DatabaseFailure, Product>> createProduct(
+  Future<Either<DatabaseFailure, List<Product>>> createProduct(
       {required Product product}) async {
     try {
       final productEntry = ProductDTO.fromDomain(product);
@@ -78,11 +67,7 @@ class ProductRepository implements BaseProductRepository {
           _read(firebaseFirestoreProductProvider).collection('products').doc();
 
       await docRef.set(productEntry.toDocument());
-      return right(await _read(firebaseFirestoreProductProvider)
-          .collection('products')
-          .doc(docRef.id)
-          .get()
-          .then((doc) => ProductDTO.fromDocument(doc).toDomain()));
+      return await getProductList();
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }
