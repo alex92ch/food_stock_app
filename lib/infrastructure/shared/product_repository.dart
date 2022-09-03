@@ -43,7 +43,7 @@ class ProductRepository implements BaseProductRepository {
     try {
       var q = _read(firebaseFirestoreProductProvider)
           .collection('products')
-          .orderBy('nameInsensitive', descending: true);
+          .orderBy('nameInsensitive', descending: false);
 
       return await q
           .get()
