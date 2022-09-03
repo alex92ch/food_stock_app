@@ -13,22 +13,40 @@ class BaseDataPage extends HookConsumerWidget {
     final productsProvider = ref.watch(productsNotifierProvider);
     return Scaffold(
       body: Center(
-          child: productsProvider.productList.isEmpty
+        child: productsProvider.map(
+          initial: (_) {
+            ref.read(productsNotifierProvider.notifier).getProducts();
+            return const CircularProgressIndicator();
+          },
+          loadSuccess: (_) => productsProvider.productList.isEmpty
               ? const Text("Products list is empty")
               : SizedBox(
-                  height: 400,
-                  width: 400,
-                  child: ListView(
-                    children: [
-                      PageView.builder(
-                        itemBuilder: ((context, index) => ListTile(
-                              title: Text(
-                                  productsProvider.productList[index].name),
-                            )),
-                      ),
-                    ],
+                  width: 300,
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: _.productList.length,
+                    itemBuilder: ((context, index) =>
+                        Text(productsProvider.productList[index].name)),
                   ),
-                )),
+                ),
+          failure: (_) => const Text("Error"), //TODO needs error handling
+          inProgress: (_) {
+            ref.read(productsNotifierProvider.notifier).getProducts();
+            return const CircularProgressIndicator();
+          },
+          createSuccess: (_) => productsProvider.productList.isEmpty
+              ? const Text("Products list is empty")
+              : SizedBox(
+                  width: 300,
+                  height: 300,
+                  child: ListView.builder(
+                    itemCount: _.productList.length,
+                    itemBuilder: ((context, index) =>
+                        Text(productsProvider.productList[index].name)),
+                  ),
+                ),
+        ),
+      ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 31),
         child: Row(

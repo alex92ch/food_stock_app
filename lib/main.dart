@@ -22,7 +22,7 @@ class MyApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(routeProvider);
-    // ref.read(productsNotifierProvider.notifier).getProducts();
+    // initial load data from firestore
     return MaterialApp.router(
       builder: (context, child) => ResponsiveWrapper.builder(
         child,

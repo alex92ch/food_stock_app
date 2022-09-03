@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_stock_app/application/product_notifier.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
+import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewOptionals extends HookConsumerWidget {
@@ -51,12 +53,10 @@ class NewOptionals extends HookConsumerWidget {
           onPressed: () {
             if (formKey.value.currentState?.validate() ?? false) {
               ref
-                  .read(productRepositoryProvider)
+                  .read(productsNotifierProvider.notifier)
                   .createProduct(product: product.value);
-              debugPrint(product.value.unitOfMeasurement.toString());
-              debugPrint(product.value.storageplace.toString());
+              ref.read(routeProvider).popUntilRouteWithName('BaseDataRoute');
             } else {
-              debugPrint(formKey.value.currentState?.toString());
               debugPrint('validation failed');
               //TODO handle failed validation
             }
