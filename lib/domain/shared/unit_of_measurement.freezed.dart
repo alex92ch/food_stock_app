@@ -144,9 +144,9 @@ abstract class _UnitOfMeasurement extends UnitOfMeasurement {
   const _UnitOfMeasurement._() : super._();
 
   @override
-  double get amount => throw _privateConstructorUsedError;
+  double get amount;
   @override
-  Measurement get measurement => throw _privateConstructorUsedError;
+  Measurement get measurement;
   @override
   @JsonKey(ignore: true)
   _$$_UnitOfMeasurementCopyWith<_$_UnitOfMeasurement> get copyWith =>

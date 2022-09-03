@@ -307,7 +307,9 @@ class _$_ProductDTO extends _ProductDTO {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProductDTOToJson(this);
+    return _$$_ProductDTOToJson(
+      this,
+    );
   }
 }
 
@@ -328,24 +330,24 @@ abstract class _ProductDTO extends ProductDTO {
       _$_ProductDTO.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  double get threshold => throw _privateConstructorUsedError;
+  double get threshold;
   @override
   @UnitOfMeasurementConverter()
-  UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
+  UnitOfMeasurement get unitOfMeasurement;
   @override
-  Storageplace get storageplace => throw _privateConstructorUsedError;
+  Storageplace get storageplace;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  bool get image => throw _privateConstructorUsedError;
+  bool get image;
   @override //TODO needs implementation
-  bool get barcode => throw _privateConstructorUsedError;
+  bool get barcode;
   @override //TODO needs implementation
-  String get nameInsensitive => throw _privateConstructorUsedError;
+  String get nameInsensitive;
   @override
   @JsonKey(ignore: true)
   _$$_ProductDTOCopyWith<_$_ProductDTO> get copyWith =>

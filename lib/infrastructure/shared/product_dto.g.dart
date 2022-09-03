@@ -32,7 +32,7 @@ Map<String, dynamic> _$$_ProductDTOToJson(_$_ProductDTO instance) =>
       'threshold': instance.threshold,
       'unitOfMeasurement':
           const UnitOfMeasurementConverter().toJson(instance.unitOfMeasurement),
-      'storageplace': _$StorageplaceEnumMap[instance.storageplace],
+      'storageplace': _$StorageplaceEnumMap[instance.storageplace]!,
       'description': instance.description,
       'image': instance.image,
       'barcode': instance.barcode,

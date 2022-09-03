@@ -11,4 +11,7 @@ class UnitOfMeasurement with _$UnitOfMeasurement {
   }) = _UnitOfMeasurement;
 }
 
-enum Measurement { kilogram, liter }
+enum Measurement {
+  kilogram,
+  liter,
+}

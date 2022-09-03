@@ -282,21 +282,21 @@ abstract class _Product extends Product {
   const _Product._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  double get threshold => throw _privateConstructorUsedError;
+  double get threshold;
   @override
-  UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
+  UnitOfMeasurement get unitOfMeasurement;
   @override
-  Storageplace get storageplace => throw _privateConstructorUsedError;
+  Storageplace get storageplace;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
-  bool get image => throw _privateConstructorUsedError;
+  bool get image;
   @override //TODO needs implementation
-  bool get barcode => throw _privateConstructorUsedError;
+  bool get barcode;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

@@ -273,7 +273,7 @@ abstract class _Initial extends ProductState {
   const _Initial._() : super._();
 
   @override
-  List<Product> get productList => throw _privateConstructorUsedError;
+  List<Product> get productList;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -442,7 +442,7 @@ abstract class _LoadSuccess extends ProductState {
   const _LoadSuccess._() : super._();
 
   @override
-  List<Product> get productList => throw _privateConstructorUsedError;
+  List<Product> get productList;
   @override
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
@@ -631,8 +631,8 @@ abstract class _Failure extends ProductState {
   const _Failure._() : super._();
 
   @override
-  List<Product> get productList => throw _privateConstructorUsedError;
-  DatabaseFailure get failure => throw _privateConstructorUsedError;
+  List<Product> get productList;
+  DatabaseFailure get failure;
   @override
   @JsonKey(ignore: true)
   _$$_FailureCopyWith<_$_Failure> get copyWith =>
@@ -800,7 +800,7 @@ abstract class _InProgress extends ProductState {
   const _InProgress._() : super._();
 
   @override
-  List<Product> get productList => throw _privateConstructorUsedError;
+  List<Product> get productList;
   @override
   @JsonKey(ignore: true)
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
@@ -991,8 +991,8 @@ abstract class _CreateSuccess extends ProductState {
   const _CreateSuccess._() : super._();
 
   @override
-  List<Product> get productList => throw _privateConstructorUsedError;
-  Product get product => throw _privateConstructorUsedError;
+  List<Product> get productList;
+  Product get product;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
