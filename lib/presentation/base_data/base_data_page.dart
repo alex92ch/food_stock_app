@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/product_notifier.dart';
+import 'package:food_stock_app/presentation/base_data/widgets/base_data_list.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,15 +21,7 @@ class BaseDataPage extends HookConsumerWidget {
           },
           loadSuccess: (_) => productsProvider.productList.isEmpty
               ? const Text("Products list is empty")
-              : SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: ListView.builder(
-                    itemCount: _.productList.length,
-                    itemBuilder: ((context, index) =>
-                        Text(productsProvider.productList[index].name)),
-                  ),
-                ),
+              : BaseDataList(productList: _.productList),
           failure: (_) => const Text("Error"), //TODO needs error handling
           inProgress: (_) {
             ref.read(productsNotifierProvider.notifier).getProducts();
@@ -36,15 +29,7 @@ class BaseDataPage extends HookConsumerWidget {
           },
           createSuccess: (_) => productsProvider.productList.isEmpty
               ? const Text("Products list is empty")
-              : SizedBox(
-                  width: 300,
-                  height: 300,
-                  child: ListView.builder(
-                    itemCount: _.productList.length,
-                    itemBuilder: ((context, index) =>
-                        Text(productsProvider.productList[index].name)),
-                  ),
-                ),
+              : BaseDataList(productList: _.productList),
         ),
       ),
       floatingActionButton: Padding(
