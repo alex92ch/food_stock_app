@@ -11,12 +11,20 @@ class BaseDataListTile extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ListTile(
-      title: Text(product.name),
-      subtitle: Text(product.description),
-      onTap: () {
-        debugPrint("Listtile tapped");
-      }, //TODO needs implementation
-    );
+    return Slidable(
+        key: Key(product.id),
+        startActionPane: ActionPane(
+          motion: const ScrollMotion(),
+          dismissible: BaseDataListTileDeleteActionDismissible(
+              product: product, duration: 3),
+          children: [BaseDataListTileDeleteAction(product: product)],
+        ),
+        child: ListTile(
+          title: Text(product.name),
+          subtitle: Text(product.description),
+          onTap: () {
+            debugPrint("Listtile tapped");
+          }, //TODO needs implementation
+        ));
   }
 }
