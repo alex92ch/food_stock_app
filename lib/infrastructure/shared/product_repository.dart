@@ -111,8 +111,11 @@ class ProductRepository implements BaseProductRepository {
   Future<Either<DatabaseFailure, Product>> undoDeleteProduct(
       {required Product product}) async {
     try {
-      createProduct(product: product);
-      return right(product);
+      final failureOrSuccess = await createProduct(product: product);
+      return failureOrSuccess.fold(
+        (l) => left(l),
+        (r) => right(r),
+      );
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }

@@ -33,9 +33,7 @@ class BaseDataListTile extends HookConsumerWidget {
         child: ListTile(
           title: Text(productList[index].name),
           subtitle: Text(productList[index].description),
-          onTap: () async {
-            debugPrint("Listtile tapped");
-          }, //TODO needs implementation
+          onTap: () async {}, //TODO needs implementation
         ));
   }
 }

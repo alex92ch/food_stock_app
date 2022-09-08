@@ -30,10 +30,10 @@ class BaseDataPage extends HookConsumerWidget {
           createSuccess: (_) => _.productList.isEmpty
               ? const Text("Products list is empty")
               : BaseDataList(productList: _.productList),
-          undoDeleteProduct: (_) => _.productList.isEmpty
+          deleteSuccess: (_) => _.productList.isEmpty
               ? const Text("Products list is empty")
               : BaseDataList(productList: _.productList),
-          deleteSuccess: (_) => _.productList.isEmpty
+          undoDeleteProduct: (_) => _.productList.isEmpty
               ? const Text("Products list is empty")
               : BaseDataList(productList: _.productList),
         ),

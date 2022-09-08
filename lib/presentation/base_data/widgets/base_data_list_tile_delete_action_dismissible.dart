@@ -19,38 +19,36 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productStateNotifier = ref.read(productsNotifierProvider.notifier);
+    final scaffoldmessenger = ScaffoldMessenger.of(context);
     return DismissiblePane(
       closeOnCancel: true,
       dismissThreshold: 0.25,
       onDismissed: () async {
-        await productStateNotifier.deleteProduct(
-            product: productList[index], productList: productList);
-        // final scaffoldmessenger = ScaffoldMessenger.of(context);
-        // scaffoldmessenger.clearSnackBars();
-        // await productStateNotifier
-        //     .deleteProduct(
-        //         product: productList[index], productList: productList)
-        //     .then((value) => scaffoldmessenger.showSnackBar(SnackBar(
-        //           action: SnackBarAction(
-        //             label: 'Rückgängig',
-        //             onPressed: () {
-        //               // productStateNotifier.undoDeleteProduct(
-        //               //     product: productList[index], productList: productList);
-        //             },
-        //           ),
-        //           content: const Text('In den Papierkorb verschoben.'),
-        //           margin: const EdgeInsets.all(10),
-        //           duration: Duration(seconds: duration),
-        //           padding: const EdgeInsets.symmetric(
-        //               horizontal: 15.0,
-        //               vertical: 10.0 // Inner padding for SnackBar content.
-        //               ),
-        //           elevation: 6,
-        //           behavior: SnackBarBehavior.floating,
-        //           shape: RoundedRectangleBorder(
-        //             borderRadius: BorderRadius.circular(5.0),
-        //           ),
-        //         )));
+        scaffoldmessenger.clearSnackBars();
+        await productStateNotifier
+            .deleteProduct(
+                product: productList[index], productList: productList)
+            .then((value) {
+          return scaffoldmessenger.showSnackBar(SnackBar(
+            action: SnackBarAction(
+              label: 'Rückgängig',
+              onPressed: () {
+                productStateNotifier.undoDeleteProduct(
+                    product: productList[index], productList: productList);
+              },
+            ),
+            content: const Text('In den Papierkorb verschoben.'),
+            margin: const EdgeInsets.all(10),
+            duration: Duration(seconds: duration),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+            elevation: 6,
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ));
+        });
       },
     );
   }

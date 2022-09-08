@@ -54,16 +54,16 @@ class NewOptionals extends HookConsumerWidget {
           onPressed: () {
             if (formKey.value.currentState?.validate() ?? false) {
               ref.read(productsNotifierProvider.notifier).createProduct(
-                    product: product.value,
-                    productList: productsProvider.map(
-                        initial: ((_) => _.productList),
-                        loadSuccess: ((_) => _.productList),
-                        failure: ((_) => _.productList),
-                        inProgress: ((_) => _.productList),
-                        deleteSuccess: ((_) => _.productList),
-                        createSuccess: ((_) => _.productList),
-                        undoDeleteProduct: ((_) => _.productList)),
-                  );
+                  product: product.value,
+                  productList: productsProvider.map(
+                    initial: ((_) => _.productList),
+                    loadSuccess: ((_) => _.productList),
+                    failure: ((_) => _.productList),
+                    inProgress: ((_) => _.productList),
+                    deleteSuccess: ((_) => _.productList),
+                    createSuccess: ((_) => _.productList),
+                    undoDeleteProduct: ((_) => _.productList),
+                  ));
               ref.read(routeProvider).popUntilRouteWithName('BaseDataRoute');
             } else {
               debugPrint('validation failed');

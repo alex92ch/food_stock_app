@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
@@ -109,12 +110,13 @@ class ProductNotifier extends StateNotifier<ProductState> {
       bool isloading = false,
       required List<Product> productList}) async {
     if (isloading) state = const ProductState.inProgress([]);
-    final failureOrSuccess =
-        await _read(productRepositoryProvider).createProduct(product: product);
+    final failureOrSuccess = await _read(productRepositoryProvider)
+        .undoDeleteProduct(product: product);
     state = failureOrSuccess.fold(
       (l) => state = ProductState.failure([], l),
       (r) {
         List<Product> newProductList = List.from(productList);
+        newProductList.removeWhere((element) => element.id == product.id);
         newProductList.add(r);
         newProductList.sort(
             (a, b) => a.name.toUpperCase().compareTo(b.name.toUpperCase()));
