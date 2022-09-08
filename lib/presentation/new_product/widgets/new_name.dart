@@ -16,8 +16,8 @@ class NewName extends HookConsumerWidget {
             _product.value = _product.value.copyWith(name: value);
           },
           decoration: const InputDecoration(
+            label: Text("Namen"),
             border: OutlineInputBorder(),
-            hintText: "Namen",
           ),
         )
       ],

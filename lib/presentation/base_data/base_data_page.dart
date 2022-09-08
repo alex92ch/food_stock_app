@@ -13,30 +13,39 @@ class BaseDataPage extends HookConsumerWidget {
     final router = ref.read(routeProvider);
     final productsProvider = ref.watch(productsNotifierProvider);
     return Scaffold(
-      body: Center(
-        child: productsProvider.map(
-          initial: (_) {
-            ref.read(productsNotifierProvider.notifier).getProductList();
-            return const CircularProgressIndicator();
-          },
-          loadSuccess: (_) => _.productList.isEmpty
-              ? const Text("Products list is empty")
-              : BaseDataList(productList: _.productList),
-          failure: (_) => const Text("Error"), //TODO needs error handling
-          inProgress: (_) {
-            ref.read(productsNotifierProvider.notifier).getProductList();
-            return const CircularProgressIndicator();
-          },
-          createSuccess: (_) => _.productList.isEmpty
-              ? const Text("Products list is empty")
-              : BaseDataList(productList: _.productList),
-          deleteSuccess: (_) => _.productList.isEmpty
-              ? const Text("Products list is empty")
-              : BaseDataList(productList: _.productList),
-          undoDeleteProduct: (_) => _.productList.isEmpty
-              ? const Text("Products list is empty")
-              : BaseDataList(productList: _.productList),
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text("Stammdaten"),
+          Center(
+            child: productsProvider.map(
+              initial: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              loadSuccess: (_) => _.productList.isEmpty
+                  ? const Text("Products list is empty")
+                  : BaseDataList(productList: _.productList),
+              failure: (_) => const Text("Error"), //TODO needs error handling
+              inProgress: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              createSuccess: (_) => _.productList.isEmpty
+                  ? const Text("Products list is empty")
+                  : BaseDataList(productList: _.productList),
+              deleteSuccess: (_) => _.productList.isEmpty
+                  ? const Text("Products list is empty")
+                  : BaseDataList(productList: _.productList),
+              undoDeleteProduct: (_) {
+                return _.productList.isEmpty
+                    ? const Text("Products list is empty")
+                    : BaseDataList(productList: _.productList);
+              },
+            ),
+          ),
+        ],
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 31),

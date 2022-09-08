@@ -4,9 +4,9 @@ import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class NewMassUnit extends HookConsumerWidget {
+class EditMassUnit extends HookConsumerWidget {
   final ValueNotifier<Product> _product;
-  const NewMassUnit(this._product, {Key? key}) : super(key: key);
+  const EditMassUnit(this._product, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

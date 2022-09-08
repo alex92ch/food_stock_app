@@ -48,6 +48,15 @@ class _$AppRouter extends RootStackRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
           opaque: true,
           barrierDismissible: false);
+    },
+    EditProductRoute.name: (routeData) {
+      final args = routeData.argsAs<EditProductRouteArgs>();
+      return CustomPage<dynamic>(
+          routeData: routeData,
+          child: EditProductPage(key: args.key, product: args.product),
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          opaque: true,
+          barrierDismissible: false);
     }
   };
 
@@ -58,7 +67,8 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(OverviewRoute.name, path: '/overview'),
         RouteConfig(StockRoute.name, path: '/stock'),
         RouteConfig(BaseDataRoute.name, path: '/base_data'),
-        RouteConfig(NewProductRoute.name, path: '/new_product_page')
+        RouteConfig(NewProductRoute.name, path: '/new_product_page'),
+        RouteConfig(EditProductRoute.name, path: '/edit_product_page')
       ];
 }
 
@@ -93,4 +103,28 @@ class NewProductRoute extends PageRouteInfo<void> {
       : super(NewProductRoute.name, path: '/new_product_page');
 
   static const String name = 'NewProductRoute';
+}
+
+/// generated route for
+/// [EditProductPage]
+class EditProductRoute extends PageRouteInfo<EditProductRouteArgs> {
+  EditProductRoute({Key? key, required Product product})
+      : super(EditProductRoute.name,
+            path: '/edit_product_page',
+            args: EditProductRouteArgs(key: key, product: product));
+
+  static const String name = 'EditProductRoute';
+}
+
+class EditProductRouteArgs {
+  const EditProductRouteArgs({this.key, required this.product});
+
+  final Key? key;
+
+  final Product product;
+
+  @override
+  String toString() {
+    return 'EditProductRouteArgs{key: $key, product: $product}';
+  }
 }

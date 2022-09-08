@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/presentation/base_data/base_data_page.dart';
+import 'package:food_stock_app/presentation/edit_product/edit_product_page.dart';
 import 'package:food_stock_app/presentation/new_product/new_product_page.dart';
 import 'package:food_stock_app/presentation/overview/overview_page.dart';
 import 'package:food_stock_app/presentation/stock/stock_page.dart';
@@ -29,6 +31,10 @@ final routeProvider = Provider<AppRouter>((ref) => AppRouter());
     CustomRoute(
         page: NewProductPage,
         path: "/new_product_page",
+        transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(
+        page: EditProductPage,
+        path: "/edit_product_page",
         transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )

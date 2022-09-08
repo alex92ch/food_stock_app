@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class NewThreshold extends HookConsumerWidget {
+class EditThreshold extends HookConsumerWidget {
   final ValueNotifier<Product> _product;
-  const NewThreshold(this._product, {Key? key}) : super(key: key);
+  const EditThreshold(this._product, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
