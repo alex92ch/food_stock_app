@@ -26,12 +26,14 @@ final firebaseFirestoreProductProvider =
 abstract class BaseProductRepository {
   Future<Either<DatabaseFailure, List<Product>>> getProductList();
 
-  Future<Either<DatabaseFailure, List<Product>>> createProduct(
+  Future<Either<DatabaseFailure, Product>> createProduct(
       {required Product product});
   // Future<Either<DatabaseFailure, Product>> updateProduct(
   //     {required Product product});
-  // Future<Either<DatabaseFailure, Product>> deleteProduct(
-  //     {required Product product});
+  Future<Either<DatabaseFailure, Product>> deleteProduct(
+      {required Product product});
+  Future<Either<DatabaseFailure, Product>> undoDeleteProduct(
+      {required Product product});
 }
 
 class ProductRepository implements BaseProductRepository {
@@ -59,7 +61,7 @@ class ProductRepository implements BaseProductRepository {
   }
 
   @override
-  Future<Either<DatabaseFailure, List<Product>>> createProduct(
+  Future<Either<DatabaseFailure, Product>> createProduct(
       {required Product product}) async {
     try {
       final productEntry = ProductDTO.fromDomain(product);
@@ -67,7 +69,7 @@ class ProductRepository implements BaseProductRepository {
           _read(firebaseFirestoreProductProvider).collection('products').doc();
 
       await docRef.set(productEntry.toDocument());
-      return await getProductList();
+      return right(product.copyWith(id: docRef.id));
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }
@@ -90,42 +92,29 @@ class ProductRepository implements BaseProductRepository {
   //   }
   // }
 
-  // @override
-  // Future<Either<DatabaseFailure, Product>> deleteProduct(
-  //     {required Product product}) async {
-  //   try {
-  //     final productEntry = ProductDTO.fromDomain(product);
-  //     final _ = await _read(firebaseFirestoreProductProvider)
-  //         .collection('products')
-  //         .doc(productEntry.id)
-  //         .delete();
-  //     final _docRef = _read(firebaseFirestoreProductProvider)
-  //         .collection('productsDeleted')
-  //         .doc(productEntry.id);
-  //     await _docRef.set(productEntry.toDocument());
-  //     return right(product);
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
+  @override
+  Future<Either<DatabaseFailure, Product>> deleteProduct(
+      {required Product product}) async {
+    try {
+      final productEntry = ProductDTO.fromDomain(product);
+      final _ = await _read(firebaseFirestoreProductProvider)
+          .collection('products')
+          .doc(productEntry.id)
+          .delete();
+      return right(product);
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 
-  // @override
-  // Future<Either<DatabaseFailure, Product>> undoDeleteProduct(
-  //     {required Product product}) async {
-  //   try {
-  //     final productEntry = ProductDTO.fromDomain(product);
-  //     final _ = await _read(firebaseFirestoreProductProvider)
-  //         .collection('productsDeleted')
-  //         .doc(productEntry.id)
-  //         .delete();
-  //     final _docRef = _read(firebaseFirestoreProductProvider)
-  //         .collection('products')
-  //         .doc(productEntry.id);
-  //     _docRef.set(productEntry.toDocument());
-  //     return right(product);
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
-
+  @override
+  Future<Either<DatabaseFailure, Product>> undoDeleteProduct(
+      {required Product product}) async {
+    try {
+      createProduct(product: product);
+      return right(product);
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 }

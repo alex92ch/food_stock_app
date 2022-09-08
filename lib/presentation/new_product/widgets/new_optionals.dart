@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/product_notifier.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
-import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,6 +11,8 @@ class NewOptionals extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final productsProvider = ref.watch(productsNotifierProvider);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -52,9 +53,17 @@ class NewOptionals extends HookConsumerWidget {
         ElevatedButton(
           onPressed: () {
             if (formKey.value.currentState?.validate() ?? false) {
-              ref
-                  .read(productsNotifierProvider.notifier)
-                  .createProduct(product: product.value);
+              ref.read(productsNotifierProvider.notifier).createProduct(
+                    product: product.value,
+                    productList: productsProvider.map(
+                        initial: ((_) => _.productList),
+                        loadSuccess: ((_) => _.productList),
+                        failure: ((_) => _.productList),
+                        inProgress: ((_) => _.productList),
+                        deleteSuccess: ((_) => _.productList),
+                        createSuccess: ((_) => _.productList),
+                        undoDeleteProduct: ((_) => _.productList)),
+                  );
               ref.read(routeProvider).popUntilRouteWithName('BaseDataRoute');
             } else {
               debugPrint('validation failed');

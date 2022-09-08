@@ -6,23 +6,34 @@ import 'package:food_stock_app/presentation/base_data/widgets/base_data_list_til
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BaseDataListTile extends HookConsumerWidget {
-  final Product product;
-  const BaseDataListTile({Key? key, required this.product}) : super(key: key);
+  final List<Product> productList;
+  final int index;
+  const BaseDataListTile(
+      {Key? key, required this.productList, required this.index})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Slidable(
-        key: Key(product.id),
+        key: ValueKey(productList[index].id),
         startActionPane: ActionPane(
           motion: const ScrollMotion(),
           dismissible: BaseDataListTileDeleteActionDismissible(
-              product: product, duration: 3),
-          children: [BaseDataListTileDeleteAction(product: product)],
+            key: ValueKey(productList[index].id),
+            productList: productList,
+            duration: 3,
+            index: index,
+          ),
+          children: [
+            BaseDataListTileDeleteAction(
+              product: productList[index],
+            )
+          ],
         ),
         child: ListTile(
-          title: Text(product.name),
-          subtitle: Text(product.description),
-          onTap: () {
+          title: Text(productList[index].name),
+          subtitle: Text(productList[index].description),
+          onTap: () async {
             debugPrint("Listtile tapped");
           }, //TODO needs implementation
         ));

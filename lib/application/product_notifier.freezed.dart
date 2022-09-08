@@ -25,8 +25,9 @@ mixin _$ProductState {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,7 +37,9 @@ mixin _$ProductState {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -46,7 +49,9 @@ mixin _$ProductState {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,7 +61,9 @@ mixin _$ProductState {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +72,9 @@ mixin _$ProductState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,7 +83,9 @@ mixin _$ProductState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -191,8 +202,9 @@ class _$_Initial extends _Initial {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) {
     return initial(productList);
   }
@@ -205,7 +217,9 @@ class _$_Initial extends _Initial {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) {
     return initial?.call(productList);
   }
@@ -218,7 +232,9 @@ class _$_Initial extends _Initial {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -234,7 +250,9 @@ class _$_Initial extends _Initial {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) {
     return initial(this);
   }
@@ -246,7 +264,9 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) {
     return initial?.call(this);
   }
@@ -258,7 +278,9 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -360,8 +382,9 @@ class _$_LoadSuccess extends _LoadSuccess {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) {
     return loadSuccess(productList);
   }
@@ -374,7 +397,9 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) {
     return loadSuccess?.call(productList);
   }
@@ -387,7 +412,9 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -403,7 +430,9 @@ class _$_LoadSuccess extends _LoadSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) {
     return loadSuccess(this);
   }
@@ -415,7 +444,9 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) {
     return loadSuccess?.call(this);
   }
@@ -427,7 +458,9 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -547,8 +580,9 @@ class _$_Failure extends _Failure {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) {
     return failure(productList, this.failure);
   }
@@ -561,7 +595,9 @@ class _$_Failure extends _Failure {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) {
     return failure?.call(productList, this.failure);
   }
@@ -574,7 +610,9 @@ class _$_Failure extends _Failure {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -590,7 +628,9 @@ class _$_Failure extends _Failure {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) {
     return failure(this);
   }
@@ -602,7 +642,9 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) {
     return failure?.call(this);
   }
@@ -614,7 +656,9 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -718,8 +762,9 @@ class _$_InProgress extends _InProgress {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) {
     return inProgress(productList);
   }
@@ -732,7 +777,9 @@ class _$_InProgress extends _InProgress {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) {
     return inProgress?.call(productList);
   }
@@ -745,7 +792,9 @@ class _$_InProgress extends _InProgress {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -761,7 +810,9 @@ class _$_InProgress extends _InProgress {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) {
     return inProgress(this);
   }
@@ -773,7 +824,9 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) {
     return inProgress?.call(this);
   }
@@ -785,7 +838,9 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -808,15 +863,194 @@ abstract class _InProgress extends ProductState {
 }
 
 /// @nodoc
+abstract class _$$_DeleteSuccessCopyWith<$Res>
+    implements $ProductStateCopyWith<$Res> {
+  factory _$$_DeleteSuccessCopyWith(
+          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
+      __$$_DeleteSuccessCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Product> productList});
+}
+
+/// @nodoc
+class __$$_DeleteSuccessCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res>
+    implements _$$_DeleteSuccessCopyWith<$Res> {
+  __$$_DeleteSuccessCopyWithImpl(
+      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
+      : super(_value, (v) => _then(v as _$_DeleteSuccess));
+
+  @override
+  _$_DeleteSuccess get _value => super._value as _$_DeleteSuccess;
+
+  @override
+  $Res call({
+    Object? productList = freezed,
+  }) {
+    return _then(_$_DeleteSuccess(
+      productList == freezed
+          ? _value._productList
+          : productList // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteSuccess extends _DeleteSuccess {
+  const _$_DeleteSuccess(final List<Product> productList)
+      : _productList = productList,
+        super._();
+
+  final List<Product> _productList;
+  @override
+  List<Product> get productList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productList);
+  }
+
+  @override
+  String toString() {
+    return 'ProductState.deleteSuccess(productList: $productList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteSuccess &&
+            const DeepCollectionEquality()
+                .equals(other._productList, _productList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productList));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
+      __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Product> productList) initial,
+    required TResult Function(List<Product> productList) loadSuccess,
+    required TResult Function(
+            List<Product> productList, DatabaseFailure failure)
+        failure,
+    required TResult Function(List<Product> productList) inProgress,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
+  }) {
+    return deleteSuccess(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+  }) {
+    return deleteSuccess?.call(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(productList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+  }) {
+    return deleteSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+  }) {
+    return deleteSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    required TResult orElse(),
+  }) {
+    if (deleteSuccess != null) {
+      return deleteSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteSuccess extends ProductState {
+  const factory _DeleteSuccess(final List<Product> productList) =
+      _$_DeleteSuccess;
+  const _DeleteSuccess._() : super._();
+
+  @override
+  List<Product> get productList;
+  @override
+  @JsonKey(ignore: true)
+  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$_CreateSuccessCopyWith<$Res>
     implements $ProductStateCopyWith<$Res> {
   factory _$$_CreateSuccessCopyWith(
           _$_CreateSuccess value, $Res Function(_$_CreateSuccess) then) =
       __$$_CreateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<Product> productList, Product product});
-
-  $ProductCopyWith<$Res> get product;
+  $Res call({List<Product> productList});
 }
 
 /// @nodoc
@@ -833,32 +1067,20 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? productList = freezed,
-    Object? product = freezed,
   }) {
     return _then(_$_CreateSuccess(
       productList == freezed
           ? _value._productList
           : productList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
-      product == freezed
-          ? _value.product
-          : product // ignore: cast_nullable_to_non_nullable
-              as Product,
     ));
-  }
-
-  @override
-  $ProductCopyWith<$Res> get product {
-    return $ProductCopyWith<$Res>(_value.product, (value) {
-      return _then(_value.copyWith(product: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_CreateSuccess extends _CreateSuccess {
-  const _$_CreateSuccess(final List<Product> productList, this.product)
+  const _$_CreateSuccess(final List<Product> productList)
       : _productList = productList,
         super._();
 
@@ -870,11 +1092,8 @@ class _$_CreateSuccess extends _CreateSuccess {
   }
 
   @override
-  final Product product;
-
-  @override
   String toString() {
-    return 'ProductState.createSuccess(productList: $productList, product: $product)';
+    return 'ProductState.createSuccess(productList: $productList)';
   }
 
   @override
@@ -883,15 +1102,12 @@ class _$_CreateSuccess extends _CreateSuccess {
         (other.runtimeType == runtimeType &&
             other is _$_CreateSuccess &&
             const DeepCollectionEquality()
-                .equals(other._productList, _productList) &&
-            const DeepCollectionEquality().equals(other.product, product));
+                .equals(other._productList, _productList));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_productList),
-      const DeepCollectionEquality().hash(product));
+      runtimeType, const DeepCollectionEquality().hash(_productList));
 
   @JsonKey(ignore: true)
   @override
@@ -907,10 +1123,11 @@ class _$_CreateSuccess extends _CreateSuccess {
             List<Product> productList, DatabaseFailure failure)
         failure,
     required TResult Function(List<Product> productList) inProgress,
-    required TResult Function(List<Product> productList, Product product)
-        createSuccess,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
   }) {
-    return createSuccess(productList, product);
+    return createSuccess(productList);
   }
 
   @override
@@ -921,9 +1138,11 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
   }) {
-    return createSuccess?.call(productList, product);
+    return createSuccess?.call(productList);
   }
 
   @override
@@ -934,11 +1153,13 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(List<Product> productList, DatabaseFailure failure)?
         failure,
     TResult Function(List<Product> productList)? inProgress,
-    TResult Function(List<Product> productList, Product product)? createSuccess,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
-      return createSuccess(productList, product);
+      return createSuccess(productList);
     }
     return orElse();
   }
@@ -950,7 +1171,9 @@ class _$_CreateSuccess extends _CreateSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
   }) {
     return createSuccess(this);
   }
@@ -962,7 +1185,9 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
   }) {
     return createSuccess?.call(this);
   }
@@ -974,7 +1199,9 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
@@ -985,16 +1212,196 @@ class _$_CreateSuccess extends _CreateSuccess {
 }
 
 abstract class _CreateSuccess extends ProductState {
-  const factory _CreateSuccess(
-          final List<Product> productList, final Product product) =
+  const factory _CreateSuccess(final List<Product> productList) =
       _$_CreateSuccess;
   const _CreateSuccess._() : super._();
 
   @override
   List<Product> get productList;
-  Product get product;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UndoDeleteSuccessCopyWith<$Res>
+    implements $ProductStateCopyWith<$Res> {
+  factory _$$_UndoDeleteSuccessCopyWith(_$_UndoDeleteSuccess value,
+          $Res Function(_$_UndoDeleteSuccess) then) =
+      __$$_UndoDeleteSuccessCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Product> productList});
+}
+
+/// @nodoc
+class __$$_UndoDeleteSuccessCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res>
+    implements _$$_UndoDeleteSuccessCopyWith<$Res> {
+  __$$_UndoDeleteSuccessCopyWithImpl(
+      _$_UndoDeleteSuccess _value, $Res Function(_$_UndoDeleteSuccess) _then)
+      : super(_value, (v) => _then(v as _$_UndoDeleteSuccess));
+
+  @override
+  _$_UndoDeleteSuccess get _value => super._value as _$_UndoDeleteSuccess;
+
+  @override
+  $Res call({
+    Object? productList = freezed,
+  }) {
+    return _then(_$_UndoDeleteSuccess(
+      productList == freezed
+          ? _value._productList
+          : productList // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
+  const _$_UndoDeleteSuccess(final List<Product> productList)
+      : _productList = productList,
+        super._();
+
+  final List<Product> _productList;
+  @override
+  List<Product> get productList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productList);
+  }
+
+  @override
+  String toString() {
+    return 'ProductState.undoDeleteProduct(productList: $productList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UndoDeleteSuccess &&
+            const DeepCollectionEquality()
+                .equals(other._productList, _productList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productList));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
+      __$$_UndoDeleteSuccessCopyWithImpl<_$_UndoDeleteSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Product> productList) initial,
+    required TResult Function(List<Product> productList) loadSuccess,
+    required TResult Function(
+            List<Product> productList, DatabaseFailure failure)
+        failure,
+    required TResult Function(List<Product> productList) inProgress,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
+  }) {
+    return undoDeleteProduct(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+  }) {
+    return undoDeleteProduct?.call(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+    required TResult orElse(),
+  }) {
+    if (undoDeleteProduct != null) {
+      return undoDeleteProduct(productList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+  }) {
+    return undoDeleteProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+  }) {
+    return undoDeleteProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    required TResult orElse(),
+  }) {
+    if (undoDeleteProduct != null) {
+      return undoDeleteProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UndoDeleteSuccess extends ProductState {
+  const factory _UndoDeleteSuccess(final List<Product> productList) =
+      _$_UndoDeleteSuccess;
+  const _UndoDeleteSuccess._() : super._();
+
+  @override
+  List<Product> get productList;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

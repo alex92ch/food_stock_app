@@ -27,14 +27,15 @@ class ProductState with _$ProductState {
   const factory ProductState.inProgress(
     List<Product> productList,
   ) = _InProgress;
-  // const factory ProductState.deleteSuccess(
-  //   List<Product> dutyList,
-  //   Product duty,
-  // ) = _DeleteSuccess;
+  const factory ProductState.deleteSuccess(
+    List<Product> productList,
+  ) = _DeleteSuccess;
   const factory ProductState.createSuccess(
     List<Product> productList,
-    Product product,
   ) = _CreateSuccess;
+  const factory ProductState.undoDeleteProduct(
+    List<Product> productList,
+  ) = _UndoDeleteSuccess;
   // const factory ProductState.updateSuccess(
   //   List<Product> dutyList,
   //   Product duty,
@@ -46,7 +47,7 @@ class ProductNotifier extends StateNotifier<ProductState> {
 
   ProductNotifier(this._read) : super(const ProductState.initial([]));
 
-  Future<void> getProducts({bool isloading = false}) async {
+  Future<void> getProductList({bool isloading = false}) async {
     if (isloading) state = const ProductState.inProgress([]);
     final failureOrSuccess =
         await _read(productRepositoryProvider).getProductList();
@@ -57,13 +58,21 @@ class ProductNotifier extends StateNotifier<ProductState> {
   }
 
   Future<void> createProduct(
-      {required Product product, bool isloading = false}) async {
+      {required Product product,
+      bool isloading = false,
+      required List<Product> productList}) async {
     if (isloading) state = const ProductState.inProgress([]);
     final failureOrSuccess =
         await _read(productRepositoryProvider).createProduct(product: product);
     state = failureOrSuccess.fold(
       (l) => state = ProductState.failure([], l),
-      (r) => state = ProductState.createSuccess(r, product),
+      (r) {
+        List<Product> newProductList = List.from(productList);
+        newProductList.add(r);
+        newProductList.sort(
+            (a, b) => a.name.toUpperCase().compareTo(b.name.toUpperCase()));
+        return state = ProductState.createSuccess(newProductList);
+      },
     );
   }
 
@@ -78,14 +87,39 @@ class ProductNotifier extends StateNotifier<ProductState> {
   //   );
   // }
 
-  // Future<void> deleteProduct(
-  //     {required Product duty, bool isloading = false}) async {
-  //   if (isloading) state = const ProductState.inProgress([]);
-  //   final failureOrSuccess =
-  //       await _read(productRepositoryProvider).deleteProduct(duty: duty);
-  //   state = failureOrSuccess.fold(
-  //     (l) => state = ProductState.failure([], l),
-  //     (r) => state = ProductState.deleteSuccess(r, duty),
-  //   );
-  // }
+  Future<void> deleteProduct(
+      {required Product product,
+      required List<Product> productList,
+      bool isloading = false}) async {
+    if (isloading) state = const ProductState.inProgress([]);
+    final failureOrSuccess =
+        await _read(productRepositoryProvider).deleteProduct(product: product);
+    state = failureOrSuccess.fold(
+      (l) => state = ProductState.failure([], l),
+      (r) {
+        List<Product> newProductList = List.from(productList);
+        newProductList.removeWhere((element) => element.id == r.id);
+        return state = ProductState.deleteSuccess(newProductList);
+      },
+    );
+  }
+
+  Future<void> undoDeleteProduct(
+      {required Product product,
+      bool isloading = false,
+      required List<Product> productList}) async {
+    if (isloading) state = const ProductState.inProgress([]);
+    final failureOrSuccess =
+        await _read(productRepositoryProvider).createProduct(product: product);
+    state = failureOrSuccess.fold(
+      (l) => state = ProductState.failure([], l),
+      (r) {
+        List<Product> newProductList = List.from(productList);
+        newProductList.add(r);
+        newProductList.sort(
+            (a, b) => a.name.toUpperCase().compareTo(b.name.toUpperCase()));
+        return state = ProductState.undoDeleteProduct(newProductList);
+      },
+    );
+  }
 }

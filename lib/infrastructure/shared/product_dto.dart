@@ -50,6 +50,7 @@ class ProductDTO with _$ProductDTO {
   }
   factory ProductDTO.fromDomain(Product product) {
     return ProductDTO(
+      id: product.id,
       name: product.name,
       threshold: product.threshold,
       unitOfMeasurement: product.unitOfMeasurement,

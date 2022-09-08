@@ -50,3 +50,5 @@ app.*.map.json
 android/app/google-services.json
 macos/firebase_app_id_file.json
 lib/firebase_options.dart
+
+tmp/*

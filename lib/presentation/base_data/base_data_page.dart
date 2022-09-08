@@ -16,18 +16,24 @@ class BaseDataPage extends HookConsumerWidget {
       body: Center(
         child: productsProvider.map(
           initial: (_) {
-            ref.read(productsNotifierProvider.notifier).getProducts();
+            ref.read(productsNotifierProvider.notifier).getProductList();
             return const CircularProgressIndicator();
           },
-          loadSuccess: (_) => productsProvider.productList.isEmpty
+          loadSuccess: (_) => _.productList.isEmpty
               ? const Text("Products list is empty")
               : BaseDataList(productList: _.productList),
           failure: (_) => const Text("Error"), //TODO needs error handling
           inProgress: (_) {
-            ref.read(productsNotifierProvider.notifier).getProducts();
+            ref.read(productsNotifierProvider.notifier).getProductList();
             return const CircularProgressIndicator();
           },
-          createSuccess: (_) => productsProvider.productList.isEmpty
+          createSuccess: (_) => _.productList.isEmpty
+              ? const Text("Products list is empty")
+              : BaseDataList(productList: _.productList),
+          undoDeleteProduct: (_) => _.productList.isEmpty
+              ? const Text("Products list is empty")
+              : BaseDataList(productList: _.productList),
+          deleteSuccess: (_) => _.productList.isEmpty
               ? const Text("Products list is empty")
               : BaseDataList(productList: _.productList),
         ),

@@ -15,7 +15,7 @@ class BaseDataList extends HookConsumerWidget {
         child: ListView.builder(
             itemCount: productList.length,
             itemBuilder: ((context, index) =>
-                BaseDataListTile(product: productList[index])))
+                BaseDataListTile(index: index, productList: productList)))
 
         //
         // Text(productsProvider.productList[index].name)),
