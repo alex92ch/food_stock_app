@@ -43,6 +43,9 @@ class BaseDataPage extends HookConsumerWidget {
                     ? const Text("Products list is empty")
                     : BaseDataList(productList: _.productList);
               },
+              updateSuccess: (_) => _.productList.isEmpty
+                  ? const Text("Products list is empty")
+                  : BaseDataList(productList: _.productList),
             ),
           ),
         ],

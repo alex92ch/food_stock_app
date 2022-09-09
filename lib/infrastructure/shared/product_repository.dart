@@ -28,8 +28,8 @@ abstract class BaseProductRepository {
 
   Future<Either<DatabaseFailure, Product>> createProduct(
       {required Product product});
-  // Future<Either<DatabaseFailure, Product>> updateProduct(
-  //     {required Product product});
+  Future<Either<DatabaseFailure, Product>> updateProduct(
+      {required Product product});
   Future<Either<DatabaseFailure, Product>> deleteProduct(
       {required Product product});
   Future<Either<DatabaseFailure, Product>> undoDeleteProduct(
@@ -75,22 +75,22 @@ class ProductRepository implements BaseProductRepository {
     }
   }
 
-  // @override
-  // Future<Either<DatabaseFailure, Product>> updateProduct(
-  //     {required Product product}) async {
-  //   try {
-  //     final productEntry = ProductDTO.fromDomain(product);
-  //     final _ = await _read(firebaseFirestoreProductProvider)
-  //         .collection('products')
-  //         .doc(productEntry.id)
-  //         .update(
-  //           productEntry.toDocument(),
-  //         );
-  //     return right(product);
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
+  @override
+  Future<Either<DatabaseFailure, Product>> updateProduct(
+      {required Product product}) async {
+    try {
+      final productEntry = ProductDTO.fromDomain(product);
+      final _ = await _read(firebaseFirestoreProductProvider)
+          .collection('products')
+          .doc(productEntry.id)
+          .update(
+            productEntry.toDocument(),
+          );
+      return right(product);
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 
   @override
   Future<Either<DatabaseFailure, Product>> deleteProduct(

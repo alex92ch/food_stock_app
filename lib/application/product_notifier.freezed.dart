@@ -28,6 +28,7 @@ mixin _$ProductState {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$ProductState {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +54,7 @@ mixin _$ProductState {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +67,7 @@ mixin _$ProductState {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +79,7 @@ mixin _$ProductState {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -86,6 +91,7 @@ mixin _$ProductState {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -205,6 +211,7 @@ class _$_Initial extends _Initial {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return initial(productList);
   }
@@ -220,6 +227,7 @@ class _$_Initial extends _Initial {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return initial?.call(productList);
   }
@@ -235,6 +243,7 @@ class _$_Initial extends _Initial {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -253,6 +262,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return initial(this);
   }
@@ -267,6 +277,7 @@ class _$_Initial extends _Initial {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return initial?.call(this);
   }
@@ -281,6 +292,7 @@ class _$_Initial extends _Initial {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -385,6 +397,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return loadSuccess(productList);
   }
@@ -400,6 +413,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return loadSuccess?.call(productList);
   }
@@ -415,6 +429,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -433,6 +448,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return loadSuccess(this);
   }
@@ -447,6 +463,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return loadSuccess?.call(this);
   }
@@ -461,6 +478,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -583,6 +601,7 @@ class _$_Failure extends _Failure {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return failure(productList, this.failure);
   }
@@ -598,6 +617,7 @@ class _$_Failure extends _Failure {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return failure?.call(productList, this.failure);
   }
@@ -613,6 +633,7 @@ class _$_Failure extends _Failure {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -631,6 +652,7 @@ class _$_Failure extends _Failure {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return failure(this);
   }
@@ -645,6 +667,7 @@ class _$_Failure extends _Failure {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return failure?.call(this);
   }
@@ -659,6 +682,7 @@ class _$_Failure extends _Failure {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -765,6 +789,7 @@ class _$_InProgress extends _InProgress {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return inProgress(productList);
   }
@@ -780,6 +805,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return inProgress?.call(productList);
   }
@@ -795,6 +821,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -813,6 +840,7 @@ class _$_InProgress extends _InProgress {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return inProgress(this);
   }
@@ -827,6 +855,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return inProgress?.call(this);
   }
@@ -841,6 +870,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -945,6 +975,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return deleteSuccess(productList);
   }
@@ -960,6 +991,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return deleteSuccess?.call(productList);
   }
@@ -975,6 +1007,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (deleteSuccess != null) {
@@ -993,6 +1026,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return deleteSuccess(this);
   }
@@ -1007,6 +1041,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return deleteSuccess?.call(this);
   }
@@ -1021,6 +1056,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (deleteSuccess != null) {
@@ -1126,6 +1162,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return createSuccess(productList);
   }
@@ -1141,6 +1178,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return createSuccess?.call(productList);
   }
@@ -1156,6 +1194,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
@@ -1174,6 +1213,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return createSuccess(this);
   }
@@ -1188,6 +1228,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return createSuccess?.call(this);
   }
@@ -1202,6 +1243,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
@@ -1308,6 +1350,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     required TResult Function(List<Product> productList) deleteSuccess,
     required TResult Function(List<Product> productList) createSuccess,
     required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
   }) {
     return undoDeleteProduct(productList);
   }
@@ -1323,6 +1366,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
   }) {
     return undoDeleteProduct?.call(productList);
   }
@@ -1338,6 +1382,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     TResult Function(List<Product> productList)? deleteSuccess,
     TResult Function(List<Product> productList)? createSuccess,
     TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (undoDeleteProduct != null) {
@@ -1356,6 +1401,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
     required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return undoDeleteProduct(this);
   }
@@ -1370,6 +1416,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return undoDeleteProduct?.call(this);
   }
@@ -1384,6 +1431,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
     TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
     TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
     if (undoDeleteProduct != null) {
@@ -1403,5 +1451,192 @@ abstract class _UndoDeleteSuccess extends ProductState {
   @override
   @JsonKey(ignore: true)
   _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateSuccessCopyWith<$Res>
+    implements $ProductStateCopyWith<$Res> {
+  factory _$$_UpdateSuccessCopyWith(
+          _$_UpdateSuccess value, $Res Function(_$_UpdateSuccess) then) =
+      __$$_UpdateSuccessCopyWithImpl<$Res>;
+  @override
+  $Res call({List<Product> productList});
+}
+
+/// @nodoc
+class __$$_UpdateSuccessCopyWithImpl<$Res>
+    extends _$ProductStateCopyWithImpl<$Res>
+    implements _$$_UpdateSuccessCopyWith<$Res> {
+  __$$_UpdateSuccessCopyWithImpl(
+      _$_UpdateSuccess _value, $Res Function(_$_UpdateSuccess) _then)
+      : super(_value, (v) => _then(v as _$_UpdateSuccess));
+
+  @override
+  _$_UpdateSuccess get _value => super._value as _$_UpdateSuccess;
+
+  @override
+  $Res call({
+    Object? productList = freezed,
+  }) {
+    return _then(_$_UpdateSuccess(
+      productList == freezed
+          ? _value._productList
+          : productList // ignore: cast_nullable_to_non_nullable
+              as List<Product>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateSuccess extends _UpdateSuccess {
+  const _$_UpdateSuccess(final List<Product> productList)
+      : _productList = productList,
+        super._();
+
+  final List<Product> _productList;
+  @override
+  List<Product> get productList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_productList);
+  }
+
+  @override
+  String toString() {
+    return 'ProductState.updateSuccess(productList: $productList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateSuccess &&
+            const DeepCollectionEquality()
+                .equals(other._productList, _productList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_productList));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>
+      __$$_UpdateSuccessCopyWithImpl<_$_UpdateSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Product> productList) initial,
+    required TResult Function(List<Product> productList) loadSuccess,
+    required TResult Function(
+            List<Product> productList, DatabaseFailure failure)
+        failure,
+    required TResult Function(List<Product> productList) inProgress,
+    required TResult Function(List<Product> productList) deleteSuccess,
+    required TResult Function(List<Product> productList) createSuccess,
+    required TResult Function(List<Product> productList) undoDeleteProduct,
+    required TResult Function(List<Product> productList) updateSuccess,
+  }) {
+    return updateSuccess(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
+  }) {
+    return updateSuccess?.call(productList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Product> productList)? initial,
+    TResult Function(List<Product> productList)? loadSuccess,
+    TResult Function(List<Product> productList, DatabaseFailure failure)?
+        failure,
+    TResult Function(List<Product> productList)? inProgress,
+    TResult Function(List<Product> productList)? deleteSuccess,
+    TResult Function(List<Product> productList)? createSuccess,
+    TResult Function(List<Product> productList)? undoDeleteProduct,
+    TResult Function(List<Product> productList)? updateSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateSuccess != null) {
+      return updateSuccess(productList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_InProgress value) inProgress,
+    required TResult Function(_DeleteSuccess value) deleteSuccess,
+    required TResult Function(_CreateSuccess value) createSuccess,
+    required TResult Function(_UndoDeleteSuccess value) undoDeleteProduct,
+    required TResult Function(_UpdateSuccess value) updateSuccess,
+  }) {
+    return updateSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
+  }) {
+    return updateSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_InProgress value)? inProgress,
+    TResult Function(_DeleteSuccess value)? deleteSuccess,
+    TResult Function(_CreateSuccess value)? createSuccess,
+    TResult Function(_UndoDeleteSuccess value)? undoDeleteProduct,
+    TResult Function(_UpdateSuccess value)? updateSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateSuccess != null) {
+      return updateSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSuccess extends ProductState {
+  const factory _UpdateSuccess(final List<Product> productList) =
+      _$_UpdateSuccess;
+  const _UpdateSuccess._() : super._();
+
+  @override
+  List<Product> get productList;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

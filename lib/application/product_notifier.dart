@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
@@ -37,10 +36,9 @@ class ProductState with _$ProductState {
   const factory ProductState.undoDeleteProduct(
     List<Product> productList,
   ) = _UndoDeleteSuccess;
-  // const factory ProductState.updateSuccess(
-  //   List<Product> dutyList,
-  //   Product duty,
-  // ) = _UpdateSuccess;
+  const factory ProductState.updateSuccess(
+    List<Product> productList,
+  ) = _UpdateSuccess;
 }
 
 class ProductNotifier extends StateNotifier<ProductState> {
@@ -77,16 +75,24 @@ class ProductNotifier extends StateNotifier<ProductState> {
     );
   }
 
-  // Future<void> updateProduct(
-  //     {required Product duty, bool isloading = false}) async {
-  //   if (isloading) state = const ProductState.inProgress([]);
-  //   final failureOrSuccess =
-  //       await _read(productRepositoryProvider).updateProduct(duty: duty);
-  //   state = failureOrSuccess.fold(
-  //     (l) => state = ProductState.failure([], l),
-  //     (r) => state = ProductState.updateSuccess(r, duty),
-  //   );
-  // }
+  Future<void> updateProduct({
+    required Product product,
+    bool isloading = false,
+    required List<Product> productList,
+  }) async {
+    if (isloading) state = const ProductState.inProgress([]);
+    final failureOrSuccess =
+        await _read(productRepositoryProvider).updateProduct(product: product);
+    state = failureOrSuccess.fold(
+      (l) => state = ProductState.failure([], l),
+      (r) {
+        List<Product> newProductList = List.from(productList);
+        newProductList[newProductList
+            .indexWhere((element) => element.id == product.id)] = r;
+        return state = ProductState.updateSuccess(newProductList);
+      },
+    );
+  }
 
   Future<void> deleteProduct(
       {required Product product,

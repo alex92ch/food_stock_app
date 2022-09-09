@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:food_stock_app/application/product_notifier.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_mass_unit.dart';
 import 'package:food_stock_app/presentation/new_product/widgets/new_name.dart';
@@ -17,6 +18,7 @@ class NewProductPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final productsProvider = ref.watch(productsNotifierProvider);
     final router = ref.read(routeProvider);
     final product = useState(const Product());
     final formKey = useState(GlobalKey<FormState>());
@@ -63,6 +65,35 @@ class NewProductPage extends HookConsumerWidget {
                     curve: Curves.easeInOut,
                   );
                 },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (formKey.value.currentState?.validate() ?? false) {
+                      ref.read(productsNotifierProvider.notifier).createProduct(
+                          product: product.value,
+                          productList: productsProvider.map(
+                            updateSuccess: ((_) => _.productList),
+                            initial: ((_) => _.productList),
+                            loadSuccess: ((_) => _.productList),
+                            failure: ((_) => _.productList),
+                            inProgress: ((_) => _.productList),
+                            deleteSuccess: ((_) => _.productList),
+                            createSuccess: ((_) => _.productList),
+                            undoDeleteProduct: ((_) => _.productList),
+                          ));
+                      ref
+                          .read(routeProvider)
+                          .popUntilRouteWithName('BaseDataRoute');
+                    } else {
+                      debugPrint('validation failed');
+                      //TODO handle failed validation
+                    }
+                  },
+                  style: const ButtonStyle(),
+                  child: const Text("Produkt Speichern"),
+                ),
               ),
             ],
           ),
