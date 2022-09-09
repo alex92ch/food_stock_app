@@ -2,33 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:food_stock_app/application/product_notifier.dart';
 import 'package:food_stock_app/domain/shared/product.dart';
-import 'package:food_stock_app/presentation/edit_product/widgets/edit_mass_unit.dart';
-import 'package:food_stock_app/presentation/edit_product/widgets/edit_name.dart';
-import 'package:food_stock_app/presentation/edit_product/widgets/edit_optionals.dart';
-import 'package:food_stock_app/presentation/edit_product/widgets/edit_storage_place.dart';
-import 'package:food_stock_app/presentation/edit_product/widgets/edit_threshold.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_mass_unit.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_name.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_optionals.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_storage_place.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_threshold.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class EditProductPage extends HookConsumerWidget {
-  final Product product;
-  const EditProductPage({Key? key, required this.product}) : super(key: key);
+class NewProductPage extends HookConsumerWidget {
+  const NewProductPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productsProvider = ref.watch(productsNotifierProvider);
     final router = ref.read(routeProvider);
-    final product = useState(this.product);
+    final product = useState(const Product());
     final formKey = useState(GlobalKey<FormState>());
     final pageController = usePageController();
     List<HookConsumerWidget> pages = [
-      EditName(product),
-      EditThreshold(product),
-      EditMassUnit(product),
-      EditStoragePlace(product),
-      EditOptionals(product, formKey)
+      NewName(product),
+      NewThreshold(product),
+      NewMassUnit(product),
+      NewStoragePlace(product),
+      NewOptionals(product, formKey)
     ];
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -38,7 +37,7 @@ class EditProductPage extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("${product.value.name} bearbeiten"),
+              const Text("Neues Produkt"),
               SizedBox(
                   height: 400,
                   child: Form(
