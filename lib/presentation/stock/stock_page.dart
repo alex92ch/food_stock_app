@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/product_notifier.dart';
+import 'package:food_stock_app/application/base_data/product_notifier.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:food_stock_app/presentation/stock/widgets/stock_list.dart';

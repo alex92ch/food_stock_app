@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
-import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/domain/base_data/unit_of_measurement.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'product_dto.freezed.dart';
-part 'product_dto.g.dart';
 
 class UnitOfMeasurementConverter
     implements JsonConverter<UnitOfMeasurement, Map<String, dynamic>> {

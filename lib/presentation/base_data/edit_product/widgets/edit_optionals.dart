@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/product_notifier.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/application/base_data/product_notifier.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

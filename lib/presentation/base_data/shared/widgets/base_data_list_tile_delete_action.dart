@@ -1,4 +1,4 @@
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';

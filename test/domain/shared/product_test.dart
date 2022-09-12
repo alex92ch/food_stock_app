@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
-import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/domain/base_data/unit_of_measurement.dart';
 
 void main() {
   group('Domain Layer', () {

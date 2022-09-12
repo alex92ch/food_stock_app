@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list_tile_delete_action.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list_tile_delete_action_dismissible.dart';
 

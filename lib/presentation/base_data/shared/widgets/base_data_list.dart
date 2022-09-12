@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list_tile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

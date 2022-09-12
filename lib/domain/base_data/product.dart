@@ -1,7 +1,7 @@
-import 'package:food_stock_app/domain/shared/unit_of_measurement.dart';
+import 'package:food_stock_app/domain/base_data/unit_of_measurement.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'product.freezed.dart';
+part '../shared/product.freezed.dart';
 
 @freezed
 class Product with _$Product {

@@ -1,11 +1,11 @@
 import 'package:food_stock_app/domain/shared/database_failure.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
-import 'package:food_stock_app/infrastructure/shared/product_repository.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/infrastructure/base_data/product_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'product_notifier.freezed.dart';
+part '../product_notifier.freezed.dart';
 
 final productsNotifierProvider =
     StateNotifierProvider<ProductNotifier, ProductState>(

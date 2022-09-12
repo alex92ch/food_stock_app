@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:food_stock_app/application/product_notifier.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/application/base_data/product_notifier.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_mass_unit.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_name.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_optionals.dart';

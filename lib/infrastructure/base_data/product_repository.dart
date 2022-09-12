@@ -2,9 +2,9 @@ import 'package:dartz/dartz.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
-import 'package:food_stock_app/domain/shared/product.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/infrastructure/base_data/product_dto.dart';
 import 'package:food_stock_app/infrastructure/shared/firebase_providers.dart';
-import 'package:food_stock_app/infrastructure/shared/product_dto.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

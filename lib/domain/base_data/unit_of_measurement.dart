@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'unit_of_measurement.freezed.dart';
+part '../shared/unit_of_measurement.freezed.dart';
 
 @freezed
 class UnitOfMeasurement with _$UnitOfMeasurement {
