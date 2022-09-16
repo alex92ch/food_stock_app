@@ -21,9 +21,9 @@ StockDTO _$StockDTOFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StockDTO {
   String get id => throw _privateConstructorUsedError;
-  Map<String, int> get cupboard => throw _privateConstructorUsedError;
-  Map<String, int> get freezer => throw _privateConstructorUsedError;
-  Map<String, int> get fridge => throw _privateConstructorUsedError;
+  Map<String, int> get cupboardList => throw _privateConstructorUsedError;
+  Map<String, int> get freezerList => throw _privateConstructorUsedError;
+  Map<String, int> get fridgeList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $StockDTOCopyWith<$Res> {
       _$StockDTOCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      Map<String, int> cupboard,
-      Map<String, int> freezer,
-      Map<String, int> fridge});
+      Map<String, int> cupboardList,
+      Map<String, int> freezerList,
+      Map<String, int> fridgeList});
 }
 
 /// @nodoc
@@ -53,26 +53,26 @@ class _$StockDTOCopyWithImpl<$Res> implements $StockDTOCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? cupboard = freezed,
-    Object? freezer = freezed,
-    Object? fridge = freezed,
+    Object? cupboardList = freezed,
+    Object? freezerList = freezed,
+    Object? fridgeList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      cupboard: cupboard == freezed
-          ? _value.cupboard
-          : cupboard // ignore: cast_nullable_to_non_nullable
+      cupboardList: cupboardList == freezed
+          ? _value.cupboardList
+          : cupboardList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      freezer: freezer == freezed
-          ? _value.freezer
-          : freezer // ignore: cast_nullable_to_non_nullable
+      freezerList: freezerList == freezed
+          ? _value.freezerList
+          : freezerList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      fridge: fridge == freezed
-          ? _value.fridge
-          : fridge // ignore: cast_nullable_to_non_nullable
+      fridgeList: fridgeList == freezed
+          ? _value.fridgeList
+          : fridgeList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
     ));
   }
@@ -86,9 +86,9 @@ abstract class _$$_StockDTOCopyWith<$Res> implements $StockDTOCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      Map<String, int> cupboard,
-      Map<String, int> freezer,
-      Map<String, int> fridge});
+      Map<String, int> cupboardList,
+      Map<String, int> freezerList,
+      Map<String, int> fridgeList});
 }
 
 /// @nodoc
@@ -104,26 +104,26 @@ class __$$_StockDTOCopyWithImpl<$Res> extends _$StockDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? cupboard = freezed,
-    Object? freezer = freezed,
-    Object? fridge = freezed,
+    Object? cupboardList = freezed,
+    Object? freezerList = freezed,
+    Object? fridgeList = freezed,
   }) {
     return _then(_$_StockDTO(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      cupboard: cupboard == freezed
-          ? _value._cupboard
-          : cupboard // ignore: cast_nullable_to_non_nullable
+      cupboardList: cupboardList == freezed
+          ? _value._cupboardList
+          : cupboardList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      freezer: freezer == freezed
-          ? _value._freezer
-          : freezer // ignore: cast_nullable_to_non_nullable
+      freezerList: freezerList == freezed
+          ? _value._freezerList
+          : freezerList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      fridge: fridge == freezed
-          ? _value._fridge
-          : fridge // ignore: cast_nullable_to_non_nullable
+      fridgeList: fridgeList == freezed
+          ? _value._fridgeList
+          : fridgeList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
     ));
   }
@@ -134,12 +134,12 @@ class __$$_StockDTOCopyWithImpl<$Res> extends _$StockDTOCopyWithImpl<$Res>
 class _$_StockDTO extends _StockDTO {
   const _$_StockDTO(
       {this.id = '',
-      final Map<String, int> cupboard = const {},
-      final Map<String, int> freezer = const {},
-      final Map<String, int> fridge = const {}})
-      : _cupboard = cupboard,
-        _freezer = freezer,
-        _fridge = fridge,
+      final Map<String, int> cupboardList = const {},
+      final Map<String, int> freezerList = const {},
+      final Map<String, int> fridgeList = const {}})
+      : _cupboardList = cupboardList,
+        _freezerList = freezerList,
+        _fridgeList = fridgeList,
         super._();
 
   factory _$_StockDTO.fromJson(Map<String, dynamic> json) =>
@@ -148,33 +148,33 @@ class _$_StockDTO extends _StockDTO {
   @override
   @JsonKey()
   final String id;
-  final Map<String, int> _cupboard;
+  final Map<String, int> _cupboardList;
   @override
   @JsonKey()
-  Map<String, int> get cupboard {
+  Map<String, int> get cupboardList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_cupboard);
+    return EqualUnmodifiableMapView(_cupboardList);
   }
 
-  final Map<String, int> _freezer;
+  final Map<String, int> _freezerList;
   @override
   @JsonKey()
-  Map<String, int> get freezer {
+  Map<String, int> get freezerList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_freezer);
+    return EqualUnmodifiableMapView(_freezerList);
   }
 
-  final Map<String, int> _fridge;
+  final Map<String, int> _fridgeList;
   @override
   @JsonKey()
-  Map<String, int> get fridge {
+  Map<String, int> get fridgeList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_fridge);
+    return EqualUnmodifiableMapView(_fridgeList);
   }
 
   @override
   String toString() {
-    return 'StockDTO(id: $id, cupboard: $cupboard, freezer: $freezer, fridge: $fridge)';
+    return 'StockDTO(id: $id, cupboardList: $cupboardList, freezerList: $freezerList, fridgeList: $fridgeList)';
   }
 
   @override
@@ -183,9 +183,12 @@ class _$_StockDTO extends _StockDTO {
         (other.runtimeType == runtimeType &&
             other is _$_StockDTO &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._cupboard, _cupboard) &&
-            const DeepCollectionEquality().equals(other._freezer, _freezer) &&
-            const DeepCollectionEquality().equals(other._fridge, _fridge));
+            const DeepCollectionEquality()
+                .equals(other._cupboardList, _cupboardList) &&
+            const DeepCollectionEquality()
+                .equals(other._freezerList, _freezerList) &&
+            const DeepCollectionEquality()
+                .equals(other._fridgeList, _fridgeList));
   }
 
   @JsonKey(ignore: true)
@@ -193,9 +196,9 @@ class _$_StockDTO extends _StockDTO {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_cupboard),
-      const DeepCollectionEquality().hash(_freezer),
-      const DeepCollectionEquality().hash(_fridge));
+      const DeepCollectionEquality().hash(_cupboardList),
+      const DeepCollectionEquality().hash(_freezerList),
+      const DeepCollectionEquality().hash(_fridgeList));
 
   @JsonKey(ignore: true)
   @override
@@ -213,9 +216,9 @@ class _$_StockDTO extends _StockDTO {
 abstract class _StockDTO extends StockDTO {
   const factory _StockDTO(
       {final String id,
-      final Map<String, int> cupboard,
-      final Map<String, int> freezer,
-      final Map<String, int> fridge}) = _$_StockDTO;
+      final Map<String, int> cupboardList,
+      final Map<String, int> freezerList,
+      final Map<String, int> fridgeList}) = _$_StockDTO;
   const _StockDTO._() : super._();
 
   factory _StockDTO.fromJson(Map<String, dynamic> json) = _$_StockDTO.fromJson;
@@ -223,11 +226,11 @@ abstract class _StockDTO extends StockDTO {
   @override
   String get id;
   @override
-  Map<String, int> get cupboard;
+  Map<String, int> get cupboardList;
   @override
-  Map<String, int> get freezer;
+  Map<String, int> get freezerList;
   @override
-  Map<String, int> get fridge;
+  Map<String, int> get fridgeList;
   @override
   @JsonKey(ignore: true)
   _$$_StockDTOCopyWith<_$_StockDTO> get copyWith =>

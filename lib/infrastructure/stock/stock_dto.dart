@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_stock_app/domain/stock/stock.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+part 'stock_dto.g.dart';
 part 'stock_dto.freezed.dart';
 
 @freezed
@@ -8,9 +9,9 @@ class StockDTO with _$StockDTO {
   const StockDTO._();
   const factory StockDTO({
     @Default('') String id,
-    @Default({}) Map<String, int> cupboard,
-    @Default({}) Map<String, int> freezer,
-    @Default({}) Map<String, int> fridge,
+    @Default({}) Map<String, int> cupboardList,
+    @Default({}) Map<String, int> freezerList,
+    @Default({}) Map<String, int> fridgeList,
   }) = _StockDTO;
   factory StockDTO.fromJson(Map<String, dynamic> json) =>
       _$StockDTOFromJson(json);
@@ -22,25 +23,25 @@ class StockDTO with _$StockDTO {
   factory StockDTO.fromDomain(Stock stock) {
     return StockDTO(
       id: stock.id,
-      cupboard: stock.cupboard,
-      freezer: stock.freezer,
-      fridge: stock.fridge,
+      cupboardList: stock.cupboardList,
+      freezerList: stock.freezerList,
+      fridgeList: stock.fridgeList,
     );
   }
   Stock toDomain() {
     return Stock(
       id: id,
-      cupboard: cupboard,
-      freezer: freezer,
-      fridge: fridge,
+      cupboardList: cupboardList,
+      freezerList: freezerList,
+      fridgeList: fridgeList,
     );
   }
 
   Map<String, dynamic> toDocument() {
     return ({
-      'cupboard': cupboard,
-      'freezer': freezer,
-      'fridge': fridge,
+      'cupboardList': cupboardList,
+      'freezerList': freezerList,
+      'fridgeList': fridgeList,
     });
   }
 }

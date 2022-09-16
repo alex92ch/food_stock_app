@@ -18,12 +18,14 @@ final firebaseFirestoreStockProvider =
 });
 
 abstract class BaseStockRepository {
-  Future<Either<DatabaseFailure, List<Stock>>> getStockList();
+  Future<Either<DatabaseFailure, Stock>> getStock();
   Future<Either<DatabaseFailure, Stock>> createStock({required Stock stock});
-  Future<Either<DatabaseFailure, Stock>> updateStock({required Stock stock});
-  // Future<Either<DatabaseFailure, Stock>> deleteStock({required Stock stock});
-  // Future<Either<DatabaseFailure, Stock>> undoDeleteStock(
-  //     {required Stock stock});
+  Future<Either<DatabaseFailure, Stock>> updateFreezer(
+      {required Stock stock, required Map<String, int> freezerList});
+  Future<Either<DatabaseFailure, Stock>> updateFridge(
+      {required Stock stock, required Map<String, int> fridgeList});
+  Future<Either<DatabaseFailure, Stock>> updateCupboard(
+      {required Stock stock, required Map<String, int> cupboardList});
 }
 
 class StockRepository implements BaseStockRepository {
@@ -31,7 +33,7 @@ class StockRepository implements BaseStockRepository {
   StockRepository(this._read);
 
   @override
-  Future<Either<DatabaseFailure, List<Stock>>> getStockList() async {
+  Future<Either<DatabaseFailure, Stock>> getStock() async {
     try {
       var q = _read(firebaseFirestoreStockProvider).collection('stocks');
 
@@ -42,7 +44,7 @@ class StockRepository implements BaseStockRepository {
               .toList()
               .map((e) => e.toDomain())
               .toList())
-          .then((r) => right(r));
+          .then((r) => right(r.first));
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }
@@ -64,48 +66,59 @@ class StockRepository implements BaseStockRepository {
   }
 
   @override
-  Future<Either<DatabaseFailure, Stock>> updateStock(
-      {required Stock stock}) async {
+  Future<Either<DatabaseFailure, Stock>> updateFreezer(
+      {required Map<String, int> freezerList, required Stock stock}) async {
     try {
-      final stockEntry = StockDTO.fromDomain(stock);
+      final stockEntry =
+          StockDTO.fromDomain(stock.copyWith(freezerList: freezerList));
       final _ = await _read(firebaseFirestoreStockProvider)
           .collection('stocks')
           .doc(stockEntry.id)
           .update(
             stockEntry.toDocument(),
+            // SetOptions()
           );
-      return right(stock);
+      return right(stock.copyWith(freezerList: freezerList));
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }
   }
 
-  // @override
-  // Future<Either<DatabaseFailure, Stock>> deleteStock(
-  //     {required Stock stock}) async {
-  //   try {
-  //     final stockEntry = StockDTO.fromDomain(stock);
-  //     final _ = await _read(firebaseFirestoreStockProvider)
-  //         .collection('stocks')
-  //         .doc(stockEntry.id)
-  //         .delete();
-  //     return right(stock);
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
+  @override
+  Future<Either<DatabaseFailure, Stock>> updateFridge(
+      {required Map<String, int> fridgeList, required Stock stock}) async {
+    try {
+      final stockEntry =
+          StockDTO.fromDomain(stock.copyWith(fridgeList: fridgeList));
+      final _ = await _read(firebaseFirestoreStockProvider)
+          .collection('stocks')
+          .doc(stockEntry.id)
+          .update(
+            stockEntry.toDocument(),
+            // SetOptions()
+          );
+      return right(stock.copyWith(fridgeList: fridgeList));
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 
-  // @override
-  // Future<Either<DatabaseFailure, Stock>> undoDeleteStock(
-  //     {required Stock stock}) async {
-  //   try {
-  //     final failureOrSuccess = await createStock(stock: stock);
-  //     return failureOrSuccess.fold(
-  //       (l) => left(l),
-  //       (r) => right(r),
-  //     );
-  //   } on Exception catch (e) {
-  //     return left(handleDatabaseFailure(e));
-  //   }
-  // }
+  @override
+  Future<Either<DatabaseFailure, Stock>> updateCupboard(
+      {required Map<String, int> cupboardList, required Stock stock}) async {
+    try {
+      final stockEntry =
+          StockDTO.fromDomain(stock.copyWith(cupboardList: cupboardList));
+      final _ = await _read(firebaseFirestoreStockProvider)
+          .collection('stocks')
+          .doc(stockEntry.id)
+          .update(
+            stockEntry.toDocument(),
+            // SetOptions()
+          );
+      return right(stock.copyWith(cupboardList: cupboardList));
+    } on Exception catch (e) {
+      return left(handleDatabaseFailure(e));
+    }
+  }
 }

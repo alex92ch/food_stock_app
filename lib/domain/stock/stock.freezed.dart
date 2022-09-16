@@ -17,9 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Stock {
   String get id => throw _privateConstructorUsedError;
-  Map<String, int> get cupboard => throw _privateConstructorUsedError;
-  Map<String, int> get freezer => throw _privateConstructorUsedError;
-  Map<String, int> get fridge => throw _privateConstructorUsedError;
+  Map<String, int> get cupboardList => throw _privateConstructorUsedError;
+  Map<String, int> get freezerList => throw _privateConstructorUsedError;
+  Map<String, int> get fridgeList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $StockCopyWith<Stock> get copyWith => throw _privateConstructorUsedError;
@@ -31,9 +31,9 @@ abstract class $StockCopyWith<$Res> {
       _$StockCopyWithImpl<$Res>;
   $Res call(
       {String id,
-      Map<String, int> cupboard,
-      Map<String, int> freezer,
-      Map<String, int> fridge});
+      Map<String, int> cupboardList,
+      Map<String, int> freezerList,
+      Map<String, int> fridgeList});
 }
 
 /// @nodoc
@@ -47,26 +47,26 @@ class _$StockCopyWithImpl<$Res> implements $StockCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? cupboard = freezed,
-    Object? freezer = freezed,
-    Object? fridge = freezed,
+    Object? cupboardList = freezed,
+    Object? freezerList = freezed,
+    Object? fridgeList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      cupboard: cupboard == freezed
-          ? _value.cupboard
-          : cupboard // ignore: cast_nullable_to_non_nullable
+      cupboardList: cupboardList == freezed
+          ? _value.cupboardList
+          : cupboardList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      freezer: freezer == freezed
-          ? _value.freezer
-          : freezer // ignore: cast_nullable_to_non_nullable
+      freezerList: freezerList == freezed
+          ? _value.freezerList
+          : freezerList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      fridge: fridge == freezed
-          ? _value.fridge
-          : fridge // ignore: cast_nullable_to_non_nullable
+      fridgeList: fridgeList == freezed
+          ? _value.fridgeList
+          : fridgeList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
     ));
   }
@@ -79,9 +79,9 @@ abstract class _$$_StockCopyWith<$Res> implements $StockCopyWith<$Res> {
   @override
   $Res call(
       {String id,
-      Map<String, int> cupboard,
-      Map<String, int> freezer,
-      Map<String, int> fridge});
+      Map<String, int> cupboardList,
+      Map<String, int> freezerList,
+      Map<String, int> fridgeList});
 }
 
 /// @nodoc
@@ -96,26 +96,26 @@ class __$$_StockCopyWithImpl<$Res> extends _$StockCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? cupboard = freezed,
-    Object? freezer = freezed,
-    Object? fridge = freezed,
+    Object? cupboardList = freezed,
+    Object? freezerList = freezed,
+    Object? fridgeList = freezed,
   }) {
     return _then(_$_Stock(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      cupboard: cupboard == freezed
-          ? _value._cupboard
-          : cupboard // ignore: cast_nullable_to_non_nullable
+      cupboardList: cupboardList == freezed
+          ? _value._cupboardList
+          : cupboardList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      freezer: freezer == freezed
-          ? _value._freezer
-          : freezer // ignore: cast_nullable_to_non_nullable
+      freezerList: freezerList == freezed
+          ? _value._freezerList
+          : freezerList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
-      fridge: fridge == freezed
-          ? _value._fridge
-          : fridge // ignore: cast_nullable_to_non_nullable
+      fridgeList: fridgeList == freezed
+          ? _value._fridgeList
+          : fridgeList // ignore: cast_nullable_to_non_nullable
               as Map<String, int>,
     ));
   }
@@ -126,44 +126,44 @@ class __$$_StockCopyWithImpl<$Res> extends _$StockCopyWithImpl<$Res>
 class _$_Stock extends _Stock {
   const _$_Stock(
       {this.id = '',
-      final Map<String, int> cupboard = const {},
-      final Map<String, int> freezer = const {},
-      final Map<String, int> fridge = const {}})
-      : _cupboard = cupboard,
-        _freezer = freezer,
-        _fridge = fridge,
+      final Map<String, int> cupboardList = const {},
+      final Map<String, int> freezerList = const {},
+      final Map<String, int> fridgeList = const {}})
+      : _cupboardList = cupboardList,
+        _freezerList = freezerList,
+        _fridgeList = fridgeList,
         super._();
 
   @override
   @JsonKey()
   final String id;
-  final Map<String, int> _cupboard;
+  final Map<String, int> _cupboardList;
   @override
   @JsonKey()
-  Map<String, int> get cupboard {
+  Map<String, int> get cupboardList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_cupboard);
+    return EqualUnmodifiableMapView(_cupboardList);
   }
 
-  final Map<String, int> _freezer;
+  final Map<String, int> _freezerList;
   @override
   @JsonKey()
-  Map<String, int> get freezer {
+  Map<String, int> get freezerList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_freezer);
+    return EqualUnmodifiableMapView(_freezerList);
   }
 
-  final Map<String, int> _fridge;
+  final Map<String, int> _fridgeList;
   @override
   @JsonKey()
-  Map<String, int> get fridge {
+  Map<String, int> get fridgeList {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_fridge);
+    return EqualUnmodifiableMapView(_fridgeList);
   }
 
   @override
   String toString() {
-    return 'Stock(id: $id, cupboard: $cupboard, freezer: $freezer, fridge: $fridge)';
+    return 'Stock(id: $id, cupboardList: $cupboardList, freezerList: $freezerList, fridgeList: $fridgeList)';
   }
 
   @override
@@ -172,18 +172,21 @@ class _$_Stock extends _Stock {
         (other.runtimeType == runtimeType &&
             other is _$_Stock &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other._cupboard, _cupboard) &&
-            const DeepCollectionEquality().equals(other._freezer, _freezer) &&
-            const DeepCollectionEquality().equals(other._fridge, _fridge));
+            const DeepCollectionEquality()
+                .equals(other._cupboardList, _cupboardList) &&
+            const DeepCollectionEquality()
+                .equals(other._freezerList, _freezerList) &&
+            const DeepCollectionEquality()
+                .equals(other._fridgeList, _fridgeList));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(_cupboard),
-      const DeepCollectionEquality().hash(_freezer),
-      const DeepCollectionEquality().hash(_fridge));
+      const DeepCollectionEquality().hash(_cupboardList),
+      const DeepCollectionEquality().hash(_freezerList),
+      const DeepCollectionEquality().hash(_fridgeList));
 
   @JsonKey(ignore: true)
   @override
@@ -194,19 +197,19 @@ class _$_Stock extends _Stock {
 abstract class _Stock extends Stock {
   const factory _Stock(
       {final String id,
-      final Map<String, int> cupboard,
-      final Map<String, int> freezer,
-      final Map<String, int> fridge}) = _$_Stock;
+      final Map<String, int> cupboardList,
+      final Map<String, int> freezerList,
+      final Map<String, int> fridgeList}) = _$_Stock;
   const _Stock._() : super._();
 
   @override
   String get id;
   @override
-  Map<String, int> get cupboard;
+  Map<String, int> get cupboardList;
   @override
-  Map<String, int> get freezer;
+  Map<String, int> get freezerList;
   @override
-  Map<String, int> get fridge;
+  Map<String, int> get fridgeList;
   @override
   @JsonKey(ignore: true)
   _$$_StockCopyWith<_$_Stock> get copyWith =>

@@ -7,8 +7,8 @@ class Stock with _$Stock {
   const Stock._();
   const factory Stock({
     @Default('') String id,
-    @Default({}) Map<String, int> cupboard,
-    @Default({}) Map<String, int> freezer,
-    @Default({}) Map<String, int> fridge,
+    @Default({}) Map<String, int> cupboardList,
+    @Default({}) Map<String, int> freezerList,
+    @Default({}) Map<String, int> fridgeList,
   }) = _Stock;
 }

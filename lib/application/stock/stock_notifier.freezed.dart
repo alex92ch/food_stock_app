@@ -16,36 +16,35 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$StockState {
-  List<Stock> get stockList => throw _privateConstructorUsedError;
+  Stock get stock => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,7 +90,9 @@ abstract class $StockStateCopyWith<$Res> {
   factory $StockStateCopyWith(
           StockState value, $Res Function(StockState) then) =
       _$StockStateCopyWithImpl<$Res>;
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -104,14 +105,21 @@ class _$StockStateCopyWithImpl<$Res> implements $StockStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_value.copyWith(
-      stockList: stockList == freezed
-          ? _value.stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock: stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
+  }
+
+  @override
+  $StockCopyWith<$Res> get stock {
+    return $StockCopyWith<$Res>(_value.stock, (value) {
+      return _then(_value.copyWith(stock: value));
+    });
   }
 }
 
@@ -121,7 +129,10 @@ abstract class _$$_InitialCopyWith<$Res> implements $StockStateCopyWith<$Res> {
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  @override
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -135,13 +146,13 @@ class __$$_InitialCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_Initial(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
   }
 }
@@ -149,20 +160,14 @@ class __$$_InitialCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial extends _Initial {
-  const _$_Initial(final List<Stock> stockList)
-      : _stockList = stockList,
-        super._();
+  const _$_Initial(this.stock) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
+  final Stock stock;
 
   @override
   String toString() {
-    return 'StockState.initial(stockList: $stockList)';
+    return 'StockState.initial(stock: $stock)';
   }
 
   @override
@@ -170,13 +175,12 @@ class _$_Initial extends _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList));
+            const DeepCollectionEquality().equals(other.stock, stock));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_stockList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(stock));
 
   @JsonKey(ignore: true)
   @override
@@ -186,43 +190,42 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return initial(stockList);
+    return initial(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return initial?.call(stockList);
+    return initial?.call(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(stockList);
+      return initial(stock);
     }
     return orElse();
   }
@@ -272,11 +275,11 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends StockState {
-  const factory _Initial(final List<Stock> stockList) = _$_Initial;
+  const factory _Initial(final Stock stock) = _$_Initial;
   const _Initial._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -290,7 +293,10 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  @override
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -305,13 +311,13 @@ class __$$_LoadSuccessCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_LoadSuccess(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
   }
 }
@@ -319,20 +325,14 @@ class __$$_LoadSuccessCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSuccess extends _LoadSuccess {
-  const _$_LoadSuccess(final List<Stock> stockList)
-      : _stockList = stockList,
-        super._();
+  const _$_LoadSuccess(this.stock) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
+  final Stock stock;
 
   @override
   String toString() {
-    return 'StockState.loadSuccess(stockList: $stockList)';
+    return 'StockState.loadSuccess(stock: $stock)';
   }
 
   @override
@@ -340,13 +340,12 @@ class _$_LoadSuccess extends _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList));
+            const DeepCollectionEquality().equals(other.stock, stock));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_stockList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(stock));
 
   @JsonKey(ignore: true)
   @override
@@ -356,43 +355,42 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return loadSuccess(stockList);
+    return loadSuccess(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return loadSuccess?.call(stockList);
+    return loadSuccess?.call(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(stockList);
+      return loadSuccess(stock);
     }
     return orElse();
   }
@@ -442,11 +440,11 @@ class _$_LoadSuccess extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends StockState {
-  const factory _LoadSuccess(final List<Stock> stockList) = _$_LoadSuccess;
+  const factory _LoadSuccess(final Stock stock) = _$_LoadSuccess;
   const _LoadSuccess._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   @override
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
@@ -459,8 +457,10 @@ abstract class _$$_FailureCopyWith<$Res> implements $StockStateCopyWith<$Res> {
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList, DatabaseFailure failure});
+  $Res call({Stock stock, DatabaseFailure failure});
 
+  @override
+  $StockCopyWith<$Res> get stock;
   $DatabaseFailureCopyWith<$Res> get failure;
 }
 
@@ -475,14 +475,14 @@ class __$$_FailureCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
     Object? failure = freezed,
   }) {
     return _then(_$_Failure(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -501,23 +501,16 @@ class __$$_FailureCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failure extends _Failure {
-  const _$_Failure(final List<Stock> stockList, this.failure)
-      : _stockList = stockList,
-        super._();
+  const _$_Failure(this.stock, this.failure) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
-
+  final Stock stock;
   @override
   final DatabaseFailure failure;
 
   @override
   String toString() {
-    return 'StockState.failure(stockList: $stockList, failure: $failure)';
+    return 'StockState.failure(stock: $stock, failure: $failure)';
   }
 
   @override
@@ -525,15 +518,14 @@ class _$_Failure extends _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failure &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList) &&
+            const DeepCollectionEquality().equals(other.stock, stock) &&
             const DeepCollectionEquality().equals(other.failure, failure));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(_stockList),
+      const DeepCollectionEquality().hash(stock),
       const DeepCollectionEquality().hash(failure));
 
   @JsonKey(ignore: true)
@@ -544,43 +536,42 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return failure(stockList, this.failure);
+    return failure(stock, this.failure);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return failure?.call(stockList, this.failure);
+    return failure?.call(stock, this.failure);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(stockList, this.failure);
+      return failure(stock, this.failure);
     }
     return orElse();
   }
@@ -630,12 +621,12 @@ class _$_Failure extends _Failure {
 }
 
 abstract class _Failure extends StockState {
-  const factory _Failure(
-      final List<Stock> stockList, final DatabaseFailure failure) = _$_Failure;
+  const factory _Failure(final Stock stock, final DatabaseFailure failure) =
+      _$_Failure;
   const _Failure._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   DatabaseFailure get failure;
   @override
   @JsonKey(ignore: true)
@@ -650,7 +641,10 @@ abstract class _$$_InProgressCopyWith<$Res>
           _$_InProgress value, $Res Function(_$_InProgress) then) =
       __$$_InProgressCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  @override
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -665,13 +659,13 @@ class __$$_InProgressCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_InProgress(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
   }
 }
@@ -679,20 +673,14 @@ class __$$_InProgressCopyWithImpl<$Res> extends _$StockStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InProgress extends _InProgress {
-  const _$_InProgress(final List<Stock> stockList)
-      : _stockList = stockList,
-        super._();
+  const _$_InProgress(this.stock) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
+  final Stock stock;
 
   @override
   String toString() {
-    return 'StockState.inProgress(stockList: $stockList)';
+    return 'StockState.inProgress(stock: $stock)';
   }
 
   @override
@@ -700,13 +688,12 @@ class _$_InProgress extends _InProgress {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InProgress &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList));
+            const DeepCollectionEquality().equals(other.stock, stock));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_stockList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(stock));
 
   @JsonKey(ignore: true)
   @override
@@ -716,43 +703,42 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return inProgress(stockList);
+    return inProgress(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return inProgress?.call(stockList);
+    return inProgress?.call(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
-      return inProgress(stockList);
+      return inProgress(stock);
     }
     return orElse();
   }
@@ -802,11 +788,11 @@ class _$_InProgress extends _InProgress {
 }
 
 abstract class _InProgress extends StockState {
-  const factory _InProgress(final List<Stock> stockList) = _$_InProgress;
+  const factory _InProgress(final Stock stock) = _$_InProgress;
   const _InProgress._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   @override
   @JsonKey(ignore: true)
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
@@ -820,7 +806,10 @@ abstract class _$$_CreateSuccessCopyWith<$Res>
           _$_CreateSuccess value, $Res Function(_$_CreateSuccess) then) =
       __$$_CreateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  @override
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -836,13 +825,13 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_CreateSuccess(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
   }
 }
@@ -850,20 +839,14 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CreateSuccess extends _CreateSuccess {
-  const _$_CreateSuccess(final List<Stock> stockList)
-      : _stockList = stockList,
-        super._();
+  const _$_CreateSuccess(this.stock) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
+  final Stock stock;
 
   @override
   String toString() {
-    return 'StockState.createSuccess(stockList: $stockList)';
+    return 'StockState.createSuccess(stock: $stock)';
   }
 
   @override
@@ -871,13 +854,12 @@ class _$_CreateSuccess extends _CreateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CreateSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList));
+            const DeepCollectionEquality().equals(other.stock, stock));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_stockList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(stock));
 
   @JsonKey(ignore: true)
   @override
@@ -887,43 +869,42 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return createSuccess(stockList);
+    return createSuccess(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return createSuccess?.call(stockList);
+    return createSuccess?.call(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
-      return createSuccess(stockList);
+      return createSuccess(stock);
     }
     return orElse();
   }
@@ -973,11 +954,11 @@ class _$_CreateSuccess extends _CreateSuccess {
 }
 
 abstract class _CreateSuccess extends StockState {
-  const factory _CreateSuccess(final List<Stock> stockList) = _$_CreateSuccess;
+  const factory _CreateSuccess(final Stock stock) = _$_CreateSuccess;
   const _CreateSuccess._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
@@ -991,7 +972,10 @@ abstract class _$$_UpdateSuccessCopyWith<$Res>
           _$_UpdateSuccess value, $Res Function(_$_UpdateSuccess) then) =
       __$$_UpdateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<Stock> stockList});
+  $Res call({Stock stock});
+
+  @override
+  $StockCopyWith<$Res> get stock;
 }
 
 /// @nodoc
@@ -1007,13 +991,13 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stock = freezed,
   }) {
     return _then(_$_UpdateSuccess(
-      stockList == freezed
-          ? _value._stockList
-          : stockList // ignore: cast_nullable_to_non_nullable
-              as List<Stock>,
+      stock == freezed
+          ? _value.stock
+          : stock // ignore: cast_nullable_to_non_nullable
+              as Stock,
     ));
   }
 }
@@ -1021,20 +1005,14 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateSuccess extends _UpdateSuccess {
-  const _$_UpdateSuccess(final List<Stock> stockList)
-      : _stockList = stockList,
-        super._();
+  const _$_UpdateSuccess(this.stock) : super._();
 
-  final List<Stock> _stockList;
   @override
-  List<Stock> get stockList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stockList);
-  }
+  final Stock stock;
 
   @override
   String toString() {
-    return 'StockState.updateSuccess(stockList: $stockList)';
+    return 'StockState.updateSuccess(stock: $stock)';
   }
 
   @override
@@ -1042,13 +1020,12 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._stockList, _stockList));
+            const DeepCollectionEquality().equals(other.stock, stock));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_stockList));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(stock));
 
   @JsonKey(ignore: true)
   @override
@@ -1058,43 +1035,42 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<Stock> stockList) initial,
-    required TResult Function(List<Stock> stockList) loadSuccess,
-    required TResult Function(List<Stock> stockList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<Stock> stockList) inProgress,
-    required TResult Function(List<Stock> stockList) createSuccess,
-    required TResult Function(List<Stock> stockList) updateSuccess,
+    required TResult Function(Stock stock) initial,
+    required TResult Function(Stock stock) loadSuccess,
+    required TResult Function(Stock stock, DatabaseFailure failure) failure,
+    required TResult Function(Stock stock) inProgress,
+    required TResult Function(Stock stock) createSuccess,
+    required TResult Function(Stock stock) updateSuccess,
   }) {
-    return updateSuccess(stockList);
+    return updateSuccess(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
   }) {
-    return updateSuccess?.call(stockList);
+    return updateSuccess?.call(stock);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<Stock> stockList)? initial,
-    TResult Function(List<Stock> stockList)? loadSuccess,
-    TResult Function(List<Stock> stockList, DatabaseFailure failure)? failure,
-    TResult Function(List<Stock> stockList)? inProgress,
-    TResult Function(List<Stock> stockList)? createSuccess,
-    TResult Function(List<Stock> stockList)? updateSuccess,
+    TResult Function(Stock stock)? initial,
+    TResult Function(Stock stock)? loadSuccess,
+    TResult Function(Stock stock, DatabaseFailure failure)? failure,
+    TResult Function(Stock stock)? inProgress,
+    TResult Function(Stock stock)? createSuccess,
+    TResult Function(Stock stock)? updateSuccess,
     required TResult orElse(),
   }) {
     if (updateSuccess != null) {
-      return updateSuccess(stockList);
+      return updateSuccess(stock);
     }
     return orElse();
   }
@@ -1144,11 +1120,11 @@ class _$_UpdateSuccess extends _UpdateSuccess {
 }
 
 abstract class _UpdateSuccess extends StockState {
-  const factory _UpdateSuccess(final List<Stock> stockList) = _$_UpdateSuccess;
+  const factory _UpdateSuccess(final Stock stock) = _$_UpdateSuccess;
   const _UpdateSuccess._() : super._();
 
   @override
-  List<Stock> get stockList;
+  Stock get stock;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>
