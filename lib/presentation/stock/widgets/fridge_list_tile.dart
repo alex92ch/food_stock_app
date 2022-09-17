@@ -6,21 +6,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class FridgeListTile extends HookConsumerWidget {
   final Stock stock;
-  final int index;
-  final List<Product> productList;
-  const FridgeListTile(
-      {Key? key,
-      required this.stock,
-      required this.index,
-      required this.productList})
+  final Product product;
+  const FridgeListTile({Key? key, required this.stock, required this.product})
       : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final router = ref.read(routeProvider);
-    final Product fridgeItem = productList.firstWhere(
-        (element) => element.id == stock.fridgeList.keys.elementAt(index));
-    final int fridgeItemAmount = stock.fridgeList[fridgeItem.id]!;
+    final int fridgeItemAmount = stock.fridgeList[product.id]!;
     return ListTile(
       onTap: () {
         //TODO needs implementation
@@ -28,26 +21,25 @@ class FridgeListTile extends HookConsumerWidget {
       leading: IconButton(
           onPressed: () async {
             Map<String, int> newFridgeList = Map.of(stock.fridgeList);
-            newFridgeList[fridgeItem.id] = fridgeItemAmount + 1;
+            newFridgeList[product.id] = fridgeItemAmount + 1;
             await ref
                 .read(stockNotifierProvider.notifier)
                 .updateFridge(stock: stock, fridgeList: newFridgeList);
             //TODO needs implementation
           },
           icon: const Icon(Icons.add)),
-      title: Text(fridgeItem.name),
+      title: Text(product.name),
       subtitle: Text(fridgeItemAmount.toString()),
       trailing: IconButton(
           onPressed: () async {
             Map<String, int> newFridgeList = Map.of(stock.fridgeList);
-            newFridgeList[fridgeItem.id] = fridgeItemAmount - 1;
+            newFridgeList[product.id] = fridgeItemAmount - 1;
             await ref
                 .read(stockNotifierProvider.notifier)
                 .updateFridge(stock: stock, fridgeList: newFridgeList);
             //TODO needs implementation
           },
           icon: const Icon(Icons.remove)),
-      // trailing: ,
     );
   }
 }

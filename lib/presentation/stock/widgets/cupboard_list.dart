@@ -18,9 +18,9 @@ class CupboardList extends HookConsumerWidget {
         child: ListView.builder(
             itemCount: stock.cupboardList.length,
             itemBuilder: ((context, index) => CupboardListTile(
-                  index: index,
+                  product: productList.firstWhere((element) =>
+                      element.id == stock.cupboardList.keys.elementAt(index)),
                   stock: stock,
-                  productList: productList,
                 ))));
   }
 }

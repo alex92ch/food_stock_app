@@ -18,8 +18,8 @@ class FridgeList extends HookConsumerWidget {
         child: ListView.builder(
             itemCount: stock.fridgeList.length,
             itemBuilder: ((context, index) => FridgeListTile(
-                  index: index,
-                  productList: productList,
+                  product: productList.firstWhere((element) =>
+                      element.id == stock.fridgeList.keys.elementAt(index)),
                   stock: stock,
                 ))));
   }

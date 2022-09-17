@@ -18,9 +18,9 @@ class FreezerList extends HookConsumerWidget {
         child: ListView.builder(
             itemCount: stock.freezerList.length,
             itemBuilder: ((context, index) => FreezerListTile(
-                  index: index,
+                  product: productList.firstWhere((element) =>
+                      element.id == stock.freezerList.keys.elementAt(index)),
                   stock: stock,
-                  productList: productList,
                 ))));
   }
 }
