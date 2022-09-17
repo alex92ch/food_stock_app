@@ -61,42 +61,132 @@ class StockNotifier extends StateNotifier<StockState> {
     );
   }
 
-  Future<void> updateFreezer({
-    required Stock stock,
+  Future<void> increaseFridgeitem({
+    required String productID,
     bool isloading = false,
-    required Map<String, int> freezerList,
+    required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
-    final failureOrSuccess = await _read(stockRepositoryProvider)
-        .updateFreezer(freezerList: freezerList, stock: stock);
+    Map<String, int> fridgeList = Map.of(stock.fridgeList);
+    fridgeList[productID] = fridgeList[productID]! + 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: stock.freezerList,
+      fridgeList: fridgeList,
+      cupboardList: stock.cupboardList,
+    );
     state = failureOrSuccess.fold(
       (l) => state = StockState.failure(const Stock(), l),
       (r) => state = StockState.updateSuccess(r),
     );
   }
 
-  Future<void> updateFridge({
-    required Stock stock,
+  Future<void> decreaseFridgeitem({
+    required String productID,
     bool isloading = false,
-    required Map<String, int> fridgeList,
+    required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
-    final failureOrSuccess = await _read(stockRepositoryProvider)
-        .updateFridge(fridgeList: fridgeList, stock: stock);
+    Map<String, int> fridgeList = Map.of(stock.fridgeList);
+    fridgeList[productID]! - 1 <= 0
+        ? fridgeList.remove(productID)
+        : fridgeList[productID] = fridgeList[productID]! - 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: stock.freezerList,
+      fridgeList: fridgeList,
+      cupboardList: stock.cupboardList,
+    );
     state = failureOrSuccess.fold(
       (l) => state = StockState.failure(const Stock(), l),
       (r) => state = StockState.updateSuccess(r),
     );
   }
 
-  Future<void> updateCupboard({
-    required Stock stock,
+  Future<void> increaseFreezeritem({
+    required String productID,
     bool isloading = false,
-    required Map<String, int> cupboardList,
+    required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
-    final failureOrSuccess = await _read(stockRepositoryProvider)
-        .updateCupboard(cupboardList: cupboardList, stock: stock);
+    Map<String, int> freezerList = Map.of(stock.freezerList);
+    freezerList[productID] = freezerList[productID]! + 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: freezerList,
+      fridgeList: stock.fridgeList,
+      cupboardList: stock.cupboardList,
+    );
+    state = failureOrSuccess.fold(
+      (l) => state = StockState.failure(const Stock(), l),
+      (r) => state = StockState.updateSuccess(r),
+    );
+  }
+
+  Future<void> decreaseFreezeritem({
+    required String productID,
+    bool isloading = false,
+    required Stock stock,
+  }) async {
+    if (isloading) state = const StockState.inProgress(Stock());
+    Map<String, int> freezerList = Map.of(stock.freezerList);
+    freezerList[productID]! - 1 <= 0
+        ? freezerList.remove(productID)
+        : freezerList[productID] = freezerList[productID]! - 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: freezerList,
+      fridgeList: stock.fridgeList,
+      cupboardList: stock.cupboardList,
+    );
+    state = failureOrSuccess.fold(
+      (l) => state = StockState.failure(const Stock(), l),
+      (r) => state = StockState.updateSuccess(r),
+    );
+  }
+
+  Future<void> increaseCupboarditem({
+    required String productID,
+    bool isloading = false,
+    required Stock stock,
+  }) async {
+    if (isloading) state = const StockState.inProgress(Stock());
+    Map<String, int> cupboardList = Map.of(stock.cupboardList);
+    cupboardList[productID] = cupboardList[productID]! + 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: stock.freezerList,
+      fridgeList: stock.fridgeList,
+      cupboardList: cupboardList,
+    );
+    state = failureOrSuccess.fold(
+      (l) => state = StockState.failure(const Stock(), l),
+      (r) => state = StockState.updateSuccess(r),
+    );
+  }
+
+  Future<void> decreaseCupboarditem({
+    required String productID,
+    bool isloading = false,
+    required Stock stock,
+  }) async {
+    if (isloading) state = const StockState.inProgress(Stock());
+    Map<String, int> cupboardList = Map.of(stock.cupboardList);
+    cupboardList[productID]! - 1 <= 0
+        ? cupboardList.remove(productID)
+        : cupboardList[productID] = cupboardList[productID]! - 1;
+    final failureOrSuccess =
+        await _read(stockRepositoryProvider).updateStockitem(
+      stock: stock,
+      freezerList: stock.freezerList,
+      fridgeList: stock.fridgeList,
+      cupboardList: cupboardList,
+    );
     state = failureOrSuccess.fold(
       (l) => state = StockState.failure(const Stock(), l),
       (r) => state = StockState.updateSuccess(r),

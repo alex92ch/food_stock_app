@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
 import 'package:food_stock_app/application/stock/stock_notifier.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:food_stock_app/presentation/stock/widgets/cupboard_list.dart';
@@ -15,21 +16,16 @@ class StockPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
     final stockProvider = ref.watch(stockNotifierProvider);
-    final productsList = ref.watch(productsNotifierProvider).map(
-        initial: (_) {
-          ref.read(productsNotifierProvider.notifier).getProductList();
-          return _.productList;
-        },
-        loadSuccess: (_) => _.productList,
-        failure: (_) => _.productList,
-        inProgress: (_) {
-          ref.read(productsNotifierProvider.notifier).getProductList();
-          return _.productList;
-        },
-        deleteSuccess: (_) => _.productList,
-        createSuccess: (_) => _.productList,
-        undoDeleteProduct: (_) => _.productList,
-        updateSuccess: (_) => _.productList);
+    final productsList =
+        ref.watch(productsNotifierProvider).maybeMap(initial: (_) {
+      ref.read(productsNotifierProvider.notifier).getProductList();
+      return _.productList;
+    }, inProgress: (_) {
+      ref.read(productsNotifierProvider.notifier).getProductList();
+      return _.productList;
+    }, orElse: () {
+      return ref.watch(productsNotifierProvider).productList;
+    });
     return Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +41,7 @@ class StockPage extends HookConsumerWidget {
               loadSuccess: (_) {
                 return _.stock.fridgeList.isEmpty || productsList.isEmpty
                     ? const Text("Fridge is empty")
-                    : FridgeList(stock: _.stock, productList: productsList);
+                    : const FridgeList();
               },
               failure: (_) => const Text("Error"),
               inProgress: (_) {
@@ -55,12 +51,12 @@ class StockPage extends HookConsumerWidget {
               createSuccess: (_) {
                 return _.stock.fridgeList.isEmpty
                     ? const Text("Fridge is empty")
-                    : FridgeList(stock: _.stock, productList: productsList);
+                    : const FridgeList();
               },
               updateSuccess: (_) {
                 return _.stock.fridgeList.isEmpty
                     ? const Text("Fridge is empty")
-                    : FridgeList(stock: _.stock, productList: productsList);
+                    : const FridgeList();
               },
             )),
             const Text("Tiefkühler"),
@@ -73,7 +69,7 @@ class StockPage extends HookConsumerWidget {
               loadSuccess: (_) {
                 return _.stock.freezerList.isEmpty || productsList.isEmpty
                     ? const Text("Freezer is empty")
-                    : FreezerList(stock: _.stock, productList: productsList);
+                    : const FreezerList();
               },
               failure: (_) => const Text("Error"),
               inProgress: (_) {
@@ -83,12 +79,12 @@ class StockPage extends HookConsumerWidget {
               createSuccess: (_) {
                 return _.stock.freezerList.isEmpty || productsList.isEmpty
                     ? const Text("Freezer is empty")
-                    : FreezerList(stock: _.stock, productList: productsList);
+                    : const FreezerList();
               },
               updateSuccess: (_) {
                 return _.stock.freezerList.isEmpty || productsList.isEmpty
                     ? const Text("Freezer is empty")
-                    : FreezerList(stock: _.stock, productList: productsList);
+                    : const FreezerList();
               },
             )),
             const Text("Schrank"),
@@ -101,7 +97,7 @@ class StockPage extends HookConsumerWidget {
               loadSuccess: (_) {
                 return _.stock.cupboardList.isEmpty || productsList.isEmpty
                     ? const Text("Cupboard is empty")
-                    : CupboardList(stock: _.stock, productList: productsList);
+                    : const CupboardList();
               },
               failure: (_) => const Text("Error"),
               inProgress: (_) {
@@ -111,12 +107,12 @@ class StockPage extends HookConsumerWidget {
               createSuccess: (_) {
                 return _.stock.cupboardList.isEmpty
                     ? const Text("Cupboard is empty")
-                    : CupboardList(stock: _.stock, productList: productsList);
+                    : const CupboardList();
               },
               updateSuccess: (_) {
                 return _.stock.cupboardList.isEmpty
                     ? const Text("Cupboard is empty")
-                    : CupboardList(stock: _.stock, productList: productsList);
+                    : const CupboardList();
               },
             )),
           ],
