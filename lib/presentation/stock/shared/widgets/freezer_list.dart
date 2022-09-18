@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
 import 'package:food_stock_app/application/stock/stock_notifier.dart';
-import 'package:food_stock_app/presentation/stock/widgets/fridge_list_tile.dart';
+import 'package:food_stock_app/presentation/stock/shared/widgets/freezer_list_tile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class FridgeList extends HookConsumerWidget {
-  const FridgeList({Key? key}) : super(key: key);
+class FreezerList extends HookConsumerWidget {
+  const FreezerList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,10 +15,10 @@ class FridgeList extends HookConsumerWidget {
         width: 300,
         height: 200,
         child: ListView.builder(
-            itemCount: stock.fridgeList.length,
-            itemBuilder: ((context, index) => FridgeListTile(
+            itemCount: stock.freezerList.length,
+            itemBuilder: ((context, index) => FreezerListTile(
                   product: productList.firstWhere((element) =>
-                      element.id == stock.fridgeList.keys.elementAt(index)),
+                      element.id == stock.freezerList.keys.elementAt(index)),
                 ))));
   }
 }

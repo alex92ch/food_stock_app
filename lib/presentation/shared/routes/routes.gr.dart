@@ -66,6 +66,15 @@ class _$AppRouter extends RootStackRouter {
         barrierDismissible: false,
       );
     },
+    AddStockitemRoute.name: (routeData) {
+      return CustomPage<dynamic>(
+        routeData: routeData,
+        child: const AddStockitemPage(),
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
   };
 
   @override
@@ -90,11 +99,15 @@ class _$AppRouter extends RootStackRouter {
         ),
         RouteConfig(
           NewProductRoute.name,
-          path: '/new_product_page',
+          path: '/new_product',
         ),
         RouteConfig(
           EditProductRoute.name,
-          path: '/edit_product_page',
+          path: '/edit_product',
+        ),
+        RouteConfig(
+          AddStockitemRoute.name,
+          path: '/add_stockitem',
         ),
       ];
 }
@@ -141,7 +154,7 @@ class NewProductRoute extends PageRouteInfo<void> {
   const NewProductRoute()
       : super(
           NewProductRoute.name,
-          path: '/new_product_page',
+          path: '/new_product',
         );
 
   static const String name = 'NewProductRoute';
@@ -155,7 +168,7 @@ class EditProductRoute extends PageRouteInfo<EditProductRouteArgs> {
     required Product product,
   }) : super(
           EditProductRoute.name,
-          path: '/edit_product_page',
+          path: '/edit_product',
           args: EditProductRouteArgs(
             key: key,
             product: product,
@@ -179,4 +192,16 @@ class EditProductRouteArgs {
   String toString() {
     return 'EditProductRouteArgs{key: $key, product: $product}';
   }
+}
+
+/// generated route for
+/// [AddStockitemPage]
+class AddStockitemRoute extends PageRouteInfo<void> {
+  const AddStockitemRoute()
+      : super(
+          AddStockitemRoute.name,
+          path: '/add_stockitem',
+        );
+
+  static const String name = 'AddStockitemRoute';
 }

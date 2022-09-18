@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 
-class Menu extends StatelessWidget {
-  const Menu({
+class AddStockitemMenu extends StatelessWidget {
+  const AddStockitemMenu({
     Key? key,
     required this.router,
   }) : super(key: key);
@@ -13,13 +13,14 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SpeedDial(
-      icon: Icons.menu,
-      activeIcon: Icons.menu,
+      icon: Icons.add,
+      activeIcon: Icons.add,
       spacing: 3,
       // openCloseDial: isDialOpen,
       childPadding: const EdgeInsets.all(5),
       spaceBetweenChildren: 4,
       useRotationAnimation: false,
+      switchLabelPosition: true,
       // dialRoot: customDialRoot
       //     ? (ctx, open, toggleChildren) {
       //         return ElevatedButton(
@@ -60,7 +61,7 @@ class Menu extends StatelessWidget {
       onClose: () => {},
       //  useRotationAnimation: useRAnimation,
       tooltip: 'Open Speed Dial',
-      heroTag: 'speed-dial-menu-hero-tag',
+      heroTag: 'speed-dial-add-stockitem-menu-hero-tag',
       // foregroundColor: Colors.black,
       // backgroundColor: Colors.white,
       // activeForegroundColor: Colors.red,
@@ -75,26 +76,19 @@ class Menu extends StatelessWidget {
       // childMargin: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       children: [
         SpeedDialChild(
-          child: const Icon(Icons.kitchen_rounded),
+          child: const Icon(Icons.qr_code_scanner_rounded),
           // backgroundColor: Colors.red,
           // foregroundColor: Colors.white,
-          label: 'Lager',
+          label: 'Barcode',
           onTap: () {
-            router.push(const StockRoute());
-          },
-        ),
-        SpeedDialChild(
-          child: const Icon(Icons.add_shopping_cart_rounded),
-          label: 'Übersicht',
-          onTap: () {
-            router.push(const OverviewRoute());
+            //TODO needs implementation
           },
         ),
         SpeedDialChild(
           child: const Icon(Icons.settings),
           label: 'Stammdaten',
           onTap: () {
-            router.push(const BaseDataRoute());
+            //TODO needs implementation
           },
         ),
       ],
