@@ -24,6 +24,26 @@ class UnitOfMeasurementConverter
   }
 }
 
+// class StorageplaceConverter
+//     implements JsonConverter<Storageplace, Map<String, dynamic>> {
+//   const StorageplaceConverter();
+//   @override
+//   Storageplace fromJson(Map<String, dynamic> storagePlace) {
+//     return storagePlace['storagePlace'] == "fridge"
+//         ? Storageplace.fridge
+//         : storagePlace['storagePlace'] == "cupboard"
+//             ? Storageplace.cupboard
+//             : Storageplace.freezer;
+//   }
+
+//   @override
+//   Map<String, dynamic> toJson(Storageplace storagePlace) {
+//     return ({
+//       'storagePlace': storagePlace.toString().replaceAll("Storageplace.", ""),
+//     });
+//   }
+// }
+
 @freezed
 class ProductDTO with _$ProductDTO {
   const ProductDTO._();
@@ -32,9 +52,10 @@ class ProductDTO with _$ProductDTO {
     @Default('') String name,
     @Default(1) double threshold,
     @UnitOfMeasurementConverter()
-    @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram))
+    @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.liter))
         UnitOfMeasurement unitOfMeasurement,
-    @Default(Storageplace.fridge) Storageplace storageplace,
+    // @Default(Storageplace.cupboard)
+    required Storageplace storagePlace,
     @Default('') String description,
     @Default(false) bool image, //TODO needs implementation
     @Default(false) bool barcode, //TODO needs implementation
@@ -54,7 +75,7 @@ class ProductDTO with _$ProductDTO {
       name: product.name,
       threshold: product.threshold,
       unitOfMeasurement: product.unitOfMeasurement,
-      storageplace: product.storageplace,
+      storagePlace: product.storagePlace,
       description: product.description,
       image: product.image,
       barcode: product.barcode,
@@ -67,7 +88,7 @@ class ProductDTO with _$ProductDTO {
       name: name,
       threshold: threshold,
       unitOfMeasurement: unitOfMeasurement,
-      storageplace: storageplace,
+      storagePlace: storagePlace,
       description: description,
       image: image,
       barcode: barcode,
@@ -84,7 +105,7 @@ class ProductDTO with _$ProductDTO {
             .toString()
             .replaceAll("Measurement.", "")
       }),
-      'storagePlace': storageplace.toString().replaceAll("Storageplace.", ""),
+      'storagePlace': storagePlace.toString().replaceAll("Storageplace.", ""),
       'description': description,
       'image': image,
       'barcode': barcode,

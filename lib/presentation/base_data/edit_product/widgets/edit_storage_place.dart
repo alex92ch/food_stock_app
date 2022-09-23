@@ -19,25 +19,25 @@ class EditStoragePlace extends HookConsumerWidget {
               RadioListTile<Storageplace>(
                 title: const Text("Kühlschrank"),
                 value: Storageplace.fridge,
-                groupValue: _product.value.storageplace,
+                groupValue: _product.value.storagePlace,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storageplace: _!);
+                  _product.value = _product.value.copyWith(storagePlace: _!);
                 },
               ),
               RadioListTile<Storageplace>(
                 title: const Text("Tiefkühler"),
                 value: Storageplace.freezer,
-                groupValue: _product.value.storageplace,
+                groupValue: _product.value.storagePlace,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storageplace: _!);
+                  _product.value = _product.value.copyWith(storagePlace: _!);
                 },
               ),
               RadioListTile<Storageplace>(
                 title: const Text("Schrank"),
                 value: Storageplace.cupboard,
-                groupValue: _product.value.storageplace,
+                groupValue: _product.value.storagePlace,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storageplace: _!);
+                  _product.value = _product.value.copyWith(storagePlace: _!);
                 },
               )
             ],

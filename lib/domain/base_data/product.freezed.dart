@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of '../base_data/product.dart';
+part of 'product.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -20,7 +20,7 @@ mixin _$Product {
   String get name => throw _privateConstructorUsedError;
   double get threshold => throw _privateConstructorUsedError;
   UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
-  Storageplace get storageplace => throw _privateConstructorUsedError;
+  Storageplace get storagePlace => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
@@ -39,7 +39,7 @@ abstract class $ProductCopyWith<$Res> {
       String name,
       double threshold,
       UnitOfMeasurement unitOfMeasurement,
-      Storageplace storageplace,
+      Storageplace storagePlace,
       String description,
       bool image,
       bool barcode});
@@ -61,7 +61,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
-    Object? storageplace = freezed,
+    Object? storagePlace = freezed,
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
@@ -83,9 +83,9 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      storageplace: storageplace == freezed
-          ? _value.storageplace
-          : storageplace // ignore: cast_nullable_to_non_nullable
+      storagePlace: storagePlace == freezed
+          ? _value.storagePlace
+          : storagePlace // ignore: cast_nullable_to_non_nullable
               as Storageplace,
       description: description == freezed
           ? _value.description
@@ -121,7 +121,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String name,
       double threshold,
       UnitOfMeasurement unitOfMeasurement,
-      Storageplace storageplace,
+      Storageplace storagePlace,
       String description,
       bool image,
       bool barcode});
@@ -145,7 +145,7 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
-    Object? storageplace = freezed,
+    Object? storagePlace = freezed,
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
@@ -167,9 +167,9 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      storageplace: storageplace == freezed
-          ? _value.storageplace
-          : storageplace // ignore: cast_nullable_to_non_nullable
+      storagePlace: storagePlace == freezed
+          ? _value.storagePlace
+          : storagePlace // ignore: cast_nullable_to_non_nullable
               as Storageplace,
       description: description == freezed
           ? _value.description
@@ -196,7 +196,7 @@ class _$_Product extends _Product {
       this.threshold = 1,
       this.unitOfMeasurement =
           const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
-      this.storageplace = Storageplace.fridge,
+      this.storagePlace = Storageplace.cupboard,
       this.description = '',
       this.image = false,
       this.barcode = false})
@@ -216,7 +216,7 @@ class _$_Product extends _Product {
   final UnitOfMeasurement unitOfMeasurement;
   @override
   @JsonKey()
-  final Storageplace storageplace;
+  final Storageplace storagePlace;
   @override
   @JsonKey()
   final String description;
@@ -230,7 +230,7 @@ class _$_Product extends _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode)';
+    return 'Product(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, image: $image, barcode: $barcode)';
   }
 
   @override
@@ -244,7 +244,7 @@ class _$_Product extends _Product {
             const DeepCollectionEquality()
                 .equals(other.unitOfMeasurement, unitOfMeasurement) &&
             const DeepCollectionEquality()
-                .equals(other.storageplace, storageplace) &&
+                .equals(other.storagePlace, storagePlace) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.image, image) &&
@@ -258,7 +258,7 @@ class _$_Product extends _Product {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(threshold),
       const DeepCollectionEquality().hash(unitOfMeasurement),
-      const DeepCollectionEquality().hash(storageplace),
+      const DeepCollectionEquality().hash(storagePlace),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(barcode));
@@ -275,7 +275,7 @@ abstract class _Product extends Product {
       final String name,
       final double threshold,
       final UnitOfMeasurement unitOfMeasurement,
-      final Storageplace storageplace,
+      final Storageplace storagePlace,
       final String description,
       final bool image,
       final bool barcode}) = _$_Product;
@@ -290,7 +290,7 @@ abstract class _Product extends Product {
   @override
   UnitOfMeasurement get unitOfMeasurement;
   @override
-  Storageplace get storageplace;
+  Storageplace get storagePlace;
   @override
   String get description;
   @override
