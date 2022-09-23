@@ -1,7 +1,7 @@
 # FoodStock
 
 <p>A Flutter application to keep track of your food stock.</p>
-
+<br></br>
 ## Vision
 <p>The following shows the vision of the FoodStock application. It shows the different screens and the interaction between them. There might be various changes in the actual implementation of the app. (There is a full overview in docs/Overview.drawio)</p>
 <br></br>
