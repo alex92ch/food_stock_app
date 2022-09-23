@@ -24,8 +24,9 @@ mixin _$ProductDTO {
   String get name => throw _privateConstructorUsedError;
   double get threshold => throw _privateConstructorUsedError;
   @UnitOfMeasurementConverter()
-  UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
-  Storageplace get storageplace => throw _privateConstructorUsedError;
+  UnitOfMeasurement get unitOfMeasurement =>
+      throw _privateConstructorUsedError; // @Default(Storageplace.cupboard)
+  Storageplace get storagePlace => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
@@ -49,7 +50,7 @@ abstract class $ProductDTOCopyWith<$Res> {
       String name,
       double threshold,
       @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
-      Storageplace storageplace,
+      Storageplace storagePlace,
       String description,
       bool image,
       bool barcode,
@@ -72,7 +73,7 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
-    Object? storageplace = freezed,
+    Object? storagePlace = freezed,
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
@@ -95,9 +96,9 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      storageplace: storageplace == freezed
-          ? _value.storageplace
-          : storageplace // ignore: cast_nullable_to_non_nullable
+      storagePlace: storagePlace == freezed
+          ? _value.storagePlace
+          : storagePlace // ignore: cast_nullable_to_non_nullable
               as Storageplace,
       description: description == freezed
           ? _value.description
@@ -138,7 +139,7 @@ abstract class _$$_ProductDTOCopyWith<$Res>
       String name,
       double threshold,
       @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
-      Storageplace storageplace,
+      Storageplace storagePlace,
       String description,
       bool image,
       bool barcode,
@@ -164,7 +165,7 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
     Object? name = freezed,
     Object? threshold = freezed,
     Object? unitOfMeasurement = freezed,
-    Object? storageplace = freezed,
+    Object? storagePlace = freezed,
     Object? description = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
@@ -187,9 +188,9 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      storageplace: storageplace == freezed
-          ? _value.storageplace
-          : storageplace // ignore: cast_nullable_to_non_nullable
+      storagePlace: storagePlace == freezed
+          ? _value.storagePlace
+          : storagePlace // ignore: cast_nullable_to_non_nullable
               as Storageplace,
       description: description == freezed
           ? _value.description
@@ -219,8 +220,8 @@ class _$_ProductDTO extends _ProductDTO {
       this.name = '',
       this.threshold = 1,
       @UnitOfMeasurementConverter() this.unitOfMeasurement =
-          const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
-      this.storageplace = Storageplace.fridge,
+          const UnitOfMeasurement(amount: 0, measurement: Measurement.liter),
+      required this.storagePlace,
       this.description = '',
       this.image = false,
       this.barcode = false,
@@ -243,9 +244,9 @@ class _$_ProductDTO extends _ProductDTO {
   @JsonKey()
   @UnitOfMeasurementConverter()
   final UnitOfMeasurement unitOfMeasurement;
+// @Default(Storageplace.cupboard)
   @override
-  @JsonKey()
-  final Storageplace storageplace;
+  final Storageplace storagePlace;
   @override
   @JsonKey()
   final String description;
@@ -263,7 +264,7 @@ class _$_ProductDTO extends _ProductDTO {
 
   @override
   String toString() {
-    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storageplace: $storageplace, description: $description, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
+    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
   }
 
   @override
@@ -277,7 +278,7 @@ class _$_ProductDTO extends _ProductDTO {
             const DeepCollectionEquality()
                 .equals(other.unitOfMeasurement, unitOfMeasurement) &&
             const DeepCollectionEquality()
-                .equals(other.storageplace, storageplace) &&
+                .equals(other.storagePlace, storagePlace) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.image, image) &&
@@ -294,7 +295,7 @@ class _$_ProductDTO extends _ProductDTO {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(threshold),
       const DeepCollectionEquality().hash(unitOfMeasurement),
-      const DeepCollectionEquality().hash(storageplace),
+      const DeepCollectionEquality().hash(storagePlace),
       const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(barcode),
@@ -319,7 +320,7 @@ abstract class _ProductDTO extends ProductDTO {
       final String name,
       final double threshold,
       @UnitOfMeasurementConverter() final UnitOfMeasurement unitOfMeasurement,
-      final Storageplace storageplace,
+      required final Storageplace storagePlace,
       final String description,
       final bool image,
       final bool barcode,
@@ -338,8 +339,8 @@ abstract class _ProductDTO extends ProductDTO {
   @override
   @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement;
-  @override
-  Storageplace get storageplace;
+  @override // @Default(Storageplace.cupboard)
+  Storageplace get storagePlace;
   @override
   String get description;
   @override

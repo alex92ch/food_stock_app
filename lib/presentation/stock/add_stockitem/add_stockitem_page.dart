@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/application/stock/stock_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
-import 'package:food_stock_app/presentation/stock/add_stockitem/widgets/add_stockitem_list_tile.dart';
+import 'package:food_stock_app/presentation/stock/add_stockitem/widgets/add_stockitem_list.dart';
 import 'package:food_stock_app/presentation/stock/shared/widgets/add_stockitem_menu.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/cupboard_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AddStockitemPage extends HookConsumerWidget {
@@ -15,7 +13,7 @@ class AddStockitemPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
-    final productsList = ref.watch(productsNotifierProvider);
+    final productsProvider = ref.watch(productsNotifierProvider);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +21,7 @@ class AddStockitemPage extends HookConsumerWidget {
         children: [
           const Text("Kühlschrank"),
           Center(
-            child: productsList.maybeMap(
+            child: productsProvider.maybeMap(
               initial: (_) {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
@@ -32,18 +30,20 @@ class AddStockitemPage extends HookConsumerWidget {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               orElse: () {
-                return productsList.productList.isEmpty
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.fridge)
+                        .isEmpty
                     ? const Text("Fridge is empty")
-                    : AddStockitemListTile(
-                        storageplace: const Storageplace.fridge);
+                    : const AddStockitemList(storagePlace: Storageplace.fridge);
               },
             ),
           ),
           const Text("Tiefkühler"),
           Center(
-            child: productsList.maybeMap(
+            child: productsProvider.maybeMap(
               initial: (_) {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
@@ -52,18 +52,21 @@ class AddStockitemPage extends HookConsumerWidget {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               orElse: () {
-                return productsList.productList.isEmpty
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.freezer)
+                        .isEmpty
                     ? const Text("Freezer is empty")
-                    : AddStockitemListTile(
-                        storageplace: const Storageplace.freezer);
+                    : const AddStockitemList(
+                        storagePlace: Storageplace.freezer);
               },
             ),
           ),
           const Text("Schrank"),
           Center(
-            child: productsList.maybeMap(
+            child: productsProvider.maybeMap(
               initial: (_) {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
@@ -72,12 +75,15 @@ class AddStockitemPage extends HookConsumerWidget {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               orElse: () {
-                return productsList.productList.isEmpty
-                    ? const Text("Schrank is empty")
-                    : AddStockitemListTile(
-                        storageplace: const Storageplace.cupboard);
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.cupboard)
+                        .isEmpty
+                    ? const Text("Cupboard is empty")
+                    : const AddStockitemList(
+                        storagePlace: Storageplace.cupboard);
               },
             ),
           ),

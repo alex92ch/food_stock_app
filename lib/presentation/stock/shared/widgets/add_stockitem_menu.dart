@@ -88,7 +88,7 @@ class AddStockitemMenu extends StatelessWidget {
           child: const Icon(Icons.settings),
           label: 'Stammdaten',
           onTap: () {
-            //TODO needs implementation
+            router.push(const AddStockitemRoute());
           },
         ),
       ],

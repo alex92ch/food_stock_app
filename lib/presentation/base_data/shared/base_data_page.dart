@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list.dart';
 
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
@@ -18,35 +19,70 @@ class BaseDataPage extends HookConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text("Stammdaten"),
+          const Text("Kühlschrank"),
           Center(
-            child: productsProvider.map(
+            child: productsProvider.maybeMap(
               initial: (_) {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
               },
-              loadSuccess: (_) => _.productList.isEmpty
-                  ? const Text("Products list is empty")
-                  : BaseDataList(productList: _.productList),
               failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
                 ref.read(productsNotifierProvider.notifier).getProductList();
                 return const CircularProgressIndicator();
               },
-              createSuccess: (_) => _.productList.isEmpty
-                  ? const Text("Products list is empty")
-                  : BaseDataList(productList: _.productList),
-              deleteSuccess: (_) => _.productList.isEmpty
-                  ? const Text("Products list is empty")
-                  : BaseDataList(productList: _.productList),
-              undoDeleteProduct: (_) {
-                return _.productList.isEmpty
-                    ? const Text("Products list is empty")
-                    : BaseDataList(productList: _.productList);
+              orElse: () {
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.fridge)
+                        .isEmpty
+                    ? const Text("Fridge is empty")
+                    : const BaseDataList(storagePlace: Storageplace.fridge);
               },
-              updateSuccess: (_) => _.productList.isEmpty
-                  ? const Text("Products list is empty")
-                  : BaseDataList(productList: _.productList),
+            ),
+          ),
+          const Text("Tiefkühler"),
+          Center(
+            child: productsProvider.maybeMap(
+              initial: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              failure: (_) => const Text("Error"),
+              inProgress: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              orElse: () {
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.freezer)
+                        .isEmpty
+                    ? const Text("Freezer is empty")
+                    : const BaseDataList(storagePlace: Storageplace.freezer);
+              },
+            ),
+          ),
+          const Text("Schrank"),
+          Center(
+            child: productsProvider.maybeMap(
+              initial: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              failure: (_) => const Text("Error"),
+              inProgress: (_) {
+                ref.read(productsNotifierProvider.notifier).getProductList();
+                return const CircularProgressIndicator();
+              },
+              orElse: () {
+                return productsProvider.productList
+                        .where((element) =>
+                            element.storagePlace == Storageplace.cupboard)
+                        .isEmpty
+                    ? const Text("Cupboard is empty")
+                    : const BaseDataList(storagePlace: Storageplace.cupboard);
+              },
             ),
           ),
         ],

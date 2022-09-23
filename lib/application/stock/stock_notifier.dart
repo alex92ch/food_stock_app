@@ -61,14 +61,16 @@ class StockNotifier extends StateNotifier<StockState> {
     );
   }
 
-  Future<void> increaseFridgeitem({
+  Future<void> addFridgeitem({
     required String productID,
     bool isloading = false,
     required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
     Map<String, int> fridgeList = Map.of(stock.fridgeList);
-    fridgeList[productID] = fridgeList[productID]! + 1;
+    fridgeList[productID] == null
+        ? fridgeList[productID] = 1
+        : fridgeList[productID] = fridgeList[productID]! + 1;
     final failureOrSuccess =
         await _read(stockRepositoryProvider).updateStockitem(
       stock: stock,
@@ -105,14 +107,16 @@ class StockNotifier extends StateNotifier<StockState> {
     );
   }
 
-  Future<void> increaseFreezeritem({
+  Future<void> addFreezeritem({
     required String productID,
     bool isloading = false,
     required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
     Map<String, int> freezerList = Map.of(stock.freezerList);
-    freezerList[productID] = freezerList[productID]! + 1;
+    freezerList[productID] == null
+        ? freezerList[productID] = 1
+        : freezerList[productID] = freezerList[productID]! + 1;
     final failureOrSuccess =
         await _read(stockRepositoryProvider).updateStockitem(
       stock: stock,
@@ -149,14 +153,16 @@ class StockNotifier extends StateNotifier<StockState> {
     );
   }
 
-  Future<void> increaseCupboarditem({
+  Future<void> addCupboarditem({
     required String productID,
     bool isloading = false,
     required Stock stock,
   }) async {
     if (isloading) state = const StockState.inProgress(Stock());
     Map<String, int> cupboardList = Map.of(stock.cupboardList);
-    cupboardList[productID] = cupboardList[productID]! + 1;
+    cupboardList[productID] == null
+        ? cupboardList[productID] = 1
+        : cupboardList[productID] = cupboardList[productID]! + 1;
     final failureOrSuccess =
         await _read(stockRepositoryProvider).updateStockitem(
       stock: stock,

@@ -5,22 +5,28 @@ import 'package:food_stock_app/presentation/stock/add_stockitem/widgets/add_stoc
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AddStockitemList extends HookConsumerWidget {
-  final Storageplace storageplace;
+  final Storageplace storagePlace;
   const AddStockitemList({
     Key? key,
-    required this.storageplace,
+    required this.storagePlace,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productsList = ref.watch(productsNotifierProvider);
+    final productList = ref
+        .watch(productsNotifierProvider)
+        .productList
+        .where((element) => element.storagePlace == storagePlace)
+        .toList();
     return SizedBox(
         width: 300,
         height: 300,
         child: ListView.builder(
-            itemCount: storageplace  == Storageplace.fridge ? productsList.productList. : storageplace == Storageplace.freezer ? ://productList.length,
-            itemBuilder: ((context, index) =>
-                AddStockitemListTile(index: index, productList: productList)))
+            itemCount: productList.length,
+            itemBuilder: ((context, index) => AddStockitemListTile(
+                index: index,
+                productList: productList,
+                storagePlace: storagePlace)))
 
         //
         // Text(productsProvider.productList[index].name)),

@@ -12,13 +12,10 @@ _$_ProductDTO _$$_ProductDTOFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String? ?? '',
       threshold: (json['threshold'] as num?)?.toDouble() ?? 1,
       unitOfMeasurement: json['unitOfMeasurement'] == null
-          ? const UnitOfMeasurement(
-              amount: 0, measurement: Measurement.kilogram)
+          ? const UnitOfMeasurement(amount: 0, measurement: Measurement.liter)
           : const UnitOfMeasurementConverter()
               .fromJson(json['unitOfMeasurement'] as Map<String, dynamic>),
-      storageplace:
-          $enumDecodeNullable(_$StorageplaceEnumMap, json['storageplace']) ??
-              Storageplace.fridge,
+      storagePlace: $enumDecode(_$StorageplaceEnumMap, json['storagePlace']),
       description: json['description'] as String? ?? '',
       image: json['image'] as bool? ?? false,
       barcode: json['barcode'] as bool? ?? false,
@@ -32,7 +29,7 @@ Map<String, dynamic> _$$_ProductDTOToJson(_$_ProductDTO instance) =>
       'threshold': instance.threshold,
       'unitOfMeasurement':
           const UnitOfMeasurementConverter().toJson(instance.unitOfMeasurement),
-      'storageplace': _$StorageplaceEnumMap[instance.storageplace]!,
+      'storagePlace': _$StorageplaceEnumMap[instance.storagePlace]!,
       'description': instance.description,
       'image': instance.image,
       'barcode': instance.barcode,

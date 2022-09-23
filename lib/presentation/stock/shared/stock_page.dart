@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
 import 'package:food_stock_app/application/stock/stock_notifier.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:food_stock_app/presentation/stock/shared/widgets/add_stockitem_menu.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/cupboard_list.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/freezer_list.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/fridge_list.dart';
+import 'package:food_stock_app/presentation/stock/shared/widgets/stock_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class StockPage extends HookConsumerWidget {
@@ -38,7 +37,7 @@ class StockPage extends HookConsumerWidget {
                 ref.read(stockNotifierProvider.notifier).getStock();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
                 ref.read(stockNotifierProvider.notifier).getStock();
                 return const CircularProgressIndicator();
@@ -47,7 +46,7 @@ class StockPage extends HookConsumerWidget {
                 return stockProvider.stock.fridgeList.isEmpty ||
                         productsList.isEmpty
                     ? const Text("Fridge is empty")
-                    : const FridgeList();
+                    : const StockList(storagePlace: Storageplace.fridge);
               },
             ),
           ),
@@ -67,7 +66,7 @@ class StockPage extends HookConsumerWidget {
                     return stockProvider.stock.freezerList.isEmpty ||
                             productsList.isEmpty
                         ? const Text("Freezer is empty")
-                        : const FreezerList();
+                        : const StockList(storagePlace: Storageplace.freezer);
                   })),
           const Text("Schrank"),
           Center(
@@ -84,7 +83,7 @@ class StockPage extends HookConsumerWidget {
                   orElse: () {
                     return stockProvider.stock.cupboardList.isEmpty
                         ? const Text("Cupboard is empty")
-                        : const CupboardList();
+                        : const StockList(storagePlace: Storageplace.cupboard);
                   })),
         ],
       ),
