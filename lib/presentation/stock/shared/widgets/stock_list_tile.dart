@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
 import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
+import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -43,6 +45,12 @@ class StockListTile extends HookConsumerWidget {
                         .read(freezerItemNotifierProvider.notifier)
                         .addFreezerItem(
                             product: product, freezerItemList: freezerItemList);
+            await ref
+                .read(outOfStockNotifierProvider.notifier)
+                .getOutOfStockList();
+            await ref
+                .read(almostOutOfStockNotifierProvider.notifier)
+                .getAlmostOutOfStockList();
           },
           icon: const Icon(Icons.add)),
       title: Text(product.name),
@@ -68,6 +76,12 @@ class StockListTile extends HookConsumerWidget {
                         .read(freezerItemNotifierProvider.notifier)
                         .decreaseFreezerItem(
                             product: product, freezerItemList: freezerItemList);
+            await ref
+                .read(outOfStockNotifierProvider.notifier)
+                .getOutOfStockList();
+            await ref
+                .read(almostOutOfStockNotifierProvider.notifier)
+                .getAlmostOutOfStockList();
           },
           icon: const Icon(Icons.remove)),
     );

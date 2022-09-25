@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
+import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
 import 'package:food_stock_app/domain/stock/fridge_item.dart';
@@ -55,7 +56,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
     final failureOrSuccess =
         await _read(fridgeItemRepositoryProvider).getFridgeItemList();
     final productList = await _read(productRepositoryProvider).getProductList();
-    productList.fold((l) => FridgeItemState.failure([], l), (productList) {
+    productList.fold((l) => state = FridgeItemState.failure([], l),
+        (productList) {
       state = failureOrSuccess.fold(
         (l) => state = FridgeItemState.failure([], l),
         (r) => state = FridgeItemState.loadSuccess(r.map((fridgeItem) {
