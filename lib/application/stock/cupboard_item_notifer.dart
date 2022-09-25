@@ -54,7 +54,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
     final failureOrSuccess =
         await _read(cupboardItemRepositoryProvider).getCupboardItemList();
     final productList = await _read(productRepositoryProvider).getProductList();
-    productList.fold((l) => CupboardItemState.failure([], l), (productList) {
+    productList.fold((l) => state = CupboardItemState.failure([], l),
+        (productList) {
       state = failureOrSuccess.fold(
         (l) => state = CupboardItemState.failure([], l),
         (r) => state = CupboardItemState.loadSuccess(r.map((cupboardItem) {

@@ -54,7 +54,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
     final failureOrSuccess =
         await _read(freezerItemRepositoryProvider).getFreezerItemList();
     final productList = await _read(productRepositoryProvider).getProductList();
-    productList.fold((l) => FreezerItemState.failure([], l), (productList) {
+    productList.fold((l) => state = FreezerItemState.failure([], l),
+        (productList) {
       state = failureOrSuccess.fold(
         (l) => state = FreezerItemState.failure([], l),
         (r) => state = FreezerItemState.loadSuccess(r.map((freezerItem) {
