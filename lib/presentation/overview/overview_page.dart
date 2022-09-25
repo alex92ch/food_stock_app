@@ -9,6 +9,7 @@ class OverviewPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
+
     return Scaffold(
       body: const Center(
         child: Text("Übersicht"),

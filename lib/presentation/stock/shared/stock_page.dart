@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/application/stock/stock_notifier.dart';
+import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
@@ -14,17 +15,9 @@ class StockPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
-    final stockProvider = ref.watch(stockNotifierProvider);
-    final productsList =
-        ref.watch(productsNotifierProvider).maybeMap(initial: (_) {
-      ref.read(productsNotifierProvider.notifier).getProductList();
-      return _.productList;
-    }, inProgress: (_) {
-      ref.read(productsNotifierProvider.notifier).getProductList();
-      return _.productList;
-    }, orElse: () {
-      return ref.watch(productsNotifierProvider).productList;
-    });
+    final fridgeItemProvider = ref.watch(fridgeItemNotifierProvider);
+    final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
+    final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,19 +25,20 @@ class StockPage extends HookConsumerWidget {
         children: [
           const Text("Kühlschrank"),
           Center(
-            child: stockProvider.maybeMap(
+            child: fridgeItemProvider.maybeMap(
               initial: (_) {
-                ref.read(stockNotifierProvider.notifier).getStock();
+                ref
+                    .read(fridgeItemNotifierProvider.notifier)
+                    .getFridgeItemList();
                 return const CircularProgressIndicator();
               },
               failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
-                ref.read(stockNotifierProvider.notifier).getStock();
+                //TODO may needs get list
                 return const CircularProgressIndicator();
               },
               orElse: () {
-                return stockProvider.stock.fridgeList.isEmpty ||
-                        productsList.isEmpty
+                return fridgeItemProvider.fridgeItemList.isEmpty
                     ? const Text("Fridge is empty")
                     : const StockList(storagePlace: Storageplace.fridge);
               },
@@ -52,36 +46,39 @@ class StockPage extends HookConsumerWidget {
           ),
           const Text("Tiefkühler"),
           Center(
-              child: stockProvider.maybeMap(
+              child: freezerItemProvider.maybeMap(
                   initial: (_) {
-                    ref.read(stockNotifierProvider.notifier).getStock();
+                    ref
+                        .read(freezerItemNotifierProvider.notifier)
+                        .getFreezerItemList();
                     return const CircularProgressIndicator();
                   },
                   failure: (_) => const Text("Error"),
                   inProgress: (_) {
-                    ref.read(stockNotifierProvider.notifier).getStock();
+                    //TODO may needs get list
                     return const CircularProgressIndicator();
                   },
                   orElse: () {
-                    return stockProvider.stock.freezerList.isEmpty ||
-                            productsList.isEmpty
+                    return freezerItemProvider.freezerItemList.isEmpty
                         ? const Text("Freezer is empty")
                         : const StockList(storagePlace: Storageplace.freezer);
                   })),
           const Text("Schrank"),
           Center(
-              child: stockProvider.maybeMap(
+              child: cupboardItemProvider.maybeMap(
                   initial: (_) {
-                    ref.read(stockNotifierProvider.notifier).getStock();
+                    ref
+                        .read(cupboardItemNotifierProvider.notifier)
+                        .getCupboardItemList();
                     return const CircularProgressIndicator();
                   },
                   failure: (_) => const Text("Error"),
                   inProgress: (_) {
-                    ref.read(stockNotifierProvider.notifier).getStock();
+                    //TODO may needs get list
                     return const CircularProgressIndicator();
                   },
                   orElse: () {
-                    return stockProvider.stock.cupboardList.isEmpty
+                    return cupboardItemProvider.cupboardItemList.isEmpty
                         ? const Text("Cupboard is empty")
                         : const StockList(storagePlace: Storageplace.cupboard);
                   })),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/stock/stock_notifier.dart';
+import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
@@ -19,7 +21,11 @@ class AddStockitemListTile extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
-    final stock = ref.watch(stockNotifierProvider).stock;
+    final fridgeItemList = ref.watch(fridgeItemNotifierProvider).fridgeItemList;
+    final freezerItemList =
+        ref.watch(freezerItemNotifierProvider).freezerItemList;
+    final cupboardItemList =
+        ref.watch(cupboardItemNotifierProvider).cupboardItemList;
     final product = productList[index];
     // return Slidable(
     //     key: ValueKey(productList[index].id),
@@ -50,17 +56,20 @@ class AddStockitemListTile extends HookConsumerWidget {
       onTap: () async {
         storagePlace == Storageplace.freezer
             ? await ref
-                .read(stockNotifierProvider.notifier)
-                .addFreezeritem(productID: product.id, stock: stock)
+                .read(freezerItemNotifierProvider.notifier)
+                .addFreezerItem(
+                    product: product, freezerItemList: freezerItemList)
             : storagePlace == Storageplace.fridge
                 ? await ref
-                    .read(stockNotifierProvider.notifier)
-                    .addFridgeitem(productID: product.id, stock: stock)
+                    .read(fridgeItemNotifierProvider.notifier)
+                    .addFridgeItem(
+                        product: product, fridgeItemList: fridgeItemList)
                 : await ref
-                    .read(stockNotifierProvider.notifier)
-                    .addCupboarditem(productID: product.id, stock: stock);
+                    .read(cupboardItemNotifierProvider.notifier)
+                    .addCupboardItem(
+                        product: product, cupboardItemList: cupboardItemList);
         //TODO add notification
-        router.popUntilRouteWithName('AddStockitemRoute');
+        router.popUntilRouteWithName('StockRoute');
       },
     );
   }
