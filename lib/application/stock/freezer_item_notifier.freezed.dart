@@ -16,48 +16,39 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FreezerItemState {
-  List<FreezerItem> get freezerItemList => throw _privateConstructorUsedError;
+  List<Product> get freezerItemList => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,9 +58,7 @@ mixin _$FreezerItemState {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -79,9 +68,7 @@ mixin _$FreezerItemState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -91,9 +78,7 @@ mixin _$FreezerItemState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) =>
@@ -109,7 +94,7 @@ abstract class $FreezerItemStateCopyWith<$Res> {
   factory $FreezerItemStateCopyWith(
           FreezerItemState value, $Res Function(FreezerItemState) then) =
       _$FreezerItemStateCopyWithImpl<$Res>;
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -129,7 +114,7 @@ class _$FreezerItemStateCopyWithImpl<$Res>
       freezerItemList: freezerItemList == freezed
           ? _value.freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -141,7 +126,7 @@ abstract class _$$_InitialCopyWith<$Res>
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -162,7 +147,7 @@ class __$$_InitialCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -170,13 +155,13 @@ class __$$_InitialCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial extends _Initial {
-  const _$_Initial(final List<FreezerItem> freezerItemList)
+  const _$_Initial(final List<Product> freezerItemList)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -207,17 +192,14 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return initial(freezerItemList);
   }
@@ -225,16 +207,13 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return initial?.call(freezerItemList);
   }
@@ -242,16 +221,13 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -267,9 +243,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return initial(this);
@@ -282,9 +256,7 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return initial?.call(this);
@@ -297,9 +269,7 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -311,11 +281,11 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends FreezerItemState {
-  const factory _Initial(final List<FreezerItem> freezerItemList) = _$_Initial;
+  const factory _Initial(final List<Product> freezerItemList) = _$_Initial;
   const _Initial._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -329,7 +299,7 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -351,7 +321,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -359,13 +329,13 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSuccess extends _LoadSuccess {
-  const _$_LoadSuccess(final List<FreezerItem> freezerItemList)
+  const _$_LoadSuccess(final List<Product> freezerItemList)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -396,17 +366,14 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return loadSuccess(freezerItemList);
   }
@@ -414,16 +381,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return loadSuccess?.call(freezerItemList);
   }
@@ -431,16 +395,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -456,9 +417,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return loadSuccess(this);
@@ -471,9 +430,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return loadSuccess?.call(this);
@@ -486,9 +443,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -500,12 +455,12 @@ class _$_LoadSuccess extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends FreezerItemState {
-  const factory _LoadSuccess(final List<FreezerItem> freezerItemList) =
+  const factory _LoadSuccess(final List<Product> freezerItemList) =
       _$_LoadSuccess;
   const _LoadSuccess._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   @override
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
@@ -519,7 +474,7 @@ abstract class _$$_FailureCopyWith<$Res>
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList, DatabaseFailure failure});
+  $Res call({List<Product> freezerItemList, DatabaseFailure failure});
 
   $DatabaseFailureCopyWith<$Res> get failure;
 }
@@ -543,7 +498,7 @@ class __$$_FailureCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -562,13 +517,13 @@ class __$$_FailureCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failure extends _Failure {
-  const _$_Failure(final List<FreezerItem> freezerItemList, this.failure)
+  const _$_Failure(final List<Product> freezerItemList, this.failure)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -605,17 +560,14 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return failure(freezerItemList, this.failure);
   }
@@ -623,16 +575,13 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return failure?.call(freezerItemList, this.failure);
   }
@@ -640,16 +589,13 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -665,9 +611,7 @@ class _$_Failure extends _Failure {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return failure(this);
@@ -680,9 +624,7 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return failure?.call(this);
@@ -695,9 +637,7 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -709,12 +649,13 @@ class _$_Failure extends _Failure {
 }
 
 abstract class _Failure extends FreezerItemState {
-  const factory _Failure(final List<FreezerItem> freezerItemList,
-      final DatabaseFailure failure) = _$_Failure;
+  const factory _Failure(
+          final List<Product> freezerItemList, final DatabaseFailure failure) =
+      _$_Failure;
   const _Failure._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   DatabaseFailure get failure;
   @override
   @JsonKey(ignore: true)
@@ -729,7 +670,7 @@ abstract class _$$_InProgressCopyWith<$Res>
           _$_InProgress value, $Res Function(_$_InProgress) then) =
       __$$_InProgressCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -751,7 +692,7 @@ class __$$_InProgressCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -759,13 +700,13 @@ class __$$_InProgressCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InProgress extends _InProgress {
-  const _$_InProgress(final List<FreezerItem> freezerItemList)
+  const _$_InProgress(final List<Product> freezerItemList)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -796,17 +737,14 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return inProgress(freezerItemList);
   }
@@ -814,16 +752,13 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return inProgress?.call(freezerItemList);
   }
@@ -831,16 +766,13 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -856,9 +788,7 @@ class _$_InProgress extends _InProgress {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return inProgress(this);
@@ -871,9 +801,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return inProgress?.call(this);
@@ -886,9 +814,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -900,205 +826,15 @@ class _$_InProgress extends _InProgress {
 }
 
 abstract class _InProgress extends FreezerItemState {
-  const factory _InProgress(final List<FreezerItem> freezerItemList) =
+  const factory _InProgress(final List<Product> freezerItemList) =
       _$_InProgress;
   const _InProgress._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   @override
   @JsonKey(ignore: true)
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res>
-    implements $FreezerItemStateCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
-  @override
-  $Res call({List<FreezerItem> freezerItemList});
-}
-
-/// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$FreezerItemStateCopyWithImpl<$Res>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DeleteSuccess));
-
-  @override
-  _$_DeleteSuccess get _value => super._value as _$_DeleteSuccess;
-
-  @override
-  $Res call({
-    Object? freezerItemList = freezed,
-  }) {
-    return _then(_$_DeleteSuccess(
-      freezerItemList == freezed
-          ? _value._freezerItemList
-          : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_DeleteSuccess extends _DeleteSuccess {
-  const _$_DeleteSuccess(final List<FreezerItem> freezerItemList)
-      : _freezerItemList = freezerItemList,
-        super._();
-
-  final List<FreezerItem> _freezerItemList;
-  @override
-  List<FreezerItem> get freezerItemList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_freezerItemList);
-  }
-
-  @override
-  String toString() {
-    return 'FreezerItemState.deleteSuccess(freezerItemList: $freezerItemList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DeleteSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._freezerItemList, _freezerItemList));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_freezerItemList));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
-      __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
-    required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
-  }) {
-    return deleteSuccess(freezerItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
-  }) {
-    return deleteSuccess?.call(freezerItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(freezerItemList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
-    required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
-    required TResult Function(_UpdateSuccess value) updateSuccess,
-  }) {
-    return deleteSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-  }) {
-    return deleteSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DeleteSuccess extends FreezerItemState {
-  const factory _DeleteSuccess(final List<FreezerItem> freezerItemList) =
-      _$_DeleteSuccess;
-  const _DeleteSuccess._() : super._();
-
-  @override
-  List<FreezerItem> get freezerItemList;
-  @override
-  @JsonKey(ignore: true)
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1109,7 +845,7 @@ abstract class _$$_CreateSuccessCopyWith<$Res>
           _$_CreateSuccess value, $Res Function(_$_CreateSuccess) then) =
       __$$_CreateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -1131,7 +867,7 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -1139,13 +875,13 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CreateSuccess extends _CreateSuccess {
-  const _$_CreateSuccess(final List<FreezerItem> freezerItemList)
+  const _$_CreateSuccess(final List<Product> freezerItemList)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -1176,17 +912,14 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return createSuccess(freezerItemList);
   }
@@ -1194,16 +927,13 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return createSuccess?.call(freezerItemList);
   }
@@ -1211,16 +941,13 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
@@ -1236,9 +963,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return createSuccess(this);
@@ -1251,9 +976,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return createSuccess?.call(this);
@@ -1266,9 +989,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -1280,206 +1001,15 @@ class _$_CreateSuccess extends _CreateSuccess {
 }
 
 abstract class _CreateSuccess extends FreezerItemState {
-  const factory _CreateSuccess(final List<FreezerItem> freezerItemList) =
+  const factory _CreateSuccess(final List<Product> freezerItemList) =
       _$_CreateSuccess;
   const _CreateSuccess._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_UndoDeleteSuccessCopyWith<$Res>
-    implements $FreezerItemStateCopyWith<$Res> {
-  factory _$$_UndoDeleteSuccessCopyWith(_$_UndoDeleteSuccess value,
-          $Res Function(_$_UndoDeleteSuccess) then) =
-      __$$_UndoDeleteSuccessCopyWithImpl<$Res>;
-  @override
-  $Res call({List<FreezerItem> freezerItemList});
-}
-
-/// @nodoc
-class __$$_UndoDeleteSuccessCopyWithImpl<$Res>
-    extends _$FreezerItemStateCopyWithImpl<$Res>
-    implements _$$_UndoDeleteSuccessCopyWith<$Res> {
-  __$$_UndoDeleteSuccessCopyWithImpl(
-      _$_UndoDeleteSuccess _value, $Res Function(_$_UndoDeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_UndoDeleteSuccess));
-
-  @override
-  _$_UndoDeleteSuccess get _value => super._value as _$_UndoDeleteSuccess;
-
-  @override
-  $Res call({
-    Object? freezerItemList = freezed,
-  }) {
-    return _then(_$_UndoDeleteSuccess(
-      freezerItemList == freezed
-          ? _value._freezerItemList
-          : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
-  const _$_UndoDeleteSuccess(final List<FreezerItem> freezerItemList)
-      : _freezerItemList = freezerItemList,
-        super._();
-
-  final List<FreezerItem> _freezerItemList;
-  @override
-  List<FreezerItem> get freezerItemList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_freezerItemList);
-  }
-
-  @override
-  String toString() {
-    return 'FreezerItemState.undoDeleteFreezerItem(freezerItemList: $freezerItemList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_UndoDeleteSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._freezerItemList, _freezerItemList));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_freezerItemList));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
-      __$$_UndoDeleteSuccessCopyWithImpl<_$_UndoDeleteSuccess>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
-    required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
-  }) {
-    return undoDeleteFreezerItem(freezerItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
-  }) {
-    return undoDeleteFreezerItem?.call(freezerItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (undoDeleteFreezerItem != null) {
-      return undoDeleteFreezerItem(freezerItemList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
-    required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
-    required TResult Function(_UpdateSuccess value) updateSuccess,
-  }) {
-    return undoDeleteFreezerItem(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-  }) {
-    return undoDeleteFreezerItem?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (undoDeleteFreezerItem != null) {
-      return undoDeleteFreezerItem(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UndoDeleteSuccess extends FreezerItemState {
-  const factory _UndoDeleteSuccess(final List<FreezerItem> freezerItemList) =
-      _$_UndoDeleteSuccess;
-  const _UndoDeleteSuccess._() : super._();
-
-  @override
-  List<FreezerItem> get freezerItemList;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1490,7 +1020,7 @@ abstract class _$$_UpdateSuccessCopyWith<$Res>
           _$_UpdateSuccess value, $Res Function(_$_UpdateSuccess) then) =
       __$$_UpdateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FreezerItem> freezerItemList});
+  $Res call({List<Product> freezerItemList});
 }
 
 /// @nodoc
@@ -1512,7 +1042,7 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
       freezerItemList == freezed
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
-              as List<FreezerItem>,
+              as List<Product>,
     ));
   }
 }
@@ -1520,13 +1050,13 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateSuccess extends _UpdateSuccess {
-  const _$_UpdateSuccess(final List<FreezerItem> freezerItemList)
+  const _$_UpdateSuccess(final List<Product> freezerItemList)
       : _freezerItemList = freezerItemList,
         super._();
 
-  final List<FreezerItem> _freezerItemList;
+  final List<Product> _freezerItemList;
   @override
-  List<FreezerItem> get freezerItemList {
+  List<Product> get freezerItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -1557,17 +1087,14 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FreezerItem> freezerItemList) initial,
-    required TResult Function(List<FreezerItem> freezerItemList) loadSuccess,
+    required TResult Function(List<Product> freezerItemList) initial,
+    required TResult Function(List<Product> freezerItemList) loadSuccess,
     required TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)
+            List<Product> freezerItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FreezerItem> freezerItemList) inProgress,
-    required TResult Function(List<FreezerItem> freezerItemList) deleteSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList) createSuccess,
-    required TResult Function(List<FreezerItem> freezerItemList)
-        undoDeleteFreezerItem,
-    required TResult Function(List<FreezerItem> freezerItemList) updateSuccess,
+    required TResult Function(List<Product> freezerItemList) inProgress,
+    required TResult Function(List<Product> freezerItemList) createSuccess,
+    required TResult Function(List<Product> freezerItemList) updateSuccess,
   }) {
     return updateSuccess(freezerItemList);
   }
@@ -1575,16 +1102,13 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
   }) {
     return updateSuccess?.call(freezerItemList);
   }
@@ -1592,16 +1116,13 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FreezerItem> freezerItemList)? initial,
-    TResult Function(List<FreezerItem> freezerItemList)? loadSuccess,
-    TResult Function(
-            List<FreezerItem> freezerItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> freezerItemList)? initial,
+    TResult Function(List<Product> freezerItemList)? loadSuccess,
+    TResult Function(List<Product> freezerItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FreezerItem> freezerItemList)? inProgress,
-    TResult Function(List<FreezerItem> freezerItemList)? deleteSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? createSuccess,
-    TResult Function(List<FreezerItem> freezerItemList)? undoDeleteFreezerItem,
-    TResult Function(List<FreezerItem> freezerItemList)? updateSuccess,
+    TResult Function(List<Product> freezerItemList)? inProgress,
+    TResult Function(List<Product> freezerItemList)? createSuccess,
+    TResult Function(List<Product> freezerItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (updateSuccess != null) {
@@ -1617,9 +1138,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFreezerItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return updateSuccess(this);
@@ -1632,9 +1151,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return updateSuccess?.call(this);
@@ -1647,9 +1164,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFreezerItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -1661,12 +1176,12 @@ class _$_UpdateSuccess extends _UpdateSuccess {
 }
 
 abstract class _UpdateSuccess extends FreezerItemState {
-  const factory _UpdateSuccess(final List<FreezerItem> freezerItemList) =
+  const factory _UpdateSuccess(final List<Product> freezerItemList) =
       _$_UpdateSuccess;
   const _UpdateSuccess._() : super._();
 
   @override
-  List<FreezerItem> get freezerItemList;
+  List<Product> get freezerItemList;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>

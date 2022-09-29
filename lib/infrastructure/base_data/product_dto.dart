@@ -24,39 +24,20 @@ class UnitOfMeasurementConverter
   }
 }
 
-// class StorageplaceConverter
-//     implements JsonConverter<Storageplace, Map<String, dynamic>> {
-//   const StorageplaceConverter();
-//   @override
-//   Storageplace fromJson(Map<String, dynamic> storagePlace) {
-//     return storagePlace['storagePlace'] == "fridge"
-//         ? Storageplace.fridge
-//         : storagePlace['storagePlace'] == "cupboard"
-//             ? Storageplace.cupboard
-//             : Storageplace.freezer;
-//   }
-
-//   @override
-//   Map<String, dynamic> toJson(Storageplace storagePlace) {
-//     return ({
-//       'storagePlace': storagePlace.toString().replaceAll("Storageplace.", ""),
-//     });
-//   }
-// }
-
 @freezed
 class ProductDTO with _$ProductDTO {
   const ProductDTO._();
   const factory ProductDTO({
     @Default('') String id,
     @Default('') String name,
-    @Default(1) double threshold,
+    @Default(1) int threshold,
     @UnitOfMeasurementConverter()
     @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.liter))
         UnitOfMeasurement unitOfMeasurement,
     // @Default(Storageplace.cupboard)
     required Storageplace storagePlace,
     @Default('') String description,
+    @Default(0) int amount,
     @Default(false) bool image, //TODO needs implementation
     @Default(false) bool barcode, //TODO needs implementation
     @Default('') String nameInsensitive,
@@ -76,6 +57,7 @@ class ProductDTO with _$ProductDTO {
       threshold: product.threshold,
       unitOfMeasurement: product.unitOfMeasurement,
       storagePlace: product.storagePlace,
+      amount: product.amount,
       description: product.description,
       image: product.image,
       barcode: product.barcode,
@@ -90,6 +72,7 @@ class ProductDTO with _$ProductDTO {
       unitOfMeasurement: unitOfMeasurement,
       storagePlace: storagePlace,
       description: description,
+      amount: amount,
       image: image,
       barcode: barcode,
     );
@@ -105,6 +88,7 @@ class ProductDTO with _$ProductDTO {
             .toString()
             .replaceAll("Measurement.", "")
       }),
+      'amount': amount,
       'storagePlace': storagePlace.toString().replaceAll("Storageplace.", ""),
       'description': description,
       'image': image,

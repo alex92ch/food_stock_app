@@ -36,16 +36,16 @@ class AddStockitemListTile extends HookConsumerWidget {
         storagePlace == Storageplace.freezer
             ? await ref
                 .read(freezerItemNotifierProvider.notifier)
-                .addFreezerItem(
+                .createFreezerItem(
                     product: product, freezerItemList: freezerItemList)
             : storagePlace == Storageplace.fridge
                 ? await ref
                     .read(fridgeItemNotifierProvider.notifier)
-                    .addFridgeItem(
+                    .createFridgeItem(
                         product: product, fridgeItemList: fridgeItemList)
                 : await ref
                     .read(cupboardItemNotifierProvider.notifier)
-                    .addCupboardItem(
+                    .createCupboardItem(
                         product: product, cupboardItemList: cupboardItemList);
         await ref.read(outOfStockNotifierProvider.notifier).getOutOfStockList();
         await ref

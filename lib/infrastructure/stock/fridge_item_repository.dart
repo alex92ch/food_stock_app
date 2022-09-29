@@ -1,65 +1,43 @@
 import 'package:dartz/dartz.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
-import 'package:food_stock_app/domain/stock/fridge_item.dart';
+import 'package:food_stock_app/infrastructure/base_data/product_dto.dart';
 import 'package:food_stock_app/infrastructure/shared/firebase_providers.dart';
-import 'package:food_stock_app/infrastructure/stock/fridge_item_dto.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 //Repository
 final fridgeItemRepositoryProvider =
-    Provider<FridgeItemRepository>((ref) => FridgeItemRepository(ref.read));
+    Provider<ProductRepository>((ref) => ProductRepository(ref.read));
 
-final firebaseFirestoreFridgeItemProvider =
+final firebaseFirestoreProductProvider =
     Provider.autoDispose<FirebaseFirestore>((ref) {
   return ref.read(firebaseFirestoreProvider);
 });
 
-abstract class BaseFridgeItemRepository {
-  Future<Either<DatabaseFailure, List<FridgeItem>>> getFridgeItemList();
-
-  Future<Either<DatabaseFailure, FridgeItem>> updateFridgeItem({
-    required FridgeItem fridgeItem,
-  });
+abstract class BaseProductRepository {
+  Future<Either<DatabaseFailure, List<Product>>> getFridgeItemList();
 }
 
-class FridgeItemRepository implements BaseFridgeItemRepository {
+class ProductRepository implements BaseProductRepository {
   final Reader _read;
-  FridgeItemRepository(this._read);
+  ProductRepository(this._read);
 
   @override
-  Future<Either<DatabaseFailure, List<FridgeItem>>> getFridgeItemList() async {
+  Future<Either<DatabaseFailure, List<Product>>> getFridgeItemList() async {
     try {
-      var q =
-          _read(firebaseFirestoreFridgeItemProvider).collection('fridgeList');
+      var q = _read(firebaseFirestoreProductProvider).collection('fridgeList');
 
       return await q
           .get()
           .then((value) => value.docs
-              .map((doc) => FridgeItemDTO.fromDocument(doc))
+              .map((doc) => ProductDTO.fromDocument(doc))
               .toList()
               .map((e) => e.toDomain())
               .toList())
           .then((r) => right(r));
-    } on Exception catch (e) {
-      return left(handleDatabaseFailure(e));
-    }
-  }
-
-  @override
-  Future<Either<DatabaseFailure, FridgeItem>> updateFridgeItem(
-      {required FridgeItem fridgeItem}) async {
-    try {
-      final productEntry = FridgeItemDTO.fromDomain(fridgeItem);
-      final _ = await _read(firebaseFirestoreFridgeItemProvider)
-          .collection('fridgeList')
-          .doc(productEntry.productID)
-          .set(
-            productEntry.toDocument(),
-          );
-      return right(fridgeItem);
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }

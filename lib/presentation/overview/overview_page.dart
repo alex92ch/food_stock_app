@@ -32,7 +32,9 @@ class OverviewPage extends HookConsumerWidget {
                 },
                 failure: (_) => const Text("Error"), //TODO needs error handling
                 inProgress: (_) {
-                  //TODO may needs get list
+                  ref
+                      .read(outOfStockNotifierProvider.notifier)
+                      .getOutOfStockList();
                   return const CircularProgressIndicator();
                 },
                 orElse: () {
@@ -49,13 +51,15 @@ class OverviewPage extends HookConsumerWidget {
               child: outOfStockProvider.maybeMap(
                 initial: (_) {
                   ref
-                      .read(outOfStockNotifierProvider.notifier)
-                      .getOutOfStockList();
+                      .read(almostOutOfStockNotifierProvider.notifier)
+                      .getAlmostOutOfStockList();
                   return const CircularProgressIndicator();
                 },
                 failure: (_) => const Text("Error"), //TODO needs error handling
                 inProgress: (_) {
-                  //TODO may needs get list
+                  ref
+                      .read(almostOutOfStockNotifierProvider.notifier)
+                      .getAlmostOutOfStockList();
                   return const CircularProgressIndicator();
                 },
                 orElse: () {

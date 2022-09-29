@@ -9,7 +9,8 @@ class Product with _$Product {
   const factory Product({
     @Default('') String id,
     @Default('') String name,
-    @Default(1) double threshold,
+    @Default(1) int threshold,
+    @Default(0) int amount,
     @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram))
         UnitOfMeasurement unitOfMeasurement,
     @Default(Storageplace.cupboard) Storageplace storagePlace,
