@@ -16,46 +16,39 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FridgeItemState {
-  List<FridgeItem> get fridgeItemList => throw _privateConstructorUsedError;
+  List<Product> get fridgeItemList => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,9 +58,7 @@ mixin _$FridgeItemState {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -77,9 +68,7 @@ mixin _$FridgeItemState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -89,9 +78,7 @@ mixin _$FridgeItemState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) =>
@@ -107,7 +94,7 @@ abstract class $FridgeItemStateCopyWith<$Res> {
   factory $FridgeItemStateCopyWith(
           FridgeItemState value, $Res Function(FridgeItemState) then) =
       _$FridgeItemStateCopyWithImpl<$Res>;
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -127,7 +114,7 @@ class _$FridgeItemStateCopyWithImpl<$Res>
       fridgeItemList: fridgeItemList == freezed
           ? _value.fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -139,7 +126,7 @@ abstract class _$$_InitialCopyWith<$Res>
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -159,7 +146,7 @@ class __$$_InitialCopyWithImpl<$Res> extends _$FridgeItemStateCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -167,13 +154,13 @@ class __$$_InitialCopyWithImpl<$Res> extends _$FridgeItemStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Initial extends _Initial {
-  const _$_Initial(final List<FridgeItem> fridgeItemList)
+  const _$_Initial(final List<Product> fridgeItemList)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -204,17 +191,14 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return initial(fridgeItemList);
   }
@@ -222,15 +206,13 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return initial?.call(fridgeItemList);
   }
@@ -238,15 +220,13 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -262,9 +242,7 @@ class _$_Initial extends _Initial {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return initial(this);
@@ -277,9 +255,7 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return initial?.call(this);
@@ -292,9 +268,7 @@ class _$_Initial extends _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -306,11 +280,11 @@ class _$_Initial extends _Initial {
 }
 
 abstract class _Initial extends FridgeItemState {
-  const factory _Initial(final List<FridgeItem> fridgeItemList) = _$_Initial;
+  const factory _Initial(final List<Product> fridgeItemList) = _$_Initial;
   const _Initial._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   @override
   @JsonKey(ignore: true)
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
@@ -324,7 +298,7 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -346,7 +320,7 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -354,13 +328,13 @@ class __$$_LoadSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoadSuccess extends _LoadSuccess {
-  const _$_LoadSuccess(final List<FridgeItem> fridgeItemList)
+  const _$_LoadSuccess(final List<Product> fridgeItemList)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -391,17 +365,14 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return loadSuccess(fridgeItemList);
   }
@@ -409,15 +380,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return loadSuccess?.call(fridgeItemList);
   }
@@ -425,15 +394,13 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -449,9 +416,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return loadSuccess(this);
@@ -464,9 +429,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return loadSuccess?.call(this);
@@ -479,9 +442,7 @@ class _$_LoadSuccess extends _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -493,12 +454,12 @@ class _$_LoadSuccess extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends FridgeItemState {
-  const factory _LoadSuccess(final List<FridgeItem> fridgeItemList) =
+  const factory _LoadSuccess(final List<Product> fridgeItemList) =
       _$_LoadSuccess;
   const _LoadSuccess._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   @override
   @JsonKey(ignore: true)
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
@@ -512,7 +473,7 @@ abstract class _$$_FailureCopyWith<$Res>
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList, DatabaseFailure failure});
+  $Res call({List<Product> fridgeItemList, DatabaseFailure failure});
 
   $DatabaseFailureCopyWith<$Res> get failure;
 }
@@ -535,7 +496,7 @@ class __$$_FailureCopyWithImpl<$Res> extends _$FridgeItemStateCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
       failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -554,13 +515,13 @@ class __$$_FailureCopyWithImpl<$Res> extends _$FridgeItemStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Failure extends _Failure {
-  const _$_Failure(final List<FridgeItem> fridgeItemList, this.failure)
+  const _$_Failure(final List<Product> fridgeItemList, this.failure)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -597,17 +558,14 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return failure(fridgeItemList, this.failure);
   }
@@ -615,15 +573,13 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return failure?.call(fridgeItemList, this.failure);
   }
@@ -631,15 +587,13 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -655,9 +609,7 @@ class _$_Failure extends _Failure {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return failure(this);
@@ -670,9 +622,7 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return failure?.call(this);
@@ -685,9 +635,7 @@ class _$_Failure extends _Failure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -699,12 +647,13 @@ class _$_Failure extends _Failure {
 }
 
 abstract class _Failure extends FridgeItemState {
-  const factory _Failure(final List<FridgeItem> fridgeItemList,
-      final DatabaseFailure failure) = _$_Failure;
+  const factory _Failure(
+          final List<Product> fridgeItemList, final DatabaseFailure failure) =
+      _$_Failure;
   const _Failure._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   DatabaseFailure get failure;
   @override
   @JsonKey(ignore: true)
@@ -719,7 +668,7 @@ abstract class _$$_InProgressCopyWith<$Res>
           _$_InProgress value, $Res Function(_$_InProgress) then) =
       __$$_InProgressCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -741,7 +690,7 @@ class __$$_InProgressCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -749,13 +698,13 @@ class __$$_InProgressCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_InProgress extends _InProgress {
-  const _$_InProgress(final List<FridgeItem> fridgeItemList)
+  const _$_InProgress(final List<Product> fridgeItemList)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -786,17 +735,14 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return inProgress(fridgeItemList);
   }
@@ -804,15 +750,13 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return inProgress?.call(fridgeItemList);
   }
@@ -820,15 +764,13 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (inProgress != null) {
@@ -844,9 +786,7 @@ class _$_InProgress extends _InProgress {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return inProgress(this);
@@ -859,9 +799,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return inProgress?.call(this);
@@ -874,9 +812,7 @@ class _$_InProgress extends _InProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -888,203 +824,14 @@ class _$_InProgress extends _InProgress {
 }
 
 abstract class _InProgress extends FridgeItemState {
-  const factory _InProgress(final List<FridgeItem> fridgeItemList) =
-      _$_InProgress;
+  const factory _InProgress(final List<Product> fridgeItemList) = _$_InProgress;
   const _InProgress._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   @override
   @JsonKey(ignore: true)
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_DeleteSuccessCopyWith<$Res>
-    implements $FridgeItemStateCopyWith<$Res> {
-  factory _$$_DeleteSuccessCopyWith(
-          _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
-      __$$_DeleteSuccessCopyWithImpl<$Res>;
-  @override
-  $Res call({List<FridgeItem> fridgeItemList});
-}
-
-/// @nodoc
-class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$FridgeItemStateCopyWithImpl<$Res>
-    implements _$$_DeleteSuccessCopyWith<$Res> {
-  __$$_DeleteSuccessCopyWithImpl(
-      _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DeleteSuccess));
-
-  @override
-  _$_DeleteSuccess get _value => super._value as _$_DeleteSuccess;
-
-  @override
-  $Res call({
-    Object? fridgeItemList = freezed,
-  }) {
-    return _then(_$_DeleteSuccess(
-      fridgeItemList == freezed
-          ? _value._fridgeItemList
-          : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_DeleteSuccess extends _DeleteSuccess {
-  const _$_DeleteSuccess(final List<FridgeItem> fridgeItemList)
-      : _fridgeItemList = fridgeItemList,
-        super._();
-
-  final List<FridgeItem> _fridgeItemList;
-  @override
-  List<FridgeItem> get fridgeItemList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_fridgeItemList);
-  }
-
-  @override
-  String toString() {
-    return 'FridgeItemState.deleteSuccess(fridgeItemList: $fridgeItemList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DeleteSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._fridgeItemList, _fridgeItemList));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_fridgeItemList));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
-      __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
-    required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
-  }) {
-    return deleteSuccess(fridgeItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
-  }) {
-    return deleteSuccess?.call(fridgeItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(fridgeItemList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
-    required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
-    required TResult Function(_UpdateSuccess value) updateSuccess,
-  }) {
-    return deleteSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-  }) {
-    return deleteSuccess?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (deleteSuccess != null) {
-      return deleteSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DeleteSuccess extends FridgeItemState {
-  const factory _DeleteSuccess(final List<FridgeItem> fridgeItemList) =
-      _$_DeleteSuccess;
-  const _DeleteSuccess._() : super._();
-
-  @override
-  List<FridgeItem> get fridgeItemList;
-  @override
-  @JsonKey(ignore: true)
-  _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1095,7 +842,7 @@ abstract class _$$_CreateSuccessCopyWith<$Res>
           _$_CreateSuccess value, $Res Function(_$_CreateSuccess) then) =
       __$$_CreateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -1117,7 +864,7 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -1125,13 +872,13 @@ class __$$_CreateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CreateSuccess extends _CreateSuccess {
-  const _$_CreateSuccess(final List<FridgeItem> fridgeItemList)
+  const _$_CreateSuccess(final List<Product> fridgeItemList)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -1162,17 +909,14 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return createSuccess(fridgeItemList);
   }
@@ -1180,15 +924,13 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return createSuccess?.call(fridgeItemList);
   }
@@ -1196,15 +938,13 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (createSuccess != null) {
@@ -1220,9 +960,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return createSuccess(this);
@@ -1235,9 +973,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return createSuccess?.call(this);
@@ -1250,9 +986,7 @@ class _$_CreateSuccess extends _CreateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -1264,204 +998,15 @@ class _$_CreateSuccess extends _CreateSuccess {
 }
 
 abstract class _CreateSuccess extends FridgeItemState {
-  const factory _CreateSuccess(final List<FridgeItem> fridgeItemList) =
+  const factory _CreateSuccess(final List<Product> fridgeItemList) =
       _$_CreateSuccess;
   const _CreateSuccess._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   @override
   @JsonKey(ignore: true)
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_UndoDeleteSuccessCopyWith<$Res>
-    implements $FridgeItemStateCopyWith<$Res> {
-  factory _$$_UndoDeleteSuccessCopyWith(_$_UndoDeleteSuccess value,
-          $Res Function(_$_UndoDeleteSuccess) then) =
-      __$$_UndoDeleteSuccessCopyWithImpl<$Res>;
-  @override
-  $Res call({List<FridgeItem> fridgeItemList});
-}
-
-/// @nodoc
-class __$$_UndoDeleteSuccessCopyWithImpl<$Res>
-    extends _$FridgeItemStateCopyWithImpl<$Res>
-    implements _$$_UndoDeleteSuccessCopyWith<$Res> {
-  __$$_UndoDeleteSuccessCopyWithImpl(
-      _$_UndoDeleteSuccess _value, $Res Function(_$_UndoDeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_UndoDeleteSuccess));
-
-  @override
-  _$_UndoDeleteSuccess get _value => super._value as _$_UndoDeleteSuccess;
-
-  @override
-  $Res call({
-    Object? fridgeItemList = freezed,
-  }) {
-    return _then(_$_UndoDeleteSuccess(
-      fridgeItemList == freezed
-          ? _value._fridgeItemList
-          : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
-  const _$_UndoDeleteSuccess(final List<FridgeItem> fridgeItemList)
-      : _fridgeItemList = fridgeItemList,
-        super._();
-
-  final List<FridgeItem> _fridgeItemList;
-  @override
-  List<FridgeItem> get fridgeItemList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_fridgeItemList);
-  }
-
-  @override
-  String toString() {
-    return 'FridgeItemState.undoDeleteFridgeItem(fridgeItemList: $fridgeItemList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_UndoDeleteSuccess &&
-            const DeepCollectionEquality()
-                .equals(other._fridgeItemList, _fridgeItemList));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_fridgeItemList));
-
-  @JsonKey(ignore: true)
-  @override
-  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
-      __$$_UndoDeleteSuccessCopyWithImpl<_$_UndoDeleteSuccess>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
-    required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
-        failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
-  }) {
-    return undoDeleteFridgeItem(fridgeItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
-  }) {
-    return undoDeleteFridgeItem?.call(fridgeItemList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
-        failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (undoDeleteFridgeItem != null) {
-      return undoDeleteFridgeItem(fridgeItemList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_LoadSuccess value) loadSuccess,
-    required TResult Function(_Failure value) failure,
-    required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
-    required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
-    required TResult Function(_UpdateSuccess value) updateSuccess,
-  }) {
-    return undoDeleteFridgeItem(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-  }) {
-    return undoDeleteFridgeItem?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    required TResult orElse(),
-  }) {
-    if (undoDeleteFridgeItem != null) {
-      return undoDeleteFridgeItem(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UndoDeleteSuccess extends FridgeItemState {
-  const factory _UndoDeleteSuccess(final List<FridgeItem> fridgeItemList) =
-      _$_UndoDeleteSuccess;
-  const _UndoDeleteSuccess._() : super._();
-
-  @override
-  List<FridgeItem> get fridgeItemList;
-  @override
-  @JsonKey(ignore: true)
-  _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1472,7 +1017,7 @@ abstract class _$$_UpdateSuccessCopyWith<$Res>
           _$_UpdateSuccess value, $Res Function(_$_UpdateSuccess) then) =
       __$$_UpdateSuccessCopyWithImpl<$Res>;
   @override
-  $Res call({List<FridgeItem> fridgeItemList});
+  $Res call({List<Product> fridgeItemList});
 }
 
 /// @nodoc
@@ -1494,7 +1039,7 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
       fridgeItemList == freezed
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
-              as List<FridgeItem>,
+              as List<Product>,
     ));
   }
 }
@@ -1502,13 +1047,13 @@ class __$$_UpdateSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateSuccess extends _UpdateSuccess {
-  const _$_UpdateSuccess(final List<FridgeItem> fridgeItemList)
+  const _$_UpdateSuccess(final List<Product> fridgeItemList)
       : _fridgeItemList = fridgeItemList,
         super._();
 
-  final List<FridgeItem> _fridgeItemList;
+  final List<Product> _fridgeItemList;
   @override
-  List<FridgeItem> get fridgeItemList {
+  List<Product> get fridgeItemList {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -1539,17 +1084,14 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<FridgeItem> fridgeItemList) initial,
-    required TResult Function(List<FridgeItem> fridgeItemList) loadSuccess,
+    required TResult Function(List<Product> fridgeItemList) initial,
+    required TResult Function(List<Product> fridgeItemList) loadSuccess,
     required TResult Function(
-            List<FridgeItem> fridgeItemList, DatabaseFailure failure)
+            List<Product> fridgeItemList, DatabaseFailure failure)
         failure,
-    required TResult Function(List<FridgeItem> fridgeItemList) inProgress,
-    required TResult Function(List<FridgeItem> fridgeItemList) deleteSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList) createSuccess,
-    required TResult Function(List<FridgeItem> fridgeItemList)
-        undoDeleteFridgeItem,
-    required TResult Function(List<FridgeItem> fridgeItemList) updateSuccess,
+    required TResult Function(List<Product> fridgeItemList) inProgress,
+    required TResult Function(List<Product> fridgeItemList) createSuccess,
+    required TResult Function(List<Product> fridgeItemList) updateSuccess,
   }) {
     return updateSuccess(fridgeItemList);
   }
@@ -1557,15 +1099,13 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
   }) {
     return updateSuccess?.call(fridgeItemList);
   }
@@ -1573,15 +1113,13 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<FridgeItem> fridgeItemList)? initial,
-    TResult Function(List<FridgeItem> fridgeItemList)? loadSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList, DatabaseFailure failure)?
+    TResult Function(List<Product> fridgeItemList)? initial,
+    TResult Function(List<Product> fridgeItemList)? loadSuccess,
+    TResult Function(List<Product> fridgeItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<FridgeItem> fridgeItemList)? inProgress,
-    TResult Function(List<FridgeItem> fridgeItemList)? deleteSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? createSuccess,
-    TResult Function(List<FridgeItem> fridgeItemList)? undoDeleteFridgeItem,
-    TResult Function(List<FridgeItem> fridgeItemList)? updateSuccess,
+    TResult Function(List<Product> fridgeItemList)? inProgress,
+    TResult Function(List<Product> fridgeItemList)? createSuccess,
+    TResult Function(List<Product> fridgeItemList)? updateSuccess,
     required TResult orElse(),
   }) {
     if (updateSuccess != null) {
@@ -1597,9 +1135,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_Failure value) failure,
     required TResult Function(_InProgress value) inProgress,
-    required TResult Function(_DeleteSuccess value) deleteSuccess,
     required TResult Function(_CreateSuccess value) createSuccess,
-    required TResult Function(_UndoDeleteSuccess value) undoDeleteFridgeItem,
     required TResult Function(_UpdateSuccess value) updateSuccess,
   }) {
     return updateSuccess(this);
@@ -1612,9 +1148,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
   }) {
     return updateSuccess?.call(this);
@@ -1627,9 +1161,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_Failure value)? failure,
     TResult Function(_InProgress value)? inProgress,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
     TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteFridgeItem,
     TResult Function(_UpdateSuccess value)? updateSuccess,
     required TResult orElse(),
   }) {
@@ -1641,12 +1173,12 @@ class _$_UpdateSuccess extends _UpdateSuccess {
 }
 
 abstract class _UpdateSuccess extends FridgeItemState {
-  const factory _UpdateSuccess(final List<FridgeItem> fridgeItemList) =
+  const factory _UpdateSuccess(final List<Product> fridgeItemList) =
       _$_UpdateSuccess;
   const _UpdateSuccess._() : super._();
 
   @override
-  List<FridgeItem> get fridgeItemList;
+  List<Product> get fridgeItemList;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>

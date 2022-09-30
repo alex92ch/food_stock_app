@@ -43,10 +43,10 @@ class ProductRepository implements BaseProductRepository {
   @override
   Future<Either<DatabaseFailure, List<Product>>> getProductList() async {
     try {
+      List<Product> newProductList = [];
       var q = _read(firebaseFirestoreProductProvider)
-          .collection('products')
+          .collection('fridgeList')
           .orderBy('nameInsensitive', descending: false);
-
       return await q
           .get()
           .then((value) => value.docs
@@ -54,7 +54,37 @@ class ProductRepository implements BaseProductRepository {
               .toList()
               .map((e) => e.toDomain())
               .toList())
-          .then((r) => right(r));
+          .then((fridgeList) async {
+        var q = _read(firebaseFirestoreProductProvider)
+            .collection('freezerList')
+            .orderBy('nameInsensitive', descending: false);
+        return await q
+            .get()
+            .then((value) => value.docs
+                .map((doc) => ProductDTO.fromDocument(doc))
+                .toList()
+                .map((e) => e.toDomain())
+                .toList())
+            .then((freezerList) async {
+          var q = _read(firebaseFirestoreProductProvider)
+              .collection('cupboardList')
+              .orderBy('nameInsensitive', descending: false);
+          return await q
+              .get()
+              .then((value) => value.docs
+                  .map((doc) => ProductDTO.fromDocument(doc))
+                  .toList()
+                  .map((e) => e.toDomain())
+                  .toList())
+              .then((cupboardList) {
+            newProductList
+              ..addAll(fridgeList)
+              ..addAll(freezerList)
+              ..addAll(cupboardList);
+            return right(newProductList);
+          });
+        });
+      });
     } on Exception catch (e) {
       return left(handleDatabaseFailure(e));
     }
@@ -64,10 +94,14 @@ class ProductRepository implements BaseProductRepository {
   Future<Either<DatabaseFailure, Product>> createProduct(
       {required Product product}) async {
     try {
+      final doc = product.storagePlace == Storageplace.freezer
+          ? 'freezerList'
+          : product.storagePlace == Storageplace.fridge
+              ? 'fridgeList'
+              : 'cupboardList';
       final productEntry = ProductDTO.fromDomain(product);
       final docRef =
-          _read(firebaseFirestoreProductProvider).collection('products').doc();
-
+          _read(firebaseFirestoreProductProvider).collection(doc).doc();
       await docRef.set(productEntry.toDocument());
       return right(product.copyWith(id: docRef.id));
     } on Exception catch (e) {
@@ -79,9 +113,14 @@ class ProductRepository implements BaseProductRepository {
   Future<Either<DatabaseFailure, Product>> updateProduct(
       {required Product product}) async {
     try {
+      final doc = product.storagePlace == Storageplace.freezer
+          ? 'freezerList'
+          : product.storagePlace == Storageplace.fridge
+              ? 'fridgeList'
+              : 'cupboardList';
       final productEntry = ProductDTO.fromDomain(product);
       final _ = await _read(firebaseFirestoreProductProvider)
-          .collection('products')
+          .collection(doc)
           .doc(productEntry.id)
           .update(
             productEntry.toDocument(),
@@ -96,9 +135,14 @@ class ProductRepository implements BaseProductRepository {
   Future<Either<DatabaseFailure, Product>> deleteProduct(
       {required Product product}) async {
     try {
+      final doc = product.storagePlace == Storageplace.freezer
+          ? 'freezerList'
+          : product.storagePlace == Storageplace.fridge
+              ? 'fridgeList'
+              : 'cupboardList';
       final productEntry = ProductDTO.fromDomain(product);
       final _ = await _read(firebaseFirestoreProductProvider)
-          .collection('products')
+          .collection(doc)
           .doc(productEntry.id)
           .delete();
       return right(product);

@@ -30,9 +30,9 @@ class StockList extends HookConsumerWidget {
                 index: index,
                 storagePlace: storagePlace,
                 product: storagePlace == Storageplace.fridge
-                    ? fridgeItemList[index].product
+                    ? fridgeItemList[index]
                     : storagePlace == Storageplace.cupboard
-                        ? cupboardItemList[index].product
-                        : freezerItemList[index].product))));
+                        ? cupboardItemList[index]
+                        : freezerItemList[index]))));
   }
 }

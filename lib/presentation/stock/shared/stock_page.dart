@@ -34,7 +34,9 @@ class StockPage extends HookConsumerWidget {
               },
               failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
-                //TODO may needs get list
+                ref
+                    .read(fridgeItemNotifierProvider.notifier)
+                    .getFridgeItemList();
                 return const CircularProgressIndicator();
               },
               orElse: () {
@@ -55,7 +57,9 @@ class StockPage extends HookConsumerWidget {
                   },
                   failure: (_) => const Text("Error"),
                   inProgress: (_) {
-                    //TODO may needs get list
+                    ref
+                        .read(freezerItemNotifierProvider.notifier)
+                        .getFreezerItemList();
                     return const CircularProgressIndicator();
                   },
                   orElse: () {
@@ -74,7 +78,9 @@ class StockPage extends HookConsumerWidget {
                   },
                   failure: (_) => const Text("Error"),
                   inProgress: (_) {
-                    //TODO may needs get list
+                    ref
+                        .read(cupboardItemNotifierProvider.notifier)
+                        .getCupboardItemList();
                     return const CircularProgressIndicator();
                   },
                   orElse: () {

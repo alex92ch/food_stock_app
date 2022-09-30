@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Product {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  double get threshold => throw _privateConstructorUsedError;
+  int get threshold => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
   UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
   Storageplace get storagePlace => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -37,7 +38,8 @@ abstract class $ProductCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      double threshold,
+      int threshold,
+      int amount,
       UnitOfMeasurement unitOfMeasurement,
       Storageplace storagePlace,
       String description,
@@ -60,6 +62,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
     Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
+    Object? amount = freezed,
     Object? unitOfMeasurement = freezed,
     Object? storagePlace = freezed,
     Object? description = freezed,
@@ -78,7 +81,11 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
       threshold: threshold == freezed
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -119,7 +126,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      double threshold,
+      int threshold,
+      int amount,
       UnitOfMeasurement unitOfMeasurement,
       Storageplace storagePlace,
       String description,
@@ -144,6 +152,7 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
     Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
+    Object? amount = freezed,
     Object? unitOfMeasurement = freezed,
     Object? storagePlace = freezed,
     Object? description = freezed,
@@ -162,7 +171,11 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
       threshold: threshold == freezed
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -194,6 +207,7 @@ class _$_Product extends _Product {
       {this.id = '',
       this.name = '',
       this.threshold = 1,
+      this.amount = 0,
       this.unitOfMeasurement =
           const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
       this.storagePlace = Storageplace.cupboard,
@@ -210,7 +224,10 @@ class _$_Product extends _Product {
   final String name;
   @override
   @JsonKey()
-  final double threshold;
+  final int threshold;
+  @override
+  @JsonKey()
+  final int amount;
   @override
   @JsonKey()
   final UnitOfMeasurement unitOfMeasurement;
@@ -230,7 +247,7 @@ class _$_Product extends _Product {
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, image: $image, barcode: $barcode)';
+    return 'Product(id: $id, name: $name, threshold: $threshold, amount: $amount, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, image: $image, barcode: $barcode)';
   }
 
   @override
@@ -241,6 +258,7 @@ class _$_Product extends _Product {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.threshold, threshold) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality()
                 .equals(other.unitOfMeasurement, unitOfMeasurement) &&
             const DeepCollectionEquality()
@@ -257,6 +275,7 @@ class _$_Product extends _Product {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(threshold),
+      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(unitOfMeasurement),
       const DeepCollectionEquality().hash(storagePlace),
       const DeepCollectionEquality().hash(description),
@@ -273,7 +292,8 @@ abstract class _Product extends Product {
   const factory _Product(
       {final String id,
       final String name,
-      final double threshold,
+      final int threshold,
+      final int amount,
       final UnitOfMeasurement unitOfMeasurement,
       final Storageplace storagePlace,
       final String description,
@@ -286,7 +306,9 @@ abstract class _Product extends Product {
   @override
   String get name;
   @override
-  double get threshold;
+  int get threshold;
+  @override
+  int get amount;
   @override
   UnitOfMeasurement get unitOfMeasurement;
   @override

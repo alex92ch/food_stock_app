@@ -14,7 +14,7 @@ class EditThreshold extends HookConsumerWidget {
           initialValue: _product.value.threshold.toString(),
           onChanged: (value) {
             _product.value =
-                _product.value.copyWith(threshold: double.parse(value));
+                _product.value.copyWith(threshold: int.parse(value));
           },
           keyboardType: TextInputType.number,
           decoration: const InputDecoration(

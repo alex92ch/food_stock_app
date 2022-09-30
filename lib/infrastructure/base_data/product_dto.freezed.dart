@@ -22,12 +22,13 @@ ProductDTO _$ProductDTOFromJson(Map<String, dynamic> json) {
 mixin _$ProductDTO {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  double get threshold => throw _privateConstructorUsedError;
+  int get threshold => throw _privateConstructorUsedError;
   @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement =>
       throw _privateConstructorUsedError; // @Default(Storageplace.cupboard)
   Storageplace get storagePlace => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
   bool get barcode =>
@@ -48,10 +49,11 @@ abstract class $ProductDTOCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      double threshold,
+      int threshold,
       @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       Storageplace storagePlace,
       String description,
+      int amount,
       bool image,
       bool barcode,
       String nameInsensitive});
@@ -75,6 +77,7 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
     Object? unitOfMeasurement = freezed,
     Object? storagePlace = freezed,
     Object? description = freezed,
+    Object? amount = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
     Object? nameInsensitive = freezed,
@@ -91,7 +94,7 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
       threshold: threshold == freezed
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -104,6 +107,10 @@ class _$ProductDTOCopyWithImpl<$Res> implements $ProductDTOCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -137,10 +144,11 @@ abstract class _$$_ProductDTOCopyWith<$Res>
   $Res call(
       {String id,
       String name,
-      double threshold,
+      int threshold,
       @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       Storageplace storagePlace,
       String description,
+      int amount,
       bool image,
       bool barcode,
       String nameInsensitive});
@@ -167,6 +175,7 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
     Object? unitOfMeasurement = freezed,
     Object? storagePlace = freezed,
     Object? description = freezed,
+    Object? amount = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
     Object? nameInsensitive = freezed,
@@ -183,7 +192,7 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
       threshold: threshold == freezed
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
-              as double,
+              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -196,6 +205,10 @@ class __$$_ProductDTOCopyWithImpl<$Res> extends _$ProductDTOCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -223,6 +236,7 @@ class _$_ProductDTO extends _ProductDTO {
           const UnitOfMeasurement(amount: 0, measurement: Measurement.liter),
       required this.storagePlace,
       this.description = '',
+      this.amount = 0,
       this.image = false,
       this.barcode = false,
       this.nameInsensitive = ''})
@@ -239,7 +253,7 @@ class _$_ProductDTO extends _ProductDTO {
   final String name;
   @override
   @JsonKey()
-  final double threshold;
+  final int threshold;
   @override
   @JsonKey()
   @UnitOfMeasurementConverter()
@@ -250,6 +264,9 @@ class _$_ProductDTO extends _ProductDTO {
   @override
   @JsonKey()
   final String description;
+  @override
+  @JsonKey()
+  final int amount;
   @override
   @JsonKey()
   final bool image;
@@ -264,7 +281,7 @@ class _$_ProductDTO extends _ProductDTO {
 
   @override
   String toString() {
-    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
+    return 'ProductDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, storagePlace: $storagePlace, description: $description, amount: $amount, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
   }
 
   @override
@@ -281,6 +298,7 @@ class _$_ProductDTO extends _ProductDTO {
                 .equals(other.storagePlace, storagePlace) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.image, image) &&
             const DeepCollectionEquality().equals(other.barcode, barcode) &&
             const DeepCollectionEquality()
@@ -297,6 +315,7 @@ class _$_ProductDTO extends _ProductDTO {
       const DeepCollectionEquality().hash(unitOfMeasurement),
       const DeepCollectionEquality().hash(storagePlace),
       const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(image),
       const DeepCollectionEquality().hash(barcode),
       const DeepCollectionEquality().hash(nameInsensitive));
@@ -318,10 +337,11 @@ abstract class _ProductDTO extends ProductDTO {
   const factory _ProductDTO(
       {final String id,
       final String name,
-      final double threshold,
+      final int threshold,
       @UnitOfMeasurementConverter() final UnitOfMeasurement unitOfMeasurement,
       required final Storageplace storagePlace,
       final String description,
+      final int amount,
       final bool image,
       final bool barcode,
       final String nameInsensitive}) = _$_ProductDTO;
@@ -335,7 +355,7 @@ abstract class _ProductDTO extends ProductDTO {
   @override
   String get name;
   @override
-  double get threshold;
+  int get threshold;
   @override
   @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement;
@@ -343,6 +363,8 @@ abstract class _ProductDTO extends ProductDTO {
   Storageplace get storagePlace;
   @override
   String get description;
+  @override
+  int get amount;
   @override
   bool get image;
   @override //TODO needs implementation

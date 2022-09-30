@@ -1,13 +1,10 @@
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/domain/shared/database_failure.dart';
-import 'package:food_stock_app/domain/stock/cupboard_item.dart';
 import 'package:food_stock_app/infrastructure/base_data/product_repository.dart';
 import 'package:food_stock_app/infrastructure/stock/cupboard_item_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
 part 'cupboard_item_notifer.freezed.dart';
 
 final cupboardItemNotifierProvider =
@@ -18,29 +15,23 @@ final cupboardItemNotifierProvider =
 class CupboardItemState with _$CupboardItemState {
   const CupboardItemState._();
   const factory CupboardItemState.initial(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
   ) = _Initial;
   const factory CupboardItemState.loadSuccess(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
   ) = _LoadSuccess;
   const factory CupboardItemState.failure(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
     DatabaseFailure failure,
   ) = _Failure;
   const factory CupboardItemState.inProgress(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
   ) = _InProgress;
-  const factory CupboardItemState.deleteSuccess(
-    List<CupboardItem> cupboardItemList,
-  ) = _DeleteSuccess;
   const factory CupboardItemState.createSuccess(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
   ) = _CreateSuccess;
-  const factory CupboardItemState.undoDeleteCupboardItem(
-    List<CupboardItem> cupboardItemList,
-  ) = _UndoDeleteSuccess;
   const factory CupboardItemState.updateSuccess(
-    List<CupboardItem> cupboardItemList,
+    List<Product> cupboardItemList,
   ) = _UpdateSuccess;
 }
 
@@ -53,88 +44,69 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
     if (isloading) state = const CupboardItemState.inProgress([]);
     final failureOrSuccess =
         await _read(cupboardItemRepositoryProvider).getCupboardItemList();
-    final productList = await _read(productRepositoryProvider).getProductList();
-    productList.fold((l) => state = CupboardItemState.failure([], l),
-        (productList) {
-      state = failureOrSuccess.fold(
-        (l) => state = CupboardItemState.failure([], l),
-        (r) => state = CupboardItemState.loadSuccess(r.map((cupboardItem) {
-          return CupboardItem(
-            product: productList
-                .firstWhere((product) => product.id == cupboardItem.product.id),
-            amount: cupboardItem.amount,
-          );
-        }).toList()),
-      );
-    });
-  }
-
-  Future<void> addCupboardItem({
-    required Product product,
-    bool isloading = false,
-    required List<CupboardItem> cupboardItemList,
-  }) async {
-    if (isloading) state = const CupboardItemState.inProgress([]);
-    List<CupboardItem> newcupboardItemList = List.from(cupboardItemList);
-    newcupboardItemList.contains(newcupboardItemList.firstWhere(
-            (cupboardItem) => cupboardItem.product.id == product.id,
-            orElse: () => const CupboardItem()))
-        ? newcupboardItemList[newcupboardItemList.indexWhere(
-                (cupboardItem) => cupboardItem.product.id == product.id)] =
-            CupboardItem(
-                product: product,
-                amount: newcupboardItemList[newcupboardItemList.indexWhere(
-                            (cupboardItem) =>
-                                cupboardItem.product.id == product.id)]
-                        .amount +
-                    1)
-        : newcupboardItemList.add(CupboardItem(product: product, amount: 1));
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
-        .updateCupboardItem(
-            cupboardItem: newcupboardItemList[newcupboardItemList.indexWhere(
-                (cupboardItem) => cupboardItem.product.id == product.id)]);
     state = failureOrSuccess.fold(
       (l) => state = CupboardItemState.failure([], l),
-      (r) => state = CupboardItemState.updateSuccess(newcupboardItemList),
+      (r) => state = CupboardItemState.loadSuccess(r),
+    );
+  }
+
+  Future<void> createCupboardItem({
+    required Product product,
+    required List<Product> cupboardItemList,
+    bool isloading = false,
+  }) async {
+    if (isloading) state = const CupboardItemState.inProgress([]);
+    final failureOrSuccess =
+        await _read(productRepositoryProvider).updateProduct(product: product);
+    state = failureOrSuccess.fold(
+      (l) => state = CupboardItemState.failure([], l),
+      (r) {
+        List<Product> newCupboardItemList = List.from(cupboardItemList);
+        newCupboardItemList[newCupboardItemList
+            .indexWhere((element) => element.id == product.id)] = r;
+        return state = CupboardItemState.createSuccess(newCupboardItemList);
+      },
+    );
+  }
+
+  Future<void> increaseCupboardItem({
+    required Product product,
+    bool isloading = false,
+    required List<Product> cupboardItemList,
+  }) async {
+    if (isloading) state = const CupboardItemState.inProgress([]);
+    final failureOrSuccess = await _read(productRepositoryProvider)
+        .updateProduct(product: product.copyWith(amount: product.amount + 1));
+    state = failureOrSuccess.fold(
+      (l) => state = CupboardItemState.failure([], l),
+      (r) {
+        List<Product> newFreezerItemList = List.from(cupboardItemList);
+        newFreezerItemList[newFreezerItemList
+            .indexWhere((element) => element.id == product.id)] = r;
+        return state = CupboardItemState.updateSuccess(newFreezerItemList);
+      },
     );
   }
 
   Future<void> decreaseCupboardItem({
     required Product product,
     bool isloading = false,
-    required List<CupboardItem> cupboardItemList,
+    required List<Product> cupboardItemList,
   }) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    switch (cupboardItemList
-            .firstWhere((cupboardItem) => cupboardItem.product.id == product.id)
-            .amount ==
-        0) {
-      case true:
-        //TODO throw message (validation)
-        state = CupboardItemState.updateSuccess(cupboardItemList);
-
-        break;
-      case false:
-        List<CupboardItem> newcupboardItemList = List.from(cupboardItemList);
-        newcupboardItemList[newcupboardItemList.indexWhere(
-                (cupboardItem) => cupboardItem.product.id == product.id)] =
-            CupboardItem(
-                product: product,
-                amount: newcupboardItemList[newcupboardItemList.indexWhere(
-                            (cupboardItem) =>
-                                cupboardItem.product.id == product.id)]
-                        .amount -
-                    1);
-        final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
-            .updateCupboardItem(
-                cupboardItem: newcupboardItemList[
-                    newcupboardItemList.indexWhere((cupboardItem) =>
-                        cupboardItem.product.id == product.id)]);
-        state = failureOrSuccess.fold(
-          (l) => state = CupboardItemState.failure([], l),
-          (r) => state = CupboardItemState.updateSuccess(newcupboardItemList),
-        );
-        break;
-    }
+    final failureOrSuccess = await _read(productRepositoryProvider)
+        .updateProduct(
+            product: product.amount != 0
+                ? product.copyWith(amount: product.amount - 1)
+                : product.copyWith(amount: 0));
+    state = failureOrSuccess.fold(
+      (l) => state = CupboardItemState.failure([], l),
+      (r) {
+        List<Product> newFreezerItemList = List.from(cupboardItemList);
+        newFreezerItemList[newFreezerItemList
+            .indexWhere((element) => element.id == product.id)] = r;
+        return state = CupboardItemState.updateSuccess(newFreezerItemList);
+      },
+    );
   }
 }
