@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:food_stock_app/application/base_data/product_notifier.dart';
+import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_mass_unit.dart';
 import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_name.dart';
@@ -69,20 +71,19 @@ class EditProductPage extends HookConsumerWidget {
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: ElevatedButton(
-                  onPressed: () {
+                  onPressed: () async {
                     if (formKey.value.currentState?.validate() ?? false) {
-                      ref.read(productsNotifierProvider.notifier).createProduct(
-                          product: product.value,
-                          productList: productsProvider.map(
-                            updateSuccess: ((_) => _.productList),
-                            initial: ((_) => _.productList),
-                            loadSuccess: ((_) => _.productList),
-                            failure: ((_) => _.productList),
-                            inProgress: ((_) => _.productList),
-                            deleteSuccess: ((_) => _.productList),
-                            createSuccess: ((_) => _.productList),
-                            undoDeleteProduct: ((_) => _.productList),
-                          ));
+                      await ref
+                          .read(productsNotifierProvider.notifier)
+                          .createProduct(
+                              product: product.value,
+                              productList: productsProvider.productList);
+                      await ref
+                          .read(outOfStockNotifierProvider.notifier)
+                          .getOutOfStockList();
+                      await ref
+                          .read(almostOutOfStockNotifierProvider.notifier)
+                          .getAlmostOutOfStockList();
                       ref
                           .read(routeProvider)
                           .popUntilRouteWithName('BaseDataRoute');

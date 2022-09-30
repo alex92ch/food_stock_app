@@ -52,7 +52,9 @@ class ProductNotifier extends StateNotifier<ProductState> {
         await _read(productRepositoryProvider).getProductList();
     state = failureOrSuccess.fold(
       (l) => state = ProductState.failure([], l),
-      (r) => state = ProductState.loadSuccess(r),
+      (r) {
+        return state = ProductState.loadSuccess(r);
+      },
     );
   }
 

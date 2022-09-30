@@ -54,8 +54,7 @@ class ProductRepository implements BaseProductRepository {
               .toList()
               .map((e) => e.toDomain())
               .toList())
-          .then((r) async {
-        newProductList.addAll(r);
+          .then((fridgeList) async {
         var q = _read(firebaseFirestoreProductProvider)
             .collection('freezerList')
             .orderBy('nameInsensitive', descending: false);
@@ -66,8 +65,7 @@ class ProductRepository implements BaseProductRepository {
                 .toList()
                 .map((e) => e.toDomain())
                 .toList())
-            .then((r) async {
-          newProductList.addAll(r);
+            .then((freezerList) async {
           var q = _read(firebaseFirestoreProductProvider)
               .collection('cupboardList')
               .orderBy('nameInsensitive', descending: false);
@@ -78,8 +76,11 @@ class ProductRepository implements BaseProductRepository {
                   .toList()
                   .map((e) => e.toDomain())
                   .toList())
-              .then((r) {
-            newProductList.addAll(r);
+              .then((cupboardList) {
+            newProductList
+              ..addAll(fridgeList)
+              ..addAll(freezerList)
+              ..addAll(cupboardList);
             return right(newProductList);
           });
         });
