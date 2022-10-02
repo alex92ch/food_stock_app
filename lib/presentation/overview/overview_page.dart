@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
-import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
 import 'package:food_stock_app/presentation/overview/widgets/overview_list.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
@@ -38,7 +38,10 @@ class OverviewPage extends HookConsumerWidget {
                   return const CircularProgressIndicator();
                 },
                 orElse: () {
-                  return outOfStockProvider.outOfStockList.isEmpty
+                  return outOfStockProvider.stockList.fridgeItemList.isEmpty &&
+                          outOfStockProvider
+                              .stockList.cupboardItemList.isEmpty &&
+                          outOfStockProvider.stockList.freezerItemList.isEmpty
                       ? const Text("No items out of stock")
                       : const OverviewList(
                           outOfStock: true,
@@ -63,7 +66,12 @@ class OverviewPage extends HookConsumerWidget {
                   return const CircularProgressIndicator();
                 },
                 orElse: () {
-                  return almostOutOfStockProvider.almostOutOfStockList.isEmpty
+                  return almostOutOfStockProvider
+                              .stockList.fridgeItemList.isEmpty &&
+                          almostOutOfStockProvider
+                              .stockList.freezerItemList.isEmpty &&
+                          almostOutOfStockProvider
+                              .stockList.cupboardItemList.isEmpty
                       ? const Text("No items almost out of stock")
                       : const OverviewList(
                           outOfStock: false,

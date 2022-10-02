@@ -60,16 +60,8 @@ class _$AppRouter extends RootStackRouter {
         child: EditProductPage(
           key: args.key,
           product: args.product,
+          storagePlace: args.storagePlace,
         ),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
-    AddStockitemRoute.name: (routeData) {
-      return CustomPage<dynamic>(
-        routeData: routeData,
-        child: const AddStockitemPage(),
         transitionsBuilder: TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
@@ -104,10 +96,6 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           EditProductRoute.name,
           path: '/edit_product',
-        ),
-        RouteConfig(
-          AddStockitemRoute.name,
-          path: '/add_stockitem',
         ),
       ];
 }
@@ -166,12 +154,14 @@ class EditProductRoute extends PageRouteInfo<EditProductRouteArgs> {
   EditProductRoute({
     Key? key,
     required Product product,
+    required String storagePlace,
   }) : super(
           EditProductRoute.name,
           path: '/edit_product',
           args: EditProductRouteArgs(
             key: key,
             product: product,
+            storagePlace: storagePlace,
           ),
         );
 
@@ -182,26 +172,17 @@ class EditProductRouteArgs {
   const EditProductRouteArgs({
     this.key,
     required this.product,
+    required this.storagePlace,
   });
 
   final Key? key;
 
   final Product product;
 
+  final String storagePlace;
+
   @override
   String toString() {
-    return 'EditProductRouteArgs{key: $key, product: $product}';
+    return 'EditProductRouteArgs{key: $key, product: $product, storagePlace: $storagePlace}';
   }
-}
-
-/// generated route for
-/// [AddStockitemPage]
-class AddStockitemRoute extends PageRouteInfo<void> {
-  const AddStockitemRoute()
-      : super(
-          AddStockitemRoute.name,
-          path: '/add_stockitem',
-        );
-
-  static const String name = 'AddStockitemRoute';
 }

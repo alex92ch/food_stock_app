@@ -9,9 +9,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BaseDataListTile extends HookConsumerWidget {
   final List<Product> productList;
+  final String storagePlace;
   final int index;
   const BaseDataListTile(
-      {Key? key, required this.productList, required this.index})
+      {Key? key,
+      required this.productList,
+      required this.index,
+      required this.storagePlace})
       : super(key: key);
 
   @override
@@ -26,18 +30,16 @@ class BaseDataListTile extends HookConsumerWidget {
             productList: productList,
             duration: 3,
             index: index,
+            storagePlace: storagePlace,
           ),
-          children: [
-            BaseDataListTileDeleteAction(
-              product: productList[index],
-            )
-          ],
+          children: const [BaseDataListTileDeleteAction()],
         ),
         child: ListTile(
           title: Text(productList[index].name),
           subtitle: Text(productList[index].description),
           onTap: () async {
-            router.push(EditProductRoute(product: productList[index]));
+            router.push(EditProductRoute(
+                product: productList[index], storagePlace: storagePlace));
           },
         ));
   }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewStoragePlace extends HookConsumerWidget {
-  final ValueNotifier<Product> _product;
-  const NewStoragePlace(this._product, {Key? key}) : super(key: key);
+  final ValueNotifier<String> _storagePlace;
+  const NewStoragePlace(this._storagePlace, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -16,28 +15,28 @@ class NewStoragePlace extends HookConsumerWidget {
           height: 200,
           child: ListView(
             children: [
-              RadioListTile<Storageplace>(
+              RadioListTile<String>(
                 title: const Text("Kühlschrank"),
-                value: Storageplace.fridge,
-                groupValue: _product.value.storagePlace,
+                value: "fridge",
+                groupValue: _storagePlace.value,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storagePlace: _!);
+                  _storagePlace.value = _!;
                 },
               ),
-              RadioListTile<Storageplace>(
+              RadioListTile<String>(
                 title: const Text("Tiefkühler"),
-                value: Storageplace.freezer,
-                groupValue: _product.value.storagePlace,
+                value: "freezer",
+                groupValue: _storagePlace.value,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storagePlace: _!);
+                  _storagePlace.value = _!;
                 },
               ),
-              RadioListTile<Storageplace>(
+              RadioListTile<String>(
                 title: const Text("Schrank"),
-                value: Storageplace.cupboard,
-                groupValue: _product.value.storagePlace,
+                value: "cupboard",
+                groupValue: _storagePlace.value,
                 onChanged: (_) {
-                  _product.value = _product.value.copyWith(storagePlace: _!);
+                  _storagePlace.value = _!;
                 },
               )
             ],

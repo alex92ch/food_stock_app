@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'product.dart';
+part of 'cupboard_item_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,57 +14,70 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-mixin _$Product {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  int get threshold => throw _privateConstructorUsedError;
-  int get amount => throw _privateConstructorUsedError;
-  UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  bool get image =>
-      throw _privateConstructorUsedError; //TODO needs implementation
-  bool get barcode => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+CupboardItemDTO _$CupboardItemDTOFromJson(Map<String, dynamic> json) {
+  return _CupboardItemDTO.fromJson(json);
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res>;
+mixin _$CupboardItemDTO {
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  int get threshold => throw _privateConstructorUsedError;
+  @UnitOfMeasurementConverter()
+  UnitOfMeasurement get unitOfMeasurement => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  int get amount => throw _privateConstructorUsedError;
+  bool get image =>
+      throw _privateConstructorUsedError; //TODO needs implementation
+  bool get barcode =>
+      throw _privateConstructorUsedError; //TODO needs implementation
+  String get nameInsensitive => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $CupboardItemDTOCopyWith<CupboardItemDTO> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $CupboardItemDTOCopyWith<$Res> {
+  factory $CupboardItemDTOCopyWith(
+          CupboardItemDTO value, $Res Function(CupboardItemDTO) then) =
+      _$CupboardItemDTOCopyWithImpl<$Res>;
   $Res call(
       {String id,
       String name,
       int threshold,
-      int amount,
-      UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       String description,
+      int amount,
       bool image,
-      bool barcode});
+      bool barcode,
+      String nameInsensitive});
 
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$CupboardItemDTOCopyWithImpl<$Res>
+    implements $CupboardItemDTOCopyWith<$Res> {
+  _$CupboardItemDTOCopyWithImpl(this._value, this._then);
 
-  final Product _value;
+  final CupboardItemDTO _value;
   // ignore: unused_field
-  final $Res Function(Product) _then;
+  final $Res Function(CupboardItemDTO) _then;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
-    Object? amount = freezed,
     Object? unitOfMeasurement = freezed,
     Object? description = freezed,
+    Object? amount = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
+    Object? nameInsensitive = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -79,10 +92,6 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -91,6 +100,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -99,6 +112,10 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as bool,
+      nameInsensitive: nameInsensitive == freezed
+          ? _value.nameInsensitive
+          : nameInsensitive // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
@@ -111,46 +128,51 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$_CupboardItemDTOCopyWith<$Res>
+    implements $CupboardItemDTOCopyWith<$Res> {
+  factory _$$_CupboardItemDTOCopyWith(
+          _$_CupboardItemDTO value, $Res Function(_$_CupboardItemDTO) then) =
+      __$$_CupboardItemDTOCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
       String name,
       int threshold,
-      int amount,
-      UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() UnitOfMeasurement unitOfMeasurement,
       String description,
+      int amount,
       bool image,
-      bool barcode});
+      bool barcode,
+      String nameInsensitive});
 
   @override
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
-      : super(_value, (v) => _then(v as _$_Product));
+class __$$_CupboardItemDTOCopyWithImpl<$Res>
+    extends _$CupboardItemDTOCopyWithImpl<$Res>
+    implements _$$_CupboardItemDTOCopyWith<$Res> {
+  __$$_CupboardItemDTOCopyWithImpl(
+      _$_CupboardItemDTO _value, $Res Function(_$_CupboardItemDTO) _then)
+      : super(_value, (v) => _then(v as _$_CupboardItemDTO));
 
   @override
-  _$_Product get _value => super._value as _$_Product;
+  _$_CupboardItemDTO get _value => super._value as _$_CupboardItemDTO;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
     Object? threshold = freezed,
-    Object? amount = freezed,
     Object? unitOfMeasurement = freezed,
     Object? description = freezed,
+    Object? amount = freezed,
     Object? image = freezed,
     Object? barcode = freezed,
+    Object? nameInsensitive = freezed,
   }) {
-    return _then(_$_Product(
+    return _then(_$_CupboardItemDTO(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -163,10 +185,6 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
-      amount: amount == freezed
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as int,
       unitOfMeasurement: unitOfMeasurement == freezed
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
@@ -175,6 +193,10 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -183,24 +205,32 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as bool,
+      nameInsensitive: nameInsensitive == freezed
+          ? _value.nameInsensitive
+          : nameInsensitive // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
-
-class _$_Product extends _Product {
-  const _$_Product(
+@JsonSerializable()
+class _$_CupboardItemDTO extends _CupboardItemDTO {
+  const _$_CupboardItemDTO(
       {this.id = '',
       this.name = '',
       this.threshold = 1,
-      this.amount = 0,
-      this.unitOfMeasurement =
-          const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
+      @UnitOfMeasurementConverter() this.unitOfMeasurement =
+          const UnitOfMeasurement(amount: 0, measurement: Measurement.liter),
       this.description = '',
+      this.amount = 0,
       this.image = false,
-      this.barcode = false})
+      this.barcode = false,
+      this.nameInsensitive = ''})
       : super._();
+
+  factory _$_CupboardItemDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_CupboardItemDTOFromJson(json);
 
   @override
   @JsonKey()
@@ -213,13 +243,14 @@ class _$_Product extends _Product {
   final int threshold;
   @override
   @JsonKey()
-  final int amount;
-  @override
-  @JsonKey()
+  @UnitOfMeasurementConverter()
   final UnitOfMeasurement unitOfMeasurement;
   @override
   @JsonKey()
   final String description;
+  @override
+  @JsonKey()
+  final int amount;
   @override
   @JsonKey()
   final bool image;
@@ -227,58 +258,77 @@ class _$_Product extends _Product {
   @override
   @JsonKey()
   final bool barcode;
+//TODO needs implementation
+  @override
+  @JsonKey()
+  final String nameInsensitive;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, threshold: $threshold, amount: $amount, unitOfMeasurement: $unitOfMeasurement, description: $description, image: $image, barcode: $barcode)';
+    return 'CupboardItemDTO(id: $id, name: $name, threshold: $threshold, unitOfMeasurement: $unitOfMeasurement, description: $description, amount: $amount, image: $image, barcode: $barcode, nameInsensitive: $nameInsensitive)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$_CupboardItemDTO &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.threshold, threshold) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality()
                 .equals(other.unitOfMeasurement, unitOfMeasurement) &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.barcode, barcode));
+            const DeepCollectionEquality().equals(other.barcode, barcode) &&
+            const DeepCollectionEquality()
+                .equals(other.nameInsensitive, nameInsensitive));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(threshold),
-      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(unitOfMeasurement),
       const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(barcode));
+      const DeepCollectionEquality().hash(barcode),
+      const DeepCollectionEquality().hash(nameInsensitive));
 
   @JsonKey(ignore: true)
   @override
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$_CupboardItemDTOCopyWith<_$_CupboardItemDTO> get copyWith =>
+      __$$_CupboardItemDTOCopyWithImpl<_$_CupboardItemDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_CupboardItemDTOToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Product extends Product {
-  const factory _Product(
+abstract class _CupboardItemDTO extends CupboardItemDTO {
+  const factory _CupboardItemDTO(
       {final String id,
       final String name,
       final int threshold,
-      final int amount,
-      final UnitOfMeasurement unitOfMeasurement,
+      @UnitOfMeasurementConverter() final UnitOfMeasurement unitOfMeasurement,
       final String description,
+      final int amount,
       final bool image,
-      final bool barcode}) = _$_Product;
-  const _Product._() : super._();
+      final bool barcode,
+      final String nameInsensitive}) = _$_CupboardItemDTO;
+  const _CupboardItemDTO._() : super._();
+
+  factory _CupboardItemDTO.fromJson(Map<String, dynamic> json) =
+      _$_CupboardItemDTO.fromJson;
 
   @override
   String get id;
@@ -287,17 +337,20 @@ abstract class _Product extends Product {
   @override
   int get threshold;
   @override
-  int get amount;
-  @override
+  @UnitOfMeasurementConverter()
   UnitOfMeasurement get unitOfMeasurement;
   @override
   String get description;
   @override
+  int get amount;
+  @override
   bool get image;
   @override //TODO needs implementation
   bool get barcode;
+  @override //TODO needs implementation
+  String get nameInsensitive;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$_CupboardItemDTOCopyWith<_$_CupboardItemDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

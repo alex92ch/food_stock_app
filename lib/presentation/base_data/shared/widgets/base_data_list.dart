@@ -1,26 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list_tile.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BaseDataList extends HookConsumerWidget {
-  final Storageplace storagePlace;
+  final String storagePlace;
   const BaseDataList({Key? key, required this.storagePlace}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productList = ref
-        .watch(productsNotifierProvider)
-        .productList
-        .where((element) => element.storagePlace == storagePlace)
-        .toList();
+    final productList = storagePlace == "fridge"
+        ? ref
+            .watch(fridgeItemNotifierProvider)
+            .fridgeItemList
+            .map((e) => e.product)
+            .toList()
+        : storagePlace == "freezer"
+            ? ref
+                .watch(freezerItemNotifierProvider)
+                .freezerItemList
+                .map((e) => e.product)
+                .toList()
+            : ref
+                .watch(cupboardItemNotifierProvider)
+                .cupboardItemList
+                .map((e) => e.product)
+                .toList();
     return SizedBox(
         width: 300,
-        height: 300,
+        height: 200,
         child: ListView.builder(
             itemCount: productList.length,
-            itemBuilder: ((context, index) =>
-                BaseDataListTile(index: index, productList: productList))));
+            itemBuilder: ((context, index) => BaseDataListTile(
+                index: index,
+                productList: productList,
+                storagePlace: storagePlace))));
   }
 }

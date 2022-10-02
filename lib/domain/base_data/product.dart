@@ -13,11 +13,8 @@ class Product with _$Product {
     @Default(0) int amount,
     @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram))
         UnitOfMeasurement unitOfMeasurement,
-    @Default(Storageplace.cupboard) Storageplace storagePlace,
     @Default('') String description,
     @Default(false) bool image, //TODO needs implementation
     @Default(false) bool barcode, //TODO needs implementation
   }) = _Product;
 }
-
-enum Storageplace { cupboard, fridge, freezer }

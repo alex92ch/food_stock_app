@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
-import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
-import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
-import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/stock/shared/widgets/stock_list_tile.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class StockList extends HookConsumerWidget {
-  final Storageplace storagePlace;
+  final String storagePlace;
   const StockList({Key? key, required this.storagePlace}) : super(key: key);
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,18 +20,18 @@ class StockList extends HookConsumerWidget {
         width: 300,
         height: 200,
         child: ListView.builder(
-            itemCount: storagePlace == Storageplace.fridge
+            itemCount: storagePlace == "fridge"
                 ? fridgeItemList.length
-                : storagePlace == Storageplace.cupboard
+                : storagePlace == "cupboard"
                     ? cupboardItemList.length
                     : freezerItemList.length,
             itemBuilder: ((context, index) => StockListTile(
                 index: index,
                 storagePlace: storagePlace,
-                product: storagePlace == Storageplace.fridge
-                    ? fridgeItemList[index]
-                    : storagePlace == Storageplace.cupboard
-                        ? cupboardItemList[index]
-                        : freezerItemList[index]))));
+                product: storagePlace == "fridge"
+                    ? fridgeItemList[index].product
+                    : storagePlace == "cupboard"
+                        ? cupboardItemList[index].product
+                        : freezerItemList[index].product))));
   }
 }
