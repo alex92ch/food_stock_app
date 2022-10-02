@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/base_data/shared/widgets/base_data_list.dart';
 
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
@@ -13,7 +14,10 @@ class BaseDataPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.read(routeProvider);
-    final productsProvider = ref.watch(productsNotifierProvider);
+    final fridgeItemProvider = ref.watch(fridgeItemNotifierProvider);
+    final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
+    final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -21,67 +25,70 @@ class BaseDataPage extends HookConsumerWidget {
         children: [
           const Text("Kühlschrank"),
           Center(
-            child: productsProvider.maybeMap(
+            child: fridgeItemProvider.maybeMap(
               initial: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(fridgeItemNotifierProvider.notifier)
+                    .getFridgeItemList();
                 return const CircularProgressIndicator();
               },
               failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(fridgeItemNotifierProvider.notifier)
+                    .getFridgeItemList();
                 return const CircularProgressIndicator();
               },
               orElse: () {
-                return productsProvider.productList
-                        .where((element) =>
-                            element.storagePlace == Storageplace.fridge)
-                        .isEmpty
+                return fridgeItemProvider.fridgeItemList.isEmpty
                     ? const Text("Fridge is empty")
-                    : const BaseDataList(storagePlace: Storageplace.fridge);
+                    : const BaseDataList(storagePlace: "fridge");
               },
             ),
           ),
           const Text("Tiefkühler"),
           Center(
-            child: productsProvider.maybeMap(
+            child: freezerItemProvider.maybeMap(
               initial: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(freezerItemNotifierProvider.notifier)
+                    .getFreezerItemList();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(freezerItemNotifierProvider.notifier)
+                    .getFreezerItemList();
                 return const CircularProgressIndicator();
               },
               orElse: () {
-                return productsProvider.productList
-                        .where((element) =>
-                            element.storagePlace == Storageplace.freezer)
-                        .isEmpty
+                return freezerItemProvider.freezerItemList.isEmpty
                     ? const Text("Freezer is empty")
-                    : const BaseDataList(storagePlace: Storageplace.freezer);
+                    : const BaseDataList(storagePlace: "freezer");
               },
             ),
           ),
           const Text("Schrank"),
           Center(
-            child: productsProvider.maybeMap(
+            child: cupboardItemProvider.maybeMap(
               initial: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(cupboardItemNotifierProvider.notifier)
+                    .getCupboardItemList();
                 return const CircularProgressIndicator();
               },
-              failure: (_) => const Text("Error"),
+              failure: (_) => const Text("Error"), //TODO needs error handling
               inProgress: (_) {
-                ref.read(productsNotifierProvider.notifier).getProductList();
+                ref
+                    .read(cupboardItemNotifierProvider.notifier)
+                    .getCupboardItemList();
                 return const CircularProgressIndicator();
               },
               orElse: () {
-                return productsProvider.productList
-                        .where((element) =>
-                            element.storagePlace == Storageplace.cupboard)
-                        .isEmpty
+                return cupboardItemProvider.cupboardItemList.isEmpty
                     ? const Text("Cupboard is empty")
-                    : const BaseDataList(storagePlace: Storageplace.cupboard);
+                    : const BaseDataList(storagePlace: "cupboard");
               },
             ),
           ),

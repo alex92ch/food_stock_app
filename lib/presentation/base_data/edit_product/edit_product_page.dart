@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
-import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
+import 'package:food_stock_app/domain/shared/cupboard_item.dart';
+import 'package:food_stock_app/domain/shared/fridge_item.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_amount.dart';
 import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_mass_unit.dart';
 import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_name.dart';
 import 'package:food_stock_app/presentation/base_data/edit_product/widgets/edit_optionals.dart';
@@ -14,22 +19,31 @@ import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../../domain/shared/freezer_item.dart';
+
 class EditProductPage extends HookConsumerWidget {
   final Product product;
-  const EditProductPage({Key? key, required this.product}) : super(key: key);
+  final String storagePlace;
+  const EditProductPage(
+      {Key? key, required this.product, required this.storagePlace})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productsProvider = ref.watch(productsNotifierProvider);
+    final fridgeItemProvider = ref.watch(fridgeItemNotifierProvider);
+    final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
+    final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
     final router = ref.read(routeProvider);
     final product = useState(this.product);
+    final storagePlace = useState(this.storagePlace);
     final formKey = useState(GlobalKey<FormState>());
     final pageController = usePageController();
     List<HookConsumerWidget> pages = [
       EditName(product),
       EditThreshold(product),
+      EditAmount(product),
       EditMassUnit(product),
-      EditStoragePlace(product),
+      EditStoragePlace(storagePlace),
       EditOptionals(product, formKey)
     ];
     return GestureDetector(
@@ -40,14 +54,14 @@ class EditProductPage extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("${product.value.name} bearbeiten"),
+              Text("${this.product.name} bearbeiten"),
               SizedBox(
                   height: 400,
                   child: Form(
                     key: formKey.value,
                     child: PageView.builder(
                       controller: pageController,
-                      itemCount: 5,
+                      itemCount: pages.length,
                       itemBuilder: (_, index) {
                         return Padding(
                           padding: const EdgeInsets.only(
@@ -73,17 +87,60 @@ class EditProductPage extends HookConsumerWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     if (formKey.value.currentState?.validate() ?? false) {
-                      await ref
-                          .read(productsNotifierProvider.notifier)
-                          .createProduct(
-                              product: product.value,
-                              productList: productsProvider.productList);
+                      storagePlace.value == "fridge"
+                          ? await ref
+                              .read(fridgeItemNotifierProvider.notifier)
+                              .createFridgeItem(
+                                  fridgeItem:
+                                      FridgeItem(product: product.value),
+                                  fridgeItemList:
+                                      fridgeItemProvider.fridgeItemList)
+                          : storagePlace.value == "freezer"
+                              ? await ref
+                                  .read(freezerItemNotifierProvider.notifier)
+                                  .createFreezerItem(
+                                      freezerItem:
+                                          FreezerItem(product: product.value),
+                                      freezerItemList:
+                                          freezerItemProvider.freezerItemList)
+                              : await ref
+                                  .read(cupboardItemNotifierProvider.notifier)
+                                  .createCupboardItem(
+                                    cupboardItem:
+                                        CupboardItem(product: product.value),
+                                    cupboardItemList:
+                                        cupboardItemProvider.cupboardItemList,
+                                  );
+                      this.storagePlace == "fridge"
+                          ? await ref
+                              .read(fridgeItemNotifierProvider.notifier)
+                              .deleteFridgeItem(
+                                  fridgeItem: FridgeItem(product: this.product),
+                                  fridgeItemList:
+                                      fridgeItemProvider.fridgeItemList)
+                          : storagePlace.value == "freezer"
+                              ? await ref
+                                  .read(freezerItemNotifierProvider.notifier)
+                                  .deleteFreezerItem(
+                                      freezerItem:
+                                          FreezerItem(product: this.product),
+                                      freezerItemList:
+                                          freezerItemProvider.freezerItemList)
+                              : await ref
+                                  .read(cupboardItemNotifierProvider.notifier)
+                                  .deleteCupboardItem(
+                                    cupboardItem:
+                                        CupboardItem(product: this.product),
+                                    cupboardItemList:
+                                        cupboardItemProvider.cupboardItemList,
+                                  );
                       await ref
                           .read(outOfStockNotifierProvider.notifier)
-                          .getOutOfStockList();
+                          .setOutOfSync();
                       await ref
                           .read(almostOutOfStockNotifierProvider.notifier)
-                          .getAlmostOutOfStockList();
+                          .setOutOfSync();
+                      FocusManager.instance.primaryFocus?.unfocus();
                       ref
                           .read(routeProvider)
                           .popUntilRouteWithName('BaseDataRoute');

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
-import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
-import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
-import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/add_stockitem_menu.dart';
 import 'package:food_stock_app/presentation/stock/shared/widgets/stock_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -42,7 +40,7 @@ class StockPage extends HookConsumerWidget {
               orElse: () {
                 return fridgeItemProvider.fridgeItemList.isEmpty
                     ? const Text("Fridge is empty")
-                    : const StockList(storagePlace: Storageplace.fridge);
+                    : const StockList(storagePlace: "fridge");
               },
             ),
           ),
@@ -65,7 +63,7 @@ class StockPage extends HookConsumerWidget {
                   orElse: () {
                     return freezerItemProvider.freezerItemList.isEmpty
                         ? const Text("Freezer is empty")
-                        : const StockList(storagePlace: Storageplace.freezer);
+                        : const StockList(storagePlace: "freezer");
                   })),
           const Text("Schrank"),
           Center(
@@ -86,7 +84,7 @@ class StockPage extends HookConsumerWidget {
                   orElse: () {
                     return cupboardItemProvider.cupboardItemList.isEmpty
                         ? const Text("Cupboard is empty")
-                        : const StockList(storagePlace: Storageplace.cupboard);
+                        : const StockList(storagePlace: "cupboard");
                   })),
         ],
       ),
@@ -95,7 +93,14 @@ class StockPage extends HookConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            AddStockitemMenu(router: router),
+            FloatingActionButton(
+              heroTag: null,
+              onPressed: () {
+                //TODO needs implementation (barcode)
+                // router.push(const NewProductRoute());
+              },
+              child: const Icon(Icons.add),
+            ),
             Menu(router: router)
           ],
         ),

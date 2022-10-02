@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:food_stock_app/application/base_data/product_notifier.dart';
-import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
-import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/domain/shared/cupboard_item.dart';
+import 'package:food_stock_app/domain/shared/freezer_item.dart';
+import 'package:food_stock_app/domain/shared/fridge_item.dart';
+import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_amount.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_mass_unit.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_name.dart';
 import 'package:food_stock_app/presentation/base_data/new_product/widgets/new_optionals.dart';
@@ -19,16 +25,20 @@ class NewProductPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productsProvider = ref.watch(productsNotifierProvider);
+    final fridgeItemProvider = ref.watch(fridgeItemNotifierProvider);
+    final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
+    final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
     final router = ref.read(routeProvider);
     final product = useState(const Product());
+    final storagePlace = useState("fridge");
     final formKey = useState(GlobalKey<FormState>());
     final pageController = usePageController();
     List<HookConsumerWidget> pages = [
       NewName(product),
       NewThreshold(product),
+      NewAmount(product),
       NewMassUnit(product),
-      NewStoragePlace(product),
+      NewStoragePlace(storagePlace),
       NewOptionals(product, formKey)
     ];
     return GestureDetector(
@@ -46,7 +56,7 @@ class NewProductPage extends HookConsumerWidget {
                     key: formKey.value,
                     child: PageView.builder(
                       controller: pageController,
-                      itemCount: 5,
+                      itemCount: pages.length,
                       itemBuilder: (_, index) {
                         return Padding(
                           padding: const EdgeInsets.only(
@@ -72,26 +82,36 @@ class NewProductPage extends HookConsumerWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     if (formKey.value.currentState?.validate() ?? false) {
-                      await ref
-                          .read(productsNotifierProvider.notifier)
-                          .createProduct(
-                              product: product.value,
-                              productList: productsProvider.map(
-                                updateSuccess: ((_) => _.productList),
-                                initial: ((_) => _.productList),
-                                loadSuccess: ((_) => _.productList),
-                                failure: ((_) => _.productList),
-                                inProgress: ((_) => _.productList),
-                                deleteSuccess: ((_) => _.productList),
-                                createSuccess: ((_) => _.productList),
-                                undoDeleteProduct: ((_) => _.productList),
-                              ));
+                      storagePlace.value == "fridge"
+                          ? await ref
+                              .read(fridgeItemNotifierProvider.notifier)
+                              .createFridgeItem(
+                                  fridgeItem:
+                                      FridgeItem(product: product.value),
+                                  fridgeItemList:
+                                      fridgeItemProvider.fridgeItemList)
+                          : storagePlace.value == "freezer"
+                              ? await ref
+                                  .read(freezerItemNotifierProvider.notifier)
+                                  .createFreezerItem(
+                                      freezerItem:
+                                          FreezerItem(product: product.value),
+                                      freezerItemList:
+                                          freezerItemProvider.freezerItemList)
+                              : await ref
+                                  .read(cupboardItemNotifierProvider.notifier)
+                                  .createCupboardItem(
+                                      cupboardItem:
+                                          CupboardItem(product: product.value),
+                                      cupboardItemList: cupboardItemProvider
+                                          .cupboardItemList);
                       await ref
                           .read(outOfStockNotifierProvider.notifier)
-                          .getOutOfStockList();
+                          .setOutOfSync();
                       await ref
                           .read(almostOutOfStockNotifierProvider.notifier)
-                          .getAlmostOutOfStockList();
+                          .setOutOfSync();
+                      FocusManager.instance.primaryFocus?.unfocus();
                       ref
                           .read(routeProvider)
                           .popUntilRouteWithName('BaseDataRoute');

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/stock/almost_out_of_stock_notifier.dart';
-import 'package:food_stock_app/application/stock/cupboard_item_notifer.dart';
-import 'package:food_stock_app/application/stock/freezer_item_notifier.dart';
-import 'package:food_stock_app/application/stock/fridge_item_notifier.dart';
-import 'package:food_stock_app/application/stock/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
+import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
+import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
+import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
+import 'package:food_stock_app/domain/shared/cupboard_item.dart';
+import 'package:food_stock_app/domain/shared/freezer_item.dart';
+import 'package:food_stock_app/domain/shared/fridge_item.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class StockListTile extends HookConsumerWidget {
-  final Storageplace storagePlace;
+  final String storagePlace;
   final int index;
   final Product product;
   const StockListTile(
@@ -30,58 +33,58 @@ class StockListTile extends HookConsumerWidget {
       },
       leading: IconButton(
           onPressed: () async {
-            storagePlace == Storageplace.fridge
+            storagePlace == "fridge"
                 ? await ref
                     .read(fridgeItemNotifierProvider.notifier)
                     .increaseFridgeItem(
-                        product: product, fridgeItemList: fridgeItemList)
-                : storagePlace == Storageplace.cupboard
+                        fridgeItem: FridgeItem(product: product),
+                        fridgeItemList: fridgeItemList)
+                : storagePlace == "cupboard"
                     ? await ref
                         .read(cupboardItemNotifierProvider.notifier)
                         .increaseCupboardItem(
-                            product: product,
+                            cupboardItem: CupboardItem(product: product),
                             cupboardItemList: cupboardItemList)
                     : await ref
                         .read(freezerItemNotifierProvider.notifier)
                         .increaseFreezerItem(
-                            product: product, freezerItemList: freezerItemList);
-            await ref
-                .read(outOfStockNotifierProvider.notifier)
-                .getOutOfStockList();
+                            freezerItem: FreezerItem(product: product),
+                            freezerItemList: freezerItemList);
+            await ref.read(outOfStockNotifierProvider.notifier).setOutOfSync();
             await ref
                 .read(almostOutOfStockNotifierProvider.notifier)
-                .getAlmostOutOfStockList();
+                .setOutOfSync();
           },
           icon: const Icon(Icons.add)),
       title: Text(product.name),
-      subtitle: storagePlace == Storageplace.fridge
-          ? Text(fridgeItemList[index].amount.toString())
-          : storagePlace == Storageplace.cupboard
-              ? Text(cupboardItemList[index].amount.toString())
-              : Text(freezerItemList[index].amount.toString()),
+      subtitle: storagePlace == "fridge"
+          ? Text(fridgeItemList[index].product.amount.toString())
+          : storagePlace == "cupboard"
+              ? Text(cupboardItemList[index].product.amount.toString())
+              : Text(freezerItemList[index].product.amount.toString()),
       trailing: IconButton(
           onPressed: () async {
-            storagePlace == Storageplace.fridge
+            storagePlace == "fridge"
                 ? await ref
                     .read(fridgeItemNotifierProvider.notifier)
                     .decreaseFridgeItem(
-                        product: product, fridgeItemList: fridgeItemList)
-                : storagePlace == Storageplace.cupboard
+                        fridgeItem: FridgeItem(product: product),
+                        fridgeItemList: fridgeItemList)
+                : storagePlace == "cupboard"
                     ? await ref
                         .read(cupboardItemNotifierProvider.notifier)
                         .decreaseCupboardItem(
-                            product: product,
+                            cupboardItem: CupboardItem(product: product),
                             cupboardItemList: cupboardItemList)
                     : await ref
                         .read(freezerItemNotifierProvider.notifier)
                         .decreaseFreezerItem(
-                            product: product, freezerItemList: freezerItemList);
-            await ref
-                .read(outOfStockNotifierProvider.notifier)
-                .getOutOfStockList();
+                            freezerItem: FreezerItem(product: product),
+                            freezerItemList: freezerItemList);
+            await ref.read(outOfStockNotifierProvider.notifier).setOutOfSync();
             await ref
                 .read(almostOutOfStockNotifierProvider.notifier)
-                .getAlmostOutOfStockList();
+                .setOutOfSync();
           },
           icon: const Icon(Icons.remove)),
     );

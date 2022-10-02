@@ -6,7 +6,6 @@ import 'package:food_stock_app/presentation/base_data/new_product/new_product_pa
 import 'package:food_stock_app/presentation/base_data/shared/base_data_page.dart';
 
 import 'package:food_stock_app/presentation/overview/overview_page.dart';
-import 'package:food_stock_app/presentation/stock/add_stockitem/add_stockitem_page.dart';
 import 'package:food_stock_app/presentation/stock/shared/stock_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -37,10 +36,6 @@ final routeProvider = Provider<AppRouter>((ref) => AppRouter());
     CustomRoute(
         page: EditProductPage,
         path: "/edit_product",
-        transitionsBuilder: TransitionsBuilders.fadeIn),
-    CustomRoute(
-        page: AddStockitemPage,
-        path: "/add_stockitem",
         transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )
