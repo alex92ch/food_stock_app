@@ -101,7 +101,7 @@ class EditProductPage extends HookConsumerWidget {
                                   fridgeItemList: fridgeItemList)
                               .then((_) => fridgeItemList
                                   .remove(FridgeItem(product: this.product)))
-                          : storagePlace.value == "freezer"
+                          : this.storagePlace == "freezer"
                               ? await ref
                                   .read(freezerItemNotifierProvider.notifier)
                                   .deleteFreezerItem(
