@@ -87,52 +87,58 @@ class EditProductPage extends HookConsumerWidget {
                 child: ElevatedButton(
                   onPressed: () async {
                     if (formKey.value.currentState?.validate() ?? false) {
-                      storagePlace.value == "fridge"
-                          ? await ref
-                              .read(fridgeItemNotifierProvider.notifier)
-                              .createFridgeItem(
-                                  fridgeItem:
-                                      FridgeItem(product: product.value),
-                                  fridgeItemList:
-                                      fridgeItemProvider.fridgeItemList)
-                          : storagePlace.value == "freezer"
-                              ? await ref
-                                  .read(freezerItemNotifierProvider.notifier)
-                                  .createFreezerItem(
-                                      freezerItem:
-                                          FreezerItem(product: product.value),
-                                      freezerItemList:
-                                          freezerItemProvider.freezerItemList)
-                              : await ref
-                                  .read(cupboardItemNotifierProvider.notifier)
-                                  .createCupboardItem(
-                                    cupboardItem:
-                                        CupboardItem(product: product.value),
-                                    cupboardItemList:
-                                        cupboardItemProvider.cupboardItemList,
-                                  );
+                      List<FridgeItem> fridgeItemList =
+                          List.from(fridgeItemProvider.fridgeItemList);
+                      List<FreezerItem> freezerItemList =
+                          List.from(freezerItemProvider.freezerItemList);
+                      List<CupboardItem> cupboardItemList =
+                          List.from(cupboardItemProvider.cupboardItemList);
                       this.storagePlace == "fridge"
                           ? await ref
                               .read(fridgeItemNotifierProvider.notifier)
                               .deleteFridgeItem(
                                   fridgeItem: FridgeItem(product: this.product),
-                                  fridgeItemList:
-                                      fridgeItemProvider.fridgeItemList)
+                                  fridgeItemList: fridgeItemList)
+                              .then((_) => fridgeItemList
+                                  .remove(FridgeItem(product: this.product)))
                           : storagePlace.value == "freezer"
                               ? await ref
                                   .read(freezerItemNotifierProvider.notifier)
                                   .deleteFreezerItem(
                                       freezerItem:
                                           FreezerItem(product: this.product),
-                                      freezerItemList:
-                                          freezerItemProvider.freezerItemList)
+                                      freezerItemList: freezerItemList)
+                                  .then((_) => freezerItemList.remove(
+                                      FreezerItem(product: this.product)))
                               : await ref
                                   .read(cupboardItemNotifierProvider.notifier)
                                   .deleteCupboardItem(
                                     cupboardItem:
                                         CupboardItem(product: this.product),
-                                    cupboardItemList:
-                                        cupboardItemProvider.cupboardItemList,
+                                    cupboardItemList: cupboardItemList,
+                                  )
+                                  .then((_) => cupboardItemList.remove(
+                                      CupboardItem(product: this.product)));
+                      storagePlace.value == "fridge"
+                          ? await ref
+                              .read(fridgeItemNotifierProvider.notifier)
+                              .createFridgeItem(
+                                  fridgeItem:
+                                      FridgeItem(product: product.value),
+                                  fridgeItemList: fridgeItemList)
+                          : storagePlace.value == "freezer"
+                              ? await ref
+                                  .read(freezerItemNotifierProvider.notifier)
+                                  .createFreezerItem(
+                                      freezerItem:
+                                          FreezerItem(product: product.value),
+                                      freezerItemList: freezerItemList)
+                              : await ref
+                                  .read(cupboardItemNotifierProvider.notifier)
+                                  .createCupboardItem(
+                                    cupboardItem:
+                                        CupboardItem(product: product.value),
+                                    cupboardItemList: cupboardItemList,
                                   );
                       await ref
                           .read(outOfStockNotifierProvider.notifier)
