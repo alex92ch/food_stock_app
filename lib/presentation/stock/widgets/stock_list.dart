@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
 import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/stock_list_tile.dart';
+import 'package:food_stock_app/presentation/stock/widgets/stock_list_tile.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

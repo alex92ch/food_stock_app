@@ -36,7 +36,7 @@ TODO
 <br></br>
 
 ### Add Products
-![MainScreens](docs/AddProduct.jpg)
+![MainScreens](docs/NewProduct.jpg)
 <p>
 <b>Add product name:</b>
 TODO

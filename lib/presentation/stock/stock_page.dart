@@ -4,7 +4,7 @@ import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
 import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
-import 'package:food_stock_app/presentation/stock/shared/widgets/stock_list.dart';
+import 'package:food_stock_app/presentation/stock/widgets/stock_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class StockPage extends HookConsumerWidget {

@@ -39,6 +39,7 @@ class OverviewList extends HookConsumerWidget {
                         .toList())))
                 .length,
         itemBuilder: ((context, index) => OverviewListTile(
+              outOfStock: outOfStock,
               product: outOfStock
                   ? List.from(outOfStockList.cupboardItemList.map((e) => e.product).toList()
                     ..addAll(
