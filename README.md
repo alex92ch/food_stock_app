@@ -10,15 +10,15 @@
 ### Main Screens
 ![MainScreens](docs/MainScreens.jpg)
 <p>
-<b>Base Data:</b>
+<b>base_data_page:</b>
 This screen provides an overview of the products available through the database (e.g., Firebase), the possibility to add/change/delete such products, a search bar, and a menu to switch between the main screens.
 </p>
 <p>
-<b>Overview:</b>
+<b>overview_page:</b>
 This screen provides an overview of the stock items which are out or almost out (controlled due to the threshold field in each product) and a menu to switch between the main screens.
 </p>
 <p>
-<b>Stock:</b>
+<b>stock_page:</b>
 This screen provides an overview of the stock items, the possibility to add items to the stock through scanning the barcode or directly from the database, and a menu to switch between the main screens.
 </p>
 <br></br>
@@ -26,7 +26,7 @@ This screen provides an overview of the stock items, the possibility to add item
 ### Stock Interaction
 ![MainScreens](docs/StockInteraction.jpg)
 <p>
-<b>Add product:</b>
+<b>stock_page:</b>
 TODO
 </p>
 <p>
@@ -38,35 +38,39 @@ TODO
 ### Add Products
 ![MainScreens](docs/NewProduct.jpg)
 <p>
-<b>Add product name:</b>
+<b>new_name:</b>
 TODO
 </p>
 <p>
-<b>Add product threshold:</b>
+<b>new_threshold:</b>
 TODO
 </p>
 <p>
-<b>Add product unit measurement:</b>
+<b>new_amount:</b>
 TODO
 </p>
 <p>
-<b>Add product storage place:</b>
+<b>new_mass_unit:</b>
 TODO
 </p>
 <p>
-<b>Add product optionals:</b>
+<b>new_storage_place:</b>
 TODO
 </p>
 <p>
-<b>Scan product:</b>
+<b>new_optionals:</b>
 TODO
 </p>
 <p>
-<b>Add description:</b>
+<b>new_scan:</b>
 TODO
 </p>
 <p>
-<b>Photograph product:</b>
+<b>new_description:</b>
+TODO
+</p>
+<p>
+<b>new_photo:</b>
 TODO
 </p>
 <br></br>
@@ -74,23 +78,27 @@ TODO
 ### Edit/Delete Products
 ![MainScreens](docs/EditProduct.jpg)
 <p>
-<b>Edit product name:</b>
+<b>edit_name:</b>
 TODO
 </p>
 <p>
-<b>Edit product threshold:</b>
+<b>edit_threshold:</b>
 TODO
 </p>
 <p>
-<b>Edit product unit measurement:</b>
+<b>edit_amount:</b>
 TODO
 </p>
 <p>
-<b>Edit product storage place:</b>
+<b>edit_mass_unit:</b>
 TODO
 </p>
 <p>
-<b>Edit product optionals:</b>
+<b>edit_storage_place:</b>
+TODO
+</p>
+<p>
+<b>edit_optionals:</b>
 TODO
 </p>
 <p>
@@ -98,7 +106,7 @@ TODO
 TODO
 </p>
 <p>
-<b>Edit description:</b>
+<b>edit_description:</b>
 TODO
 </p>
 <p>
