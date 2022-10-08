@@ -15,6 +15,6 @@ class Product with _$Product {
         UnitOfMeasurement unitOfMeasurement,
     @Default('') String description,
     @Default(false) bool image, //TODO needs implementation
-    @Default(false) bool barcode, //TODO needs implementation
+    @Default('') String barcode,
   }) = _Product;
 }

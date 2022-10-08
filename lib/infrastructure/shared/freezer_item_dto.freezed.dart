@@ -29,8 +29,7 @@ mixin _$FreezerItemDTO {
   int get amount => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
-  bool get barcode =>
-      throw _privateConstructorUsedError; //TODO needs implementation
+  String get barcode => throw _privateConstructorUsedError;
   String get nameInsensitive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +51,7 @@ abstract class $FreezerItemDTOCopyWith<$Res> {
       String description,
       int amount,
       bool image,
-      bool barcode,
+      String barcode,
       String nameInsensitive});
 
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
@@ -111,7 +110,7 @@ class _$FreezerItemDTOCopyWithImpl<$Res>
       barcode: barcode == freezed
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String,
       nameInsensitive: nameInsensitive == freezed
           ? _value.nameInsensitive
           : nameInsensitive // ignore: cast_nullable_to_non_nullable
@@ -142,7 +141,7 @@ abstract class _$$_FreezerItemDTOCopyWith<$Res>
       String description,
       int amount,
       bool image,
-      bool barcode,
+      String barcode,
       String nameInsensitive});
 
   @override
@@ -204,7 +203,7 @@ class __$$_FreezerItemDTOCopyWithImpl<$Res>
       barcode: barcode == freezed
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String,
       nameInsensitive: nameInsensitive == freezed
           ? _value.nameInsensitive
           : nameInsensitive // ignore: cast_nullable_to_non_nullable
@@ -225,7 +224,7 @@ class _$_FreezerItemDTO extends _FreezerItemDTO {
       this.description = '',
       this.amount = 0,
       this.image = false,
-      this.barcode = false,
+      this.barcode = '',
       this.nameInsensitive = ''})
       : super._();
 
@@ -257,8 +256,7 @@ class _$_FreezerItemDTO extends _FreezerItemDTO {
 //TODO needs implementation
   @override
   @JsonKey()
-  final bool barcode;
-//TODO needs implementation
+  final String barcode;
   @override
   @JsonKey()
   final String nameInsensitive;
@@ -323,7 +321,7 @@ abstract class _FreezerItemDTO extends FreezerItemDTO {
       final String description,
       final int amount,
       final bool image,
-      final bool barcode,
+      final String barcode,
       final String nameInsensitive}) = _$_FreezerItemDTO;
   const _FreezerItemDTO._() : super._();
 
@@ -346,8 +344,8 @@ abstract class _FreezerItemDTO extends FreezerItemDTO {
   @override
   bool get image;
   @override //TODO needs implementation
-  bool get barcode;
-  @override //TODO needs implementation
+  String get barcode;
+  @override
   String get nameInsensitive;
   @override
   @JsonKey(ignore: true)

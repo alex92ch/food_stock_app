@@ -1,14 +1,22 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewOptionals extends HookConsumerWidget {
+  final bool fromStock;
   final ValueNotifier<Product> product;
   final ValueNotifier<GlobalKey<FormState>> formKey;
-  const NewOptionals(this.product, this.formKey, {Key? key}) : super(key: key);
+  const NewOptionals({
+    Key? key,
+    required this.product,
+    required this.formKey,
+    required this.fromStock,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    int duration = 4;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -29,7 +37,7 @@ class NewOptionals extends HookConsumerWidget {
             Column(
               children: [
                 IconButton(
-                  onPressed: () {}, //TODO needs handler
+                  onPressed: () {}, //TODO needs handler PHOTO
                   icon: const Icon(
                     Icons.camera_alt_rounded,
                     semanticLabel: "Foto hinzufügen",
@@ -37,13 +45,59 @@ class NewOptionals extends HookConsumerWidget {
                 ),
               ],
             ),
-            IconButton(
-              onPressed: () {}, //TODO needs handler
-              icon: const Icon(
-                Icons.qr_code_scanner_rounded,
-                semanticLabel: "Barcode scannen",
-              ),
-            ),
+            fromStock
+                ? Container()
+                : IconButton(
+                    onPressed: () async {
+                      final scaffoldmessenger = ScaffoldMessenger.of(context);
+                      try {
+                        ScanResult scanResult = await BarcodeScanner.scan();
+                        scanResult.type == ResultType.Error
+                            ? {
+                                scaffoldmessenger.clearSnackBars(),
+                                scaffoldmessenger.showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                        'Fehler: ${scanResult.rawContent}'),
+                                    margin: const EdgeInsets.all(10),
+                                    duration: Duration(seconds: duration),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 15.0, vertical: 10.0),
+                                    elevation: 6,
+                                    behavior: SnackBarBehavior.floating,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5.0),
+                                    ),
+                                  ),
+                                )
+                              }
+                            : {
+                                product.value = product.value
+                                    .copyWith(barcode: scanResult.rawContent)
+                              };
+                      } on Exception catch (e) {
+                        scaffoldmessenger.clearSnackBars();
+                        scaffoldmessenger.showSnackBar(
+                          SnackBar(
+                            content: Text('Fehler: $e'),
+                            margin: const EdgeInsets.all(10),
+                            duration: Duration(seconds: duration),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 15.0, vertical: 10.0),
+                            elevation: 6,
+                            behavior: SnackBarBehavior.floating,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    icon: const Icon(
+                      Icons.qr_code_scanner_rounded,
+                      semanticLabel: "Barcode scannen",
+                    ),
+                  ),
           ],
         ),
       ],

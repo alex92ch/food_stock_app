@@ -21,7 +21,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class NewProductPage extends HookConsumerWidget {
-  const NewProductPage({Key? key}) : super(key: key);
+  final String barcode;
+  const NewProductPage(this.barcode, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,7 +30,7 @@ class NewProductPage extends HookConsumerWidget {
     final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
     final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
     final router = ref.read(routeProvider);
-    final product = useState(const Product());
+    final product = useState(Product(barcode: barcode));
     final storagePlace = useState("fridge");
     final formKey = useState(GlobalKey<FormState>());
     final pageController = usePageController();
@@ -39,7 +40,11 @@ class NewProductPage extends HookConsumerWidget {
       NewAmount(product),
       NewMassUnit(product),
       NewStoragePlace(storagePlace),
-      NewOptionals(product, formKey)
+      NewOptionals(
+        product: product,
+        formKey: formKey,
+        fromStock: barcode != '',
+      ),
     ];
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -112,9 +117,13 @@ class NewProductPage extends HookConsumerWidget {
                           .read(almostOutOfStockNotifierProvider.notifier)
                           .setOutOfSync();
                       FocusManager.instance.primaryFocus?.unfocus();
-                      ref
-                          .read(routeProvider)
-                          .popUntilRouteWithName('BaseDataRoute');
+                      barcode == ''
+                          ? ref
+                              .read(routeProvider)
+                              .popUntilRouteWithName('BaseDataRoute')
+                          : ref
+                              .read(routeProvider)
+                              .popUntilRouteWithName('StockRoute');
                     } else {
                       debugPrint('validation failed');
                       //TODO handle failed validation

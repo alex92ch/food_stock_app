@@ -1,9 +1,11 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
 import 'package:food_stock_app/application/shared/fridge_item_notifier.dart';
 import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
+import 'package:food_stock_app/presentation/stock/widgets/stock_add_item_dialog.dart';
 import 'package:food_stock_app/presentation/stock/widgets/stock_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -16,6 +18,8 @@ class StockPage extends HookConsumerWidget {
     final fridgeItemProvider = ref.watch(fridgeItemNotifierProvider);
     final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
     final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
+    int duration = 4;
+    bool occurenceCheck = false;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -95,9 +99,94 @@ class StockPage extends HookConsumerWidget {
           children: <Widget>[
             FloatingActionButton(
               heroTag: null,
-              onPressed: () {
-                //TODO needs implementation (barcode)
-                // router.push(const NewProductRoute());
+              onPressed: () async {
+                final scaffoldmessenger = ScaffoldMessenger.of(context);
+                try {
+                  ScanResult scanResult = await BarcodeScanner.scan();
+                  switch (scanResult.type) {
+                    case ResultType.Error:
+                      scaffoldmessenger.clearSnackBars();
+                      scaffoldmessenger.showSnackBar(
+                        SnackBar(
+                          content: Text('Fehler: ${scanResult.rawContent}'),
+                          margin: const EdgeInsets.all(10),
+                          duration: Duration(seconds: duration),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 10.0),
+                          elevation: 6,
+                          behavior: SnackBarBehavior.floating,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
+                      );
+                      break;
+                    case ResultType.Cancelled:
+                      break;
+                    case ResultType.Barcode:
+                      fridgeItemProvider.fridgeItemList.any((fridgeItem) =>
+                              fridgeItem.product.barcode ==
+                              scanResult.rawContent)
+                          ? await ref.read(fridgeItemNotifierProvider.notifier).increaseFridgeItem(
+                              fridgeItem: fridgeItemProvider.fridgeItemList
+                                  .where((fridgeItem) =>
+                                      fridgeItem.product.barcode ==
+                                      scanResult.rawContent)
+                                  .first,
+                              fridgeItemList: fridgeItemProvider.fridgeItemList)
+                          : freezerItemProvider.freezerItemList.any(
+                                  (freezerItem) =>
+                                      freezerItem.product.barcode ==
+                                      scanResult.rawContent)
+                              ? await ref
+                                  .read(freezerItemNotifierProvider.notifier)
+                                  .increaseFreezerItem(
+                                      freezerItem: freezerItemProvider
+                                          .freezerItemList
+                                          .where((freezerItem) =>
+                                              freezerItem.product.barcode ==
+                                              scanResult.rawContent)
+                                          .first,
+                                      freezerItemList:
+                                          freezerItemProvider.freezerItemList)
+                              : cupboardItemProvider.cupboardItemList.any(
+                                      (cupboardItem) =>
+                                          cupboardItem.product.barcode ==
+                                          scanResult.rawContent)
+                                  ? await ref
+                                      .read(
+                                          cupboardItemNotifierProvider.notifier)
+                                      .increaseCupboardItem(
+                                          cupboardItem: cupboardItemProvider
+                                              .cupboardItemList
+                                              .where((cupboardItem) => cupboardItem.product.barcode == scanResult.rawContent)
+                                              .first,
+                                          cupboardItemList: cupboardItemProvider.cupboardItemList)
+                                  : showDialog(
+                                      context: context,
+                                      builder: (BuildContext dialogContext) {
+                                        return StockAddItemDialog(
+                                            barcode: scanResult.rawContent);
+                                      });
+                      break;
+                  }
+                } on Exception catch (e) {
+                  scaffoldmessenger.clearSnackBars();
+                  scaffoldmessenger.showSnackBar(
+                    SnackBar(
+                      content: Text('Fehler: $e'),
+                      margin: const EdgeInsets.all(10),
+                      duration: Duration(seconds: duration),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 15.0, vertical: 10.0),
+                      elevation: 6,
+                      behavior: SnackBarBehavior.floating,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                  );
+                }
               },
               child: const Icon(Icons.add),
             ),
