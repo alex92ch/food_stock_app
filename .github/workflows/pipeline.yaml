@@ -26,7 +26,7 @@ jobs:
           base64 -d -i google-services.json.b64 > android/app/google-services.json
       - name: Create Firebase Options Dart
         run: |
-          echo "${{ secrets.FIREBASE_OPTIONS_DART }}" > 
+          echo "${{ secrets.FIREBASE_OPTIONS_DART }}" > firebase_options.dart.b64
           base64 -d -i firebase_options.dart.b64 > lib/shared/infrastructure/firebase/firebase_options.dart
       - uses: subosito/flutter-action@v2
         with:
