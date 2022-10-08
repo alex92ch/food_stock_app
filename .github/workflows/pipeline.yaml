@@ -24,6 +24,10 @@ jobs:
         run: |
           echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > google-services.json.b64
           base64 -d -i google-services.json.b64 > android/app/google-services.json
+      - name: Create Firebase Options Dart
+        run: |
+          echo "${{ secrets.FIREBASE_OPTIONS_DART }}" > 
+          base64 -d -i firebase_options.dart.b64 > lib/shared/infrastructure/firebase/firebase_options.dart
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.1"
@@ -47,3 +51,5 @@ jobs:
           rm -rf key.properties.b64
           rm -rf android/app/upload-keystore.jks
           rm -rf android/key.properties
+          rm -rf firebase_options.dart.b64
+          rm -rf lib/shared/infrastructure/firebase/firebase_options.dart
