@@ -2,7 +2,7 @@ name: Build and Release
 on:
   push:
     tags:
-      - v**.**.**
+      - "*"
 jobs:
   build_and_release:
     name: Build and Release
@@ -28,11 +28,8 @@ jobs:
         with:
           flutter-version: "3.3.1"
           channel: "stable"
-      - run: flutter build apk lib/main.dart --build-name=$GITHUB_REF_NAME --build-number=$GITHUB_RUN_NUMBER --release
-        uses: actions/upload-artifact@master
-        with:
-          name: apk-release
-          path: build/app/outputs/bundle/release/app-release.apk
+      - name: Build APK
+        run: flutter build apk lib/main.dart --build-name=$GITHUB_REF_NAME --build-number=$GITHUB_RUN_NUMBER --release
       - name: Deploy Android App to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1.2.1
         with:
