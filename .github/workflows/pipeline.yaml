@@ -1,0 +1,58 @@
+name: Build and Release
+on:
+  push:
+    tags:
+      - v**.**.**
+jobs:
+  build_and_release:
+    name: Build and Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code from ref
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+      - name: Create Android Signing Key Store File
+        run: |
+          echo "${{ secrets.ANDROID_SIGNING_KEY_STORE }}" > upload-keystore.jks.b64
+          base64 -d -i upload-keystore.jks.b64 > android/app/upload-keystore.jks
+      - name: Create Android Signing Key Properties File
+        run: |
+          echo "${{ secrets.ANDROID_SIGNING_KEY_PROPERTIES }}" > key.properties.b64
+          base64 -d -i key.properties.b64 > android/key.properties
+      - name: Create Firebase Android App Credentials
+        run: |
+          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" > google-services.json.b64
+          base64 -d -i google-services.json.b64 > android/app/google-services.json
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.1"
+          channel: "stable"
+      - name: Build Android
+        run: flutter build apk lib/main.dart --build-name=$GITHUB_REF_NAME --build-number=$GITHUB_RUN_NUMBER --release
+        uses: actions/upload-artifact@master
+        with:
+          name: apk-release
+          path: build/app/outputs/bundle/release/app-release.apk
+      - name: Deploy Android App to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1.2.1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          token: ${{secrets.FIREBASE_TOKEN}}
+          groups: foodstock
+          file: app/build/outputs/apk/release/app-release.apk
+      - name: Cleanup Environment
+        if: ${{ always() }}
+        run: |
+          # Remove credentials
+          rm -rf android/app/src/$ENVIRONMENT/google-services.json
+          rm -rf google-services.json.b64
+          rm -rf upload-keystore.jks.b64
+          rm -rf key.properties.b64
+          rm -rf algolia_options.dart.b64
+          rm -rf firebase_credentials.json.b64
+          rm -rf firebase_options.dart.b64
+          rm -rf android/app/upload-keystore.jks
+          rm -rf android/key.properties
+          rm -rf firebase/firebase_credentials.json
+          rm -rf ios/firebase_credentials.json

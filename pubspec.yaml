@@ -1,5 +1,5 @@
 name: food_stock_app
-description: A new Flutter project. #TODO add description
+description: A Flutter application to keep track of your food stock.
 
 publish_to: "none"
 
@@ -44,6 +44,20 @@ dev_dependencies:
   auto_route_generator: ^4.0.0
   build_runner: ^2.1.11
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/icons/icon.png"
+  windows:
+    generate: true
+    image_path: "assets/icons/icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
 
 flutter:
   uses-material-design: true

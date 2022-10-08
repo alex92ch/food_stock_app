@@ -52,3 +52,5 @@ macos/firebase_app_id_file.json
 lib/firebase_options.dart
 
 tmp/*
+
+upload-keystore.jks
