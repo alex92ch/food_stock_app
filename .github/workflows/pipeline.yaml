@@ -45,14 +45,9 @@ jobs:
         if: ${{ always() }}
         run: |
           # Remove credentials
-          rm -rf android/app/src/$ENVIRONMENT/google-services.json
+          rm -rf android/app/google-services.json
           rm -rf google-services.json.b64
           rm -rf upload-keystore.jks.b64
           rm -rf key.properties.b64
-          rm -rf algolia_options.dart.b64
-          rm -rf firebase_credentials.json.b64
-          rm -rf firebase_options.dart.b64
           rm -rf android/app/upload-keystore.jks
           rm -rf android/key.properties
-          rm -rf firebase/firebase_credentials.json
-          rm -rf ios/firebase_credentials.json
