@@ -30,7 +30,6 @@ jobs:
           channel: "stable"
       - name: Build Android
         run: flutter build apk lib/main.dart --build-name=$GITHUB_REF_NAME --build-number=$GITHUB_RUN_NUMBER --release
-        uses: actions/upload-artifact@master
         with:
           name: apk-release
           path: build/app/outputs/bundle/release/app-release.apk
