@@ -44,7 +44,7 @@ jobs:
           appId: ${{secrets.FIREBASE_APP_ID}}
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: foodstock
-          file: app/build/outputs/apk/release/app-release.apk
+          file: build/app/outputs/apk/release/app-release.apk
           releaseNotesFile: release_notes.txt
       - name: Cleanup Environment
         if: ${{ always() }}
