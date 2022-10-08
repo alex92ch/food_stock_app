@@ -1,3 +1,4 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/domain/shared/fridge_item.dart';
@@ -38,7 +39,7 @@ class FridgeItemDTO with _$FridgeItemDTO {
     @Default('') String description,
     @Default(0) int amount,
     @Default(false) bool image, //TODO needs implementation
-    @Default(false) bool barcode, //TODO needs implementation
+    @Default('') String barcode,
     @Default('') String nameInsensitive,
   }) = _FridgeItemDTO;
 

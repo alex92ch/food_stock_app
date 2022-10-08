@@ -45,9 +45,13 @@ class _$AppRouter extends RootStackRouter {
       );
     },
     NewProductRoute.name: (routeData) {
+      final args = routeData.argsAs<NewProductRouteArgs>();
       return CustomPage<dynamic>(
         routeData: routeData,
-        child: const NewProductPage(),
+        child: NewProductPage(
+          args.barcode,
+          key: args.key,
+        ),
         transitionsBuilder: TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
@@ -138,14 +142,36 @@ class BaseDataRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [NewProductPage]
-class NewProductRoute extends PageRouteInfo<void> {
-  const NewProductRoute()
-      : super(
+class NewProductRoute extends PageRouteInfo<NewProductRouteArgs> {
+  NewProductRoute({
+    required String barcode,
+    Key? key,
+  }) : super(
           NewProductRoute.name,
           path: '/new_product',
+          args: NewProductRouteArgs(
+            barcode: barcode,
+            key: key,
+          ),
         );
 
   static const String name = 'NewProductRoute';
+}
+
+class NewProductRouteArgs {
+  const NewProductRouteArgs({
+    required this.barcode,
+    this.key,
+  });
+
+  final String barcode;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'NewProductRouteArgs{barcode: $barcode, key: $key}';
+  }
 }
 
 /// generated route for

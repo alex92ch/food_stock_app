@@ -24,7 +24,7 @@ mixin _$Product {
   String get description => throw _privateConstructorUsedError;
   bool get image =>
       throw _privateConstructorUsedError; //TODO needs implementation
-  bool get barcode => throw _privateConstructorUsedError;
+  String get barcode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ProductCopyWith<$Res> {
       UnitOfMeasurement unitOfMeasurement,
       String description,
       bool image,
-      bool barcode});
+      String barcode});
 
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
 }
@@ -98,7 +98,7 @@ class _$ProductCopyWithImpl<$Res> implements $ProductCopyWith<$Res> {
       barcode: barcode == freezed
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String,
     ));
   }
 
@@ -124,7 +124,7 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       UnitOfMeasurement unitOfMeasurement,
       String description,
       bool image,
-      bool barcode});
+      String barcode});
 
   @override
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement;
@@ -182,7 +182,7 @@ class __$$_ProductCopyWithImpl<$Res> extends _$ProductCopyWithImpl<$Res>
       barcode: barcode == freezed
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as String,
     ));
   }
 }
@@ -199,7 +199,7 @@ class _$_Product extends _Product {
           const UnitOfMeasurement(amount: 0, measurement: Measurement.kilogram),
       this.description = '',
       this.image = false,
-      this.barcode = false})
+      this.barcode = ''})
       : super._();
 
   @override
@@ -226,7 +226,7 @@ class _$_Product extends _Product {
 //TODO needs implementation
   @override
   @JsonKey()
-  final bool barcode;
+  final String barcode;
 
   @override
   String toString() {
@@ -277,7 +277,7 @@ abstract class _Product extends Product {
       final UnitOfMeasurement unitOfMeasurement,
       final String description,
       final bool image,
-      final bool barcode}) = _$_Product;
+      final String barcode}) = _$_Product;
   const _Product._() : super._();
 
   @override
@@ -295,7 +295,7 @@ abstract class _Product extends Product {
   @override
   bool get image;
   @override //TODO needs implementation
-  bool get barcode;
+  String get barcode;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

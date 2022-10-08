@@ -18,7 +18,7 @@ _$_FreezerItemDTO _$$_FreezerItemDTOFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String? ?? '',
       amount: json['amount'] as int? ?? 0,
       image: json['image'] as bool? ?? false,
-      barcode: json['barcode'] as bool? ?? false,
+      barcode: json['barcode'] as String? ?? '',
       nameInsensitive: json['nameInsensitive'] as String? ?? '',
     );
 
