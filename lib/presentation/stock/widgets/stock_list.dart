@@ -19,19 +19,29 @@ class StockList extends HookConsumerWidget {
     return SizedBox(
         width: 300,
         height: 200,
-        child: ListView.builder(
-            itemCount: storagePlace == "fridge"
-                ? fridgeItemList.length
-                : storagePlace == "cupboard"
-                    ? cupboardItemList.length
-                    : freezerItemList.length,
-            itemBuilder: ((context, index) => StockListTile(
-                index: index,
-                storagePlace: storagePlace,
-                product: storagePlace == "fridge"
-                    ? fridgeItemList[index].product
-                    : storagePlace == "cupboard"
-                        ? cupboardItemList[index].product
-                        : freezerItemList[index].product))));
+        child: RefreshIndicator(
+          onRefresh: () async {
+            ref.read(fridgeItemNotifierProvider.notifier).getFridgeItemList();
+
+            ref.read(freezerItemNotifierProvider.notifier).getFreezerItemList();
+            ref
+                .read(cupboardItemNotifierProvider.notifier)
+                .getCupboardItemList();
+          },
+          child: ListView.builder(
+              itemCount: storagePlace == "fridge"
+                  ? fridgeItemList.length
+                  : storagePlace == "cupboard"
+                      ? cupboardItemList.length
+                      : freezerItemList.length,
+              itemBuilder: ((context, index) => StockListTile(
+                  index: index,
+                  storagePlace: storagePlace,
+                  product: storagePlace == "fridge"
+                      ? fridgeItemList[index].product
+                      : storagePlace == "cupboard"
+                          ? cupboardItemList[index].product
+                          : freezerItemList[index].product))),
+        ));
   }
 }
