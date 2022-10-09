@@ -16,43 +16,51 @@ class OverviewList extends HookConsumerWidget {
     return SizedBox(
       width: 300,
       height: 200,
-      child: ListView.builder(
-        itemCount: outOfStock
-            ? List.from(outOfStockList.cupboardItemList
-                    .map((e) => e.product)
-                    .toList()
-                  ..addAll(outOfStockList.fridgeItemList
+      child: RefreshIndicator(
+        onRefresh: () async {
+          ref.read(outOfStockNotifierProvider.notifier).getOutOfStockList();
+          ref
+              .read(almostOutOfStockNotifierProvider.notifier)
+              .getAlmostOutOfStockList();
+        },
+        child: ListView.builder(
+          itemCount: outOfStock
+              ? List.from(outOfStockList.cupboardItemList
                       .map((e) => e.product)
                       .toList()
-                    ..addAll(outOfStockList.freezerItemList
+                    ..addAll(outOfStockList.fridgeItemList
                         .map((e) => e.product)
-                        .toList())))
-                .length
-            : List.from(almostOutOfStockList.cupboardItemList
-                    .map((e) => e.product)
-                    .toList()
-                  ..addAll(almostOutOfStockList.fridgeItemList
+                        .toList()
+                      ..addAll(outOfStockList.freezerItemList
+                          .map((e) => e.product)
+                          .toList())))
+                  .length
+              : List.from(almostOutOfStockList.cupboardItemList
                       .map((e) => e.product)
                       .toList()
-                    ..addAll(almostOutOfStockList.freezerItemList
+                    ..addAll(almostOutOfStockList.fridgeItemList
                         .map((e) => e.product)
-                        .toList())))
-                .length,
-        itemBuilder: ((context, index) => OverviewListTile(
-              outOfStock: outOfStock,
-              product: outOfStock
-                  ? List.from(outOfStockList.cupboardItemList.map((e) => e.product).toList()
-                    ..addAll(
-                        outOfStockList.fridgeItemList.map((e) => e.product).toList()
-                          ..addAll(outOfStockList.freezerItemList
-                              .map((e) => e.product)
-                              .toList())))[index]
-                  : List.from(almostOutOfStockList.cupboardItemList
-                      .map((e) => e.product)
-                      .toList()
-                    ..addAll(almostOutOfStockList.fridgeItemList.map((e) => e.product).toList()
-                      ..addAll(almostOutOfStockList.freezerItemList.map((e) => e.product).toList())))[index],
-            )),
+                        .toList()
+                      ..addAll(almostOutOfStockList.freezerItemList
+                          .map((e) => e.product)
+                          .toList())))
+                  .length,
+          itemBuilder: ((context, index) => OverviewListTile(
+                outOfStock: outOfStock,
+                product: outOfStock
+                    ? List.from(outOfStockList.cupboardItemList.map((e) => e.product).toList()
+                      ..addAll(
+                          outOfStockList.fridgeItemList.map((e) => e.product).toList()
+                            ..addAll(outOfStockList.freezerItemList
+                                .map((e) => e.product)
+                                .toList())))[index]
+                    : List.from(almostOutOfStockList.cupboardItemList
+                        .map((e) => e.product)
+                        .toList()
+                      ..addAll(almostOutOfStockList.fridgeItemList.map((e) => e.product).toList()
+                        ..addAll(almostOutOfStockList.freezerItemList.map((e) => e.product).toList())))[index],
+              )),
+        ),
       ),
     );
   }

@@ -31,11 +31,21 @@ class BaseDataList extends HookConsumerWidget {
     return SizedBox(
         width: 300,
         height: 200,
-        child: ListView.builder(
-            itemCount: productList.length,
-            itemBuilder: ((context, index) => BaseDataListTile(
-                index: index,
-                productList: productList,
-                storagePlace: storagePlace))));
+        child: RefreshIndicator(
+          onRefresh: () async {
+            ref.read(fridgeItemNotifierProvider.notifier).getFridgeItemList();
+
+            ref.read(freezerItemNotifierProvider.notifier).getFreezerItemList();
+            ref
+                .read(cupboardItemNotifierProvider.notifier)
+                .getCupboardItemList();
+          },
+          child: ListView.builder(
+              itemCount: productList.length,
+              itemBuilder: ((context, index) => BaseDataListTile(
+                  index: index,
+                  productList: productList,
+                  storagePlace: storagePlace))),
+        ));
   }
 }

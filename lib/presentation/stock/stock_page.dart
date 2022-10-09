@@ -19,7 +19,6 @@ class StockPage extends HookConsumerWidget {
     final freezerItemProvider = ref.watch(freezerItemNotifierProvider);
     final cupboardItemProvider = ref.watch(cupboardItemNotifierProvider);
     int duration = 4;
-    bool occurenceCheck = false;
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

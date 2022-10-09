@@ -1,2 +1,6 @@
+next release
+- added android signing config
+- added refresh on drag feature
+
 v0.0.1
-Test
+- first (test) release
