@@ -28,6 +28,10 @@ jobs:
         run: |
           echo "${{ secrets.FIREBASE_OPTIONS_DART }}" > firebase_options.dart.b64
           base64 -d -i firebase_options.dart.b64 > lib/firebase_options.dart
+      - name: Create Firebase App Distribution Credentials
+        run: |
+          echo "${{ secrets.FIREBASE_APP_DISTRIBUTION_CREDENTIALS }}" > food-stock-app-ce.json.b64
+          base64 -d -i food-stock-app-ce.json.b64 > food-stock-app-ce.json
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "3.3.1"
@@ -42,7 +46,7 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1.3.5
         with:
           appId: ${{secrets.FIREBASE_APP_ID}}
-          token: ${{secrets.FIREBASE_TOKEN}}
+          serviceCredentialsFile: food-stock-app-ce.json
           groups: foodstock
           file: build/app/outputs/apk/release/app-release.apk
           releaseNotesFile: release_notes.txt
@@ -58,3 +62,5 @@ jobs:
           rm -rf android/key.properties
           rm -rf firebase_options.dart.b64
           rm -rf lib/firebase_options.dart
+          rm -rf food-stock-app-ce.json
+          rm -rf food-stock-app-ce.json.b64
