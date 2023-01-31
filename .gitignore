@@ -54,3 +54,6 @@ lib/firebase_options.dart
 tmp/*
 
 upload-keystore.jks
+
+#Icon
+/android/app/src/main/res/drawable/icon.png

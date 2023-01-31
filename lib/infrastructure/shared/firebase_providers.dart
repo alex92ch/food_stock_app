@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'package:food_stock_app/domain/shared/database_failure.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,6 +18,15 @@ final firebaseFirestoreProvider = Provider<FirebaseFirestore>((ref) {
   final instance = FirebaseFirestore.instance;
   return instance;
 });
+final firebaseMessageBackgroundProvider = Provider<FirebaseFirestore>((ref) {
+  final instance = FirebaseMessaging.
+  return instance;
+});
+final firebaseMessageForegroundProvider = Provider<FirebaseFirestore>((ref) {
+  final instance = FirebaseMessaging.instance;
+  return instance;
+});
+
 
 // final firebaseStorageProvider = Provider<FirebaseStorage>((ref) {
 //   final instance = FirebaseStorage.instance;
