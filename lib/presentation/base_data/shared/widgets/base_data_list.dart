@@ -41,6 +41,7 @@ class BaseDataList extends HookConsumerWidget {
                 .getCupboardItemList();
           },
           child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               itemCount: productList.length,
               itemBuilder: ((context, index) => BaseDataListTile(
                   index: index,

@@ -24,6 +24,7 @@ class OverviewList extends HookConsumerWidget {
               .getAlmostOutOfStockList();
         },
         child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           itemCount: outOfStock
               ? List.from(outOfStockList.cupboardItemList
                       .map((e) => e.product)

@@ -34,6 +34,7 @@ class NewProductPage extends HookConsumerWidget {
     final storagePlace = useState("fridge");
     final formKey = useState(GlobalKey<FormState>());
     final pageController = usePageController();
+    final theme = Theme.of(context);
     List<HookConsumerWidget> pages = [
       NewName(product),
       NewThreshold(product),
@@ -50,90 +51,102 @@ class NewProductPage extends HookConsumerWidget {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text("Neues Produkt"),
-              SizedBox(
-                  height: 400,
-                  child: Form(
-                    key: formKey.value,
-                    child: PageView.builder(
-                      controller: pageController,
-                      itemCount: pages.length,
-                      itemBuilder: (_, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                              left: 60, right: 60, top: 100),
-                          child: pages[index],
-                        );
-                      },
-                    ),
-                  )),
-              SmoothPageIndicator(
-                controller: pageController,
-                count: pages.length,
-                onDotClicked: (page) {
-                  pageController.animateToPage(
-                    page,
-                    duration: const Duration(milliseconds: 400),
-                    curve: Curves.easeInOut,
-                  );
-                },
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: const Alignment(-2, -1),
+                end: const Alignment(2, 1),
+                colors: [
+                  theme.colorScheme.secondary,
+                  theme.colorScheme.primary
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(30.0),
-                child: ElevatedButton(
-                  onPressed: () async {
-                    if (formKey.value.currentState?.validate() ?? false) {
-                      storagePlace.value == "fridge"
-                          ? await ref
-                              .read(fridgeItemNotifierProvider.notifier)
-                              .createFridgeItem(
-                                  fridgeItem:
-                                      FridgeItem(product: product.value),
-                                  fridgeItemList:
-                                      fridgeItemProvider.fridgeItemList)
-                          : storagePlace.value == "freezer"
-                              ? await ref
-                                  .read(freezerItemNotifierProvider.notifier)
-                                  .createFreezerItem(
-                                      freezerItem:
-                                          FreezerItem(product: product.value),
-                                      freezerItemList:
-                                          freezerItemProvider.freezerItemList)
-                              : await ref
-                                  .read(cupboardItemNotifierProvider.notifier)
-                                  .createCupboardItem(
-                                      cupboardItem:
-                                          CupboardItem(product: product.value),
-                                      cupboardItemList: cupboardItemProvider
-                                          .cupboardItemList);
-                      await ref
-                          .read(outOfStockNotifierProvider.notifier)
-                          .setOutOfSync();
-                      await ref
-                          .read(almostOutOfStockNotifierProvider.notifier)
-                          .setOutOfSync();
-                      FocusManager.instance.primaryFocus?.unfocus();
-                      barcode == ''
-                          ? ref
-                              .read(routeProvider)
-                              .popUntilRouteWithName('BaseDataRoute')
-                          : ref
-                              .read(routeProvider)
-                              .popUntilRouteWithName('StockRoute');
-                    } else {
-                      debugPrint('validation failed');
-                      //TODO handle failed validation
-                    }
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text("Neues Produkt"),
+                SizedBox(
+                    height: 400,
+                    child: Form(
+                      key: formKey.value,
+                      child: PageView.builder(
+                        controller: pageController,
+                        itemCount: pages.length,
+                        itemBuilder: (_, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(
+                                left: 60, right: 60, top: 100),
+                            child: pages[index],
+                          );
+                        },
+                      ),
+                    )),
+                SmoothPageIndicator(
+                  controller: pageController,
+                  count: pages.length,
+                  onDotClicked: (page) {
+                    pageController.animateToPage(
+                      page,
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.easeInOut,
+                    );
                   },
-                  style: const ButtonStyle(),
-                  child: const Text("Produkt Speichern"),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      if (formKey.value.currentState?.validate() ?? false) {
+                        storagePlace.value == "fridge"
+                            ? await ref
+                                .read(fridgeItemNotifierProvider.notifier)
+                                .createFridgeItem(
+                                    fridgeItem:
+                                        FridgeItem(product: product.value),
+                                    fridgeItemList:
+                                        fridgeItemProvider.fridgeItemList)
+                            : storagePlace.value == "freezer"
+                                ? await ref
+                                    .read(freezerItemNotifierProvider.notifier)
+                                    .createFreezerItem(
+                                        freezerItem:
+                                            FreezerItem(product: product.value),
+                                        freezerItemList:
+                                            freezerItemProvider.freezerItemList)
+                                : await ref
+                                    .read(cupboardItemNotifierProvider.notifier)
+                                    .createCupboardItem(
+                                        cupboardItem: CupboardItem(
+                                            product: product.value),
+                                        cupboardItemList: cupboardItemProvider
+                                            .cupboardItemList);
+                        await ref
+                            .read(outOfStockNotifierProvider.notifier)
+                            .setOutOfSync();
+                        await ref
+                            .read(almostOutOfStockNotifierProvider.notifier)
+                            .setOutOfSync();
+                        FocusManager.instance.primaryFocus?.unfocus();
+                        barcode == ''
+                            ? ref
+                                .read(routeProvider)
+                                .popUntilRouteWithName('BaseDataRoute')
+                            : ref
+                                .read(routeProvider)
+                                .popUntilRouteWithName('StockRoute');
+                      } else {
+                        debugPrint('validation failed');
+                        //TODO handle failed validation
+                      }
+                    },
+                    style: const ButtonStyle(),
+                    child: const Text("Produkt Speichern"),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButton: Menu(router: router),

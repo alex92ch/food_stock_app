@@ -13,18 +13,28 @@ class OverviewListTile extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return outOfStock
-        ? ListTile(
-            onTap: () {
-              //TODO needs implementation
-            },
-            title: Text(product.name),
+        ? Card(
+            elevation: 4,
+            child: ListTile(
+              onTap: () {
+                //TODO needs implementation
+              },
+              title: Center(child: Text(product.name)),
+            ),
           )
-        : ListTile(
-            onTap: () {
-              //TODO needs implementation
-            },
-            title: Text(product.name),
-            subtitle: Text(product.amount.toString()),
+        : Card(
+            elevation: 4,
+            child: ListTile(
+              onTap: () {
+                //TODO needs implementation
+              },
+              title: Center(child: Text(product.name)),
+              subtitle: Center(
+                child: Text(
+                  product.amount.toString(),
+                ),
+              ),
+            ),
           );
   }
 }

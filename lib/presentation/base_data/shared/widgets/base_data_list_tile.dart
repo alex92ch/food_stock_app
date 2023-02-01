@@ -34,13 +34,16 @@ class BaseDataListTile extends HookConsumerWidget {
           ),
           children: const [BaseDataListTileDeleteAction()],
         ),
-        child: ListTile(
-          title: Text(productList[index].name),
-          subtitle: Text(productList[index].description),
-          onTap: () async {
-            router.push(EditProductRoute(
-                product: productList[index], storagePlace: storagePlace));
-          },
+        child: Card(
+          elevation: 4,
+          child: ListTile(
+            title: Center(child: Text(productList[index].name)),
+            subtitle: Center(child: Text(productList[index].description)),
+            onTap: () async {
+              router.push(EditProductRoute(
+                  product: productList[index], storagePlace: storagePlace));
+            },
+          ),
         ));
   }
 }

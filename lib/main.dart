@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
+import 'package:food_stock_app/presentation/shared/theme/cutom_theme.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'firebase_options.dart';
@@ -21,8 +24,18 @@ class MyApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(routeProvider);
+    GoogleFonts.config.allowRuntimeFetching = false;
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]); //TODO remove when landscape is fixed
     // initial load data from firestore
     return MaterialApp.router(
+      // themeMode: ThemeMode.system,
+      themeMode:
+          ThemeMode.light, //TODO set to system when darkmode is configured
+      theme: ref.read(lightThemeProvider),
+      darkTheme: ref.read(darkThemeProvider),
       builder: (context, child) => ResponsiveWrapper.builder(
         child,
         maxWidth: 1200,

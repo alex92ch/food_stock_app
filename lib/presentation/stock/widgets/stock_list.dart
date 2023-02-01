@@ -29,6 +29,7 @@ class StockList extends HookConsumerWidget {
                 .getCupboardItemList();
           },
           child: ListView.builder(
+              physics: const BouncingScrollPhysics(),
               itemCount: storagePlace == "fridge"
                   ? fridgeItemList.length
                   : storagePlace == "cupboard"

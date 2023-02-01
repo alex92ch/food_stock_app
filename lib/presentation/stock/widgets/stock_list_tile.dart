@@ -27,66 +27,75 @@ class StockListTile extends HookConsumerWidget {
         ref.watch(freezerItemNotifierProvider).freezerItemList;
     final cupboardItemList =
         ref.watch(cupboardItemNotifierProvider).cupboardItemList;
-    return ListTile(
-      onTap: () {
-        //TODO needs implementation
-      },
-      leading: IconButton(
-          onPressed: () async {
-            storagePlace == "fridge"
-                ? await ref
-                    .read(fridgeItemNotifierProvider.notifier)
-                    .increaseFridgeItem(
-                        fridgeItem: FridgeItem(product: product),
-                        fridgeItemList: fridgeItemList)
-                : storagePlace == "cupboard"
-                    ? await ref
-                        .read(cupboardItemNotifierProvider.notifier)
-                        .increaseCupboardItem(
-                            cupboardItem: CupboardItem(product: product),
-                            cupboardItemList: cupboardItemList)
-                    : await ref
-                        .read(freezerItemNotifierProvider.notifier)
-                        .increaseFreezerItem(
-                            freezerItem: FreezerItem(product: product),
-                            freezerItemList: freezerItemList);
-            await ref.read(outOfStockNotifierProvider.notifier).setOutOfSync();
-            await ref
-                .read(almostOutOfStockNotifierProvider.notifier)
-                .setOutOfSync();
-          },
-          icon: const Icon(Icons.add)),
-      title: Text(product.name),
-      subtitle: storagePlace == "fridge"
-          ? Text(fridgeItemList[index].product.amount.toString())
-          : storagePlace == "cupboard"
-              ? Text(cupboardItemList[index].product.amount.toString())
-              : Text(freezerItemList[index].product.amount.toString()),
-      trailing: IconButton(
-          onPressed: () async {
-            storagePlace == "fridge"
-                ? await ref
-                    .read(fridgeItemNotifierProvider.notifier)
-                    .decreaseFridgeItem(
-                        fridgeItem: FridgeItem(product: product),
-                        fridgeItemList: fridgeItemList)
-                : storagePlace == "cupboard"
-                    ? await ref
-                        .read(cupboardItemNotifierProvider.notifier)
-                        .decreaseCupboardItem(
-                            cupboardItem: CupboardItem(product: product),
-                            cupboardItemList: cupboardItemList)
-                    : await ref
-                        .read(freezerItemNotifierProvider.notifier)
-                        .decreaseFreezerItem(
-                            freezerItem: FreezerItem(product: product),
-                            freezerItemList: freezerItemList);
-            await ref.read(outOfStockNotifierProvider.notifier).setOutOfSync();
-            await ref
-                .read(almostOutOfStockNotifierProvider.notifier)
-                .setOutOfSync();
-          },
-          icon: const Icon(Icons.remove)),
+    return Card(
+      elevation: 4,
+      child: ListTile(
+        onTap: () {
+          //TODO needs implementation
+        },
+        leading: IconButton(
+            onPressed: () async {
+              storagePlace == "fridge"
+                  ? await ref
+                      .read(fridgeItemNotifierProvider.notifier)
+                      .increaseFridgeItem(
+                          fridgeItem: FridgeItem(product: product),
+                          fridgeItemList: fridgeItemList)
+                  : storagePlace == "cupboard"
+                      ? await ref
+                          .read(cupboardItemNotifierProvider.notifier)
+                          .increaseCupboardItem(
+                              cupboardItem: CupboardItem(product: product),
+                              cupboardItemList: cupboardItemList)
+                      : await ref
+                          .read(freezerItemNotifierProvider.notifier)
+                          .increaseFreezerItem(
+                              freezerItem: FreezerItem(product: product),
+                              freezerItemList: freezerItemList);
+              await ref
+                  .read(outOfStockNotifierProvider.notifier)
+                  .setOutOfSync();
+              await ref
+                  .read(almostOutOfStockNotifierProvider.notifier)
+                  .setOutOfSync();
+            },
+            icon: const Icon(Icons.add)),
+        title: Center(child: Text(product.name)),
+        subtitle: Center(
+          child: storagePlace == "fridge"
+              ? Text(fridgeItemList[index].product.amount.toString())
+              : storagePlace == "cupboard"
+                  ? Text(cupboardItemList[index].product.amount.toString())
+                  : Text(freezerItemList[index].product.amount.toString()),
+        ),
+        trailing: IconButton(
+            onPressed: () async {
+              storagePlace == "fridge"
+                  ? await ref
+                      .read(fridgeItemNotifierProvider.notifier)
+                      .decreaseFridgeItem(
+                          fridgeItem: FridgeItem(product: product),
+                          fridgeItemList: fridgeItemList)
+                  : storagePlace == "cupboard"
+                      ? await ref
+                          .read(cupboardItemNotifierProvider.notifier)
+                          .decreaseCupboardItem(
+                              cupboardItem: CupboardItem(product: product),
+                              cupboardItemList: cupboardItemList)
+                      : await ref
+                          .read(freezerItemNotifierProvider.notifier)
+                          .decreaseFreezerItem(
+                              freezerItem: FreezerItem(product: product),
+                              freezerItemList: freezerItemList);
+              await ref
+                  .read(outOfStockNotifierProvider.notifier)
+                  .setOutOfSync();
+              await ref
+                  .read(almostOutOfStockNotifierProvider.notifier)
+                  .setOutOfSync();
+            },
+            icon: const Icon(Icons.remove)),
+      ),
     );
   }
 }
