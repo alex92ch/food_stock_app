@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 admin.initializeApp();
 
-export const sendNotificationToTopicFreezer =
+export const sendNotificationToTopicFridge =
   functions.region("europe-west6").
       firestore.document("fridgeItemList/{fridgeID}").onWrite(async (event) => {
         const name: string = event.after.get("name");
@@ -19,7 +19,7 @@ export const sendNotificationToTopicFreezer =
           await admin.messaging().send(message);
         }
       });
-export const sendNotificationToTopicFridge =
+export const sendNotificationToTopicFreezer =
   functions.region("europe-west6").
       firestore.document("freezerItemList/{freezerID}").
       onWrite(async (event) => {
