@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
@@ -33,8 +32,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
     final freezerItemStateNotifier =
         ref.read(freezerItemNotifierProvider.notifier);
     final outOfStockNotifier = ref.read(outOfStockNotifierProvider.notifier);
-    final almostOutOfStockNotifier =
-        ref.read(almostOutOfStockNotifierProvider.notifier);
 
     final scaffoldmessenger = ScaffoldMessenger.of(context);
     return DismissiblePane(
@@ -50,7 +47,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                         productList.map((e) => FridgeItem(product: e)).toList())
                 .then((value) async {
                 await outOfStockNotifier.setOutOfSync();
-                await almostOutOfStockNotifier.setOutOfSync();
               }).then((value) async {
                 return scaffoldmessenger.showSnackBar(
                   SnackBar(
@@ -66,7 +62,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                                     .toList())
                             .then((value) async {
                           await outOfStockNotifier.setOutOfSync();
-                          await almostOutOfStockNotifier.setOutOfSync();
                         });
                       },
                     ),
@@ -92,7 +87,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                             .toList())
                     .then((value) async {
                     await outOfStockNotifier.setOutOfSync();
-                    await almostOutOfStockNotifier.setOutOfSync();
                   }).then((value) async {
                     return scaffoldmessenger.showSnackBar(
                       SnackBar(
@@ -108,7 +102,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                                         .toList())
                                 .then((value) async {
                               await outOfStockNotifier.setOutOfSync();
-                              await almostOutOfStockNotifier.setOutOfSync();
                             });
                           },
                         ),
@@ -133,7 +126,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                             .toList())
                     .then((value) async {
                     await outOfStockNotifier.setOutOfSync();
-                    await almostOutOfStockNotifier.setOutOfSync();
                   }).then((value) async {
                     return scaffoldmessenger.showSnackBar(
                       SnackBar(
@@ -149,7 +141,6 @@ class BaseDataListTileDeleteActionDismissible extends HookConsumerWidget {
                                         .toList())
                                 .then((value) async {
                               await outOfStockNotifier.setOutOfSync();
-                              await almostOutOfStockNotifier.setOutOfSync();
                             });
                           },
                         ),

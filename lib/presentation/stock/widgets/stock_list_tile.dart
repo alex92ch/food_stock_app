@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
@@ -55,9 +54,6 @@ class StockListTile extends HookConsumerWidget {
               await ref
                   .read(outOfStockNotifierProvider.notifier)
                   .setOutOfSync();
-              await ref
-                  .read(almostOutOfStockNotifierProvider.notifier)
-                  .setOutOfSync();
             },
             icon: const Icon(Icons.add)),
         title: Center(child: Text(product.name)),
@@ -89,9 +85,6 @@ class StockListTile extends HookConsumerWidget {
                               freezerItemList: freezerItemList);
               await ref
                   .read(outOfStockNotifierProvider.notifier)
-                  .setOutOfSync();
-              await ref
-                  .read(almostOutOfStockNotifierProvider.notifier)
                   .setOutOfSync();
             },
             icon: const Icon(Icons.remove)),

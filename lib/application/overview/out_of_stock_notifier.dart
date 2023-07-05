@@ -56,13 +56,18 @@ class OutOfStockNotifier extends StateNotifier<OutOfStockState> {
                 (cupboardItemList) {
           return state = OutOfStockState.loadSuccess(StockList(
               fridgeItemList: fridgeItemList
-                  .where((fridgeItem) => fridgeItem.product.amount == 0)
+                  .where((fridgeItem) =>
+                      fridgeItem.product.amount <= fridgeItem.product.threshold)
                   .toList(),
               freezerItemList: freezerItemList
-                  .where((freezerItem) => freezerItem.product.amount == 0)
+                  .where((freezerItem) =>
+                      freezerItem.product.amount <=
+                      freezerItem.product.threshold)
                   .toList(),
               cupboardItemList: cupboardItemList
-                  .where((cupboardItem) => cupboardItem.product.amount == 0)
+                  .where((cupboardItem) =>
+                      cupboardItem.product.amount <=
+                      cupboardItem.product.threshold)
                   .toList()));
         });
       });
