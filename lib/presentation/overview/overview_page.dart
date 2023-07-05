@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
 import 'package:food_stock_app/application/overview/out_of_stock_notifier.dart';
@@ -7,6 +8,7 @@ import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+@RoutePage()
 class OverviewPage extends HookConsumerWidget {
   const OverviewPage({Key? key}) : super(key: key);
 

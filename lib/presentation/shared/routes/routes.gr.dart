@@ -1,143 +1,88 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 part of 'routes.dart';
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    OverviewRoute.name: (routeData) {
-      return CustomPage<dynamic>(
-        routeData: routeData,
-        child: const OverviewPage(),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
-      );
-    },
     StockRoute.name: (routeData) {
-      return CustomPage<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const StockPage(),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
       );
     },
-    BaseDataRoute.name: (routeData) {
-      return CustomPage<dynamic>(
+    OverviewRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const BaseDataPage(),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
+        child: const OverviewPage(),
       );
     },
     NewProductRoute.name: (routeData) {
       final args = routeData.argsAs<NewProductRouteArgs>();
-      return CustomPage<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: NewProductPage(
           args.barcode,
           key: args.key,
         ),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
+      );
+    },
+    BaseDataRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BaseDataPage(),
       );
     },
     EditProductRoute.name: (routeData) {
       final args = routeData.argsAs<EditProductRouteArgs>();
-      return CustomPage<dynamic>(
+      return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: EditProductPage(
           key: args.key,
           product: args.product,
           storagePlace: args.storagePlace,
         ),
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
       );
     },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(
-          '/#redirect',
-          path: '/',
-          redirectTo: '/overview',
-          fullMatch: true,
-        ),
-        RouteConfig(
-          OverviewRoute.name,
-          path: '/overview',
-        ),
-        RouteConfig(
-          StockRoute.name,
-          path: '/stock',
-        ),
-        RouteConfig(
-          BaseDataRoute.name,
-          path: '/base_data',
-        ),
-        RouteConfig(
-          NewProductRoute.name,
-          path: '/new_product',
-        ),
-        RouteConfig(
-          EditProductRoute.name,
-          path: '/edit_product',
-        ),
-      ];
-}
-
-/// generated route for
-/// [OverviewPage]
-class OverviewRoute extends PageRouteInfo<void> {
-  const OverviewRoute()
-      : super(
-          OverviewRoute.name,
-          path: '/overview',
-        );
-
-  static const String name = 'OverviewRoute';
 }
 
 /// generated route for
 /// [StockPage]
 class StockRoute extends PageRouteInfo<void> {
-  const StockRoute()
+  const StockRoute({List<PageRouteInfo>? children})
       : super(
           StockRoute.name,
-          path: '/stock',
+          initialChildren: children,
         );
 
   static const String name = 'StockRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
-/// [BaseDataPage]
-class BaseDataRoute extends PageRouteInfo<void> {
-  const BaseDataRoute()
+/// [OverviewPage]
+class OverviewRoute extends PageRouteInfo<void> {
+  const OverviewRoute({List<PageRouteInfo>? children})
       : super(
-          BaseDataRoute.name,
-          path: '/base_data',
+          OverviewRoute.name,
+          initialChildren: children,
         );
 
-  static const String name = 'BaseDataRoute';
+  static const String name = 'OverviewRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -146,16 +91,20 @@ class NewProductRoute extends PageRouteInfo<NewProductRouteArgs> {
   NewProductRoute({
     required String barcode,
     Key? key,
+    List<PageRouteInfo>? children,
   }) : super(
           NewProductRoute.name,
-          path: '/new_product',
           args: NewProductRouteArgs(
             barcode: barcode,
             key: key,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'NewProductRoute';
+
+  static const PageInfo<NewProductRouteArgs> page =
+      PageInfo<NewProductRouteArgs>(name);
 }
 
 class NewProductRouteArgs {
@@ -175,23 +124,41 @@ class NewProductRouteArgs {
 }
 
 /// generated route for
+/// [BaseDataPage]
+class BaseDataRoute extends PageRouteInfo<void> {
+  const BaseDataRoute({List<PageRouteInfo>? children})
+      : super(
+          BaseDataRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BaseDataRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [EditProductPage]
 class EditProductRoute extends PageRouteInfo<EditProductRouteArgs> {
   EditProductRoute({
     Key? key,
     required Product product,
     required String storagePlace,
+    List<PageRouteInfo>? children,
   }) : super(
           EditProductRoute.name,
-          path: '/edit_product',
           args: EditProductRouteArgs(
             key: key,
             product: product,
             storagePlace: storagePlace,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'EditProductRoute';
+
+  static const PageInfo<EditProductRouteArgs> page =
+      PageInfo<EditProductRouteArgs>(name);
 }
 
 class EditProductRouteArgs {

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
 import 'package:food_stock_app/application/shared/freezer_item_notifier.dart';
@@ -8,6 +9,7 @@ import 'package:food_stock_app/presentation/shared/menu_dial.dart';
 import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+@RoutePage()
 class BaseDataPage extends HookConsumerWidget {
   const BaseDataPage({Key? key}) : super(key: key);
 

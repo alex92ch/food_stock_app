@@ -11,7 +11,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 //Repository
 final freezerItemRepositoryProvider =
-    Provider<FreezerItemRepository>((ref) => FreezerItemRepository(ref.read));
+    Provider<FreezerItemRepository>((ref) => FreezerItemRepository(ref));
 
 //Images
 //final firebaseStorageFreezerItemProvider =
@@ -38,14 +38,15 @@ abstract class BaseFreezerItemRepository {
 }
 
 class FreezerItemRepository implements BaseFreezerItemRepository {
-  final Reader _read;
-  FreezerItemRepository(this._read);
+  final Ref _ref;
+  FreezerItemRepository(this._ref);
 
   @override
   Future<Either<DatabaseFailure, List<FreezerItem>>>
       getFreezerItemList() async {
     try {
-      var q = _read(firebaseFirestoreFreezerItemProvider)
+      var q = _ref
+          .read(firebaseFirestoreFreezerItemProvider)
           .collection('freezerItemList')
           .orderBy('nameInsensitive', descending: false);
       return await q
@@ -66,7 +67,8 @@ class FreezerItemRepository implements BaseFreezerItemRepository {
       {required FreezerItem freezerItem}) async {
     try {
       final freezerItemEntry = FreezerItemDTO.fromDomain(freezerItem);
-      final docRef = _read(firebaseFirestoreFreezerItemProvider)
+      final docRef = _ref
+          .read(firebaseFirestoreFreezerItemProvider)
           .collection('freezerItemList')
           .doc();
       await docRef.set(freezerItemEntry.toDocument());
@@ -82,7 +84,8 @@ class FreezerItemRepository implements BaseFreezerItemRepository {
       {required FreezerItem freezerItem}) async {
     try {
       final freezerItemEntry = FreezerItemDTO.fromDomain(freezerItem);
-      final _ = await _read(firebaseFirestoreFreezerItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreFreezerItemProvider)
           .collection('freezerItemList')
           .doc(freezerItemEntry.id)
           .update(
@@ -99,7 +102,8 @@ class FreezerItemRepository implements BaseFreezerItemRepository {
       {required FreezerItem freezerItem}) async {
     try {
       final freezerItemEntry = FreezerItemDTO.fromDomain(freezerItem);
-      final _ = await _read(firebaseFirestoreFreezerItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreFreezerItemProvider)
           .collection('freezerItemList')
           .doc(freezerItemEntry.id)
           .delete();

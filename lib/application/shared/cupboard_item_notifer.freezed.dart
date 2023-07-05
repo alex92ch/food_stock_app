@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'cupboard_item_notifer.dart';
 
@@ -37,16 +37,16 @@ mixin _$CupboardItemState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,14 +78,14 @@ mixin _$CupboardItemState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,29 +111,32 @@ mixin _$CupboardItemState {
 abstract class $CupboardItemStateCopyWith<$Res> {
   factory $CupboardItemStateCopyWith(
           CupboardItemState value, $Res Function(CupboardItemState) then) =
-      _$CupboardItemStateCopyWithImpl<$Res>;
+      _$CupboardItemStateCopyWithImpl<$Res, CupboardItemState>;
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
-class _$CupboardItemStateCopyWithImpl<$Res>
+class _$CupboardItemStateCopyWithImpl<$Res, $Val extends CupboardItemState>
     implements $CupboardItemStateCopyWith<$Res> {
   _$CupboardItemStateCopyWithImpl(this._value, this._then);
 
-  final CupboardItemState _value;
   // ignore: unused_field
-  final $Res Function(CupboardItemState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_value.copyWith(
-      cupboardItemList: cupboardItemList == freezed
+      cupboardItemList: null == cupboardItemList
           ? _value.cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -144,25 +147,24 @@ abstract class _$$_InitialCopyWith<$Res>
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
+      : super(_value, _then);
 
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_Initial(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -180,6 +182,8 @@ class _$_Initial extends _Initial {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -204,6 +208,7 @@ class _$_Initial extends _Initial {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
       __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 
@@ -231,16 +236,16 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return initial?.call(cupboardItemList);
   }
@@ -284,14 +289,14 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return initial?.call(this);
   }
@@ -336,26 +341,25 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_LoadSuccess>
     implements _$$_LoadSuccessCopyWith<$Res> {
   __$$_LoadSuccessCopyWithImpl(
       _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
-      : super(_value, (v) => _then(v as _$_LoadSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_LoadSuccess get _value => super._value as _$_LoadSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_LoadSuccess(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -373,6 +377,8 @@ class _$_LoadSuccess extends _LoadSuccess {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -397,6 +403,7 @@ class _$_LoadSuccess extends _LoadSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
 
@@ -424,16 +431,16 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return loadSuccess?.call(cupboardItemList);
   }
@@ -477,14 +484,14 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return loadSuccess?.call(this);
   }
@@ -529,6 +536,7 @@ abstract class _$$_FailureCopyWith<$Res>
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList, DatabaseFailure failure});
 
   $DatabaseFailureCopyWith<$Res> get failure;
@@ -536,25 +544,23 @@ abstract class _$$_FailureCopyWith<$Res>
 
 /// @nodoc
 class __$$_FailureCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_Failure>
     implements _$$_FailureCopyWith<$Res> {
   __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
-      : super(_value, (v) => _then(v as _$_Failure));
+      : super(_value, _then);
 
-  @override
-  _$_Failure get _value => super._value as _$_Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
-    Object? failure = freezed,
+    Object? cupboardItemList = null,
+    Object? failure = null,
   }) {
     return _then(_$_Failure(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
-      failure == freezed
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as DatabaseFailure,
@@ -562,6 +568,7 @@ class __$$_FailureCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DatabaseFailureCopyWith<$Res> get failure {
     return $DatabaseFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -579,6 +586,8 @@ class _$_Failure extends _Failure {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -598,17 +607,16 @@ class _$_Failure extends _Failure {
             other is _$_Failure &&
             const DeepCollectionEquality()
                 .equals(other._cupboardItemList, _cupboardItemList) &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_cupboardItemList),
-      const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_cupboardItemList), failure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailureCopyWith<_$_Failure> get copyWith =>
       __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
@@ -636,16 +644,16 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return failure?.call(cupboardItemList, this.failure);
   }
@@ -689,14 +697,14 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return failure?.call(this);
   }
@@ -742,26 +750,25 @@ abstract class _$$_InProgressCopyWith<$Res>
           _$_InProgress value, $Res Function(_$_InProgress) then) =
       __$$_InProgressCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_InProgressCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_InProgress>
     implements _$$_InProgressCopyWith<$Res> {
   __$$_InProgressCopyWithImpl(
       _$_InProgress _value, $Res Function(_$_InProgress) _then)
-      : super(_value, (v) => _then(v as _$_InProgress));
+      : super(_value, _then);
 
-  @override
-  _$_InProgress get _value => super._value as _$_InProgress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_InProgress(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -779,6 +786,8 @@ class _$_InProgress extends _InProgress {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -803,6 +812,7 @@ class _$_InProgress extends _InProgress {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
       __$$_InProgressCopyWithImpl<_$_InProgress>(this, _$identity);
 
@@ -830,16 +840,16 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return inProgress?.call(cupboardItemList);
   }
@@ -883,14 +893,14 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return inProgress?.call(this);
   }
@@ -935,26 +945,25 @@ abstract class _$$_CreateSuccessCopyWith<$Res>
           _$_CreateSuccess value, $Res Function(_$_CreateSuccess) then) =
       __$$_CreateSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_CreateSuccessCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_CreateSuccess>
     implements _$$_CreateSuccessCopyWith<$Res> {
   __$$_CreateSuccessCopyWithImpl(
       _$_CreateSuccess _value, $Res Function(_$_CreateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CreateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_CreateSuccess get _value => super._value as _$_CreateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_CreateSuccess(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -972,6 +981,8 @@ class _$_CreateSuccess extends _CreateSuccess {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -996,6 +1007,7 @@ class _$_CreateSuccess extends _CreateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CreateSuccessCopyWith<_$_CreateSuccess> get copyWith =>
       __$$_CreateSuccessCopyWithImpl<_$_CreateSuccess>(this, _$identity);
 
@@ -1023,16 +1035,16 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return createSuccess?.call(cupboardItemList);
   }
@@ -1076,14 +1088,14 @@ class _$_CreateSuccess extends _CreateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return createSuccess?.call(this);
   }
@@ -1128,26 +1140,25 @@ abstract class _$$_UpdateSuccessCopyWith<$Res>
           _$_UpdateSuccess value, $Res Function(_$_UpdateSuccess) then) =
       __$$_UpdateSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_UpdateSuccessCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_UpdateSuccess>
     implements _$$_UpdateSuccessCopyWith<$Res> {
   __$$_UpdateSuccessCopyWithImpl(
       _$_UpdateSuccess _value, $Res Function(_$_UpdateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_UpdateSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_UpdateSuccess get _value => super._value as _$_UpdateSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_UpdateSuccess(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -1165,6 +1176,8 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -1189,6 +1202,7 @@ class _$_UpdateSuccess extends _UpdateSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UpdateSuccessCopyWith<_$_UpdateSuccess> get copyWith =>
       __$$_UpdateSuccessCopyWithImpl<_$_UpdateSuccess>(this, _$identity);
 
@@ -1216,16 +1230,16 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return updateSuccess?.call(cupboardItemList);
   }
@@ -1269,14 +1283,14 @@ class _$_UpdateSuccess extends _UpdateSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return updateSuccess?.call(this);
   }
@@ -1321,26 +1335,25 @@ abstract class _$$_DeleteSuccessCopyWith<$Res>
           _$_DeleteSuccess value, $Res Function(_$_DeleteSuccess) then) =
       __$$_DeleteSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_DeleteSuccessCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_DeleteSuccess>
     implements _$$_DeleteSuccessCopyWith<$Res> {
   __$$_DeleteSuccessCopyWithImpl(
       _$_DeleteSuccess _value, $Res Function(_$_DeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_DeleteSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_DeleteSuccess get _value => super._value as _$_DeleteSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_DeleteSuccess(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -1358,6 +1371,8 @@ class _$_DeleteSuccess extends _DeleteSuccess {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -1382,6 +1397,7 @@ class _$_DeleteSuccess extends _DeleteSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DeleteSuccessCopyWith<_$_DeleteSuccess> get copyWith =>
       __$$_DeleteSuccessCopyWithImpl<_$_DeleteSuccess>(this, _$identity);
 
@@ -1409,16 +1425,16 @@ class _$_DeleteSuccess extends _DeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return deleteSuccess?.call(cupboardItemList);
   }
@@ -1462,14 +1478,14 @@ class _$_DeleteSuccess extends _DeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return deleteSuccess?.call(this);
   }
@@ -1514,26 +1530,25 @@ abstract class _$$_UndoDeleteSuccessCopyWith<$Res>
           $Res Function(_$_UndoDeleteSuccess) then) =
       __$$_UndoDeleteSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<CupboardItem> cupboardItemList});
 }
 
 /// @nodoc
 class __$$_UndoDeleteSuccessCopyWithImpl<$Res>
-    extends _$CupboardItemStateCopyWithImpl<$Res>
+    extends _$CupboardItemStateCopyWithImpl<$Res, _$_UndoDeleteSuccess>
     implements _$$_UndoDeleteSuccessCopyWith<$Res> {
   __$$_UndoDeleteSuccessCopyWithImpl(
       _$_UndoDeleteSuccess _value, $Res Function(_$_UndoDeleteSuccess) _then)
-      : super(_value, (v) => _then(v as _$_UndoDeleteSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_UndoDeleteSuccess get _value => super._value as _$_UndoDeleteSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? cupboardItemList = freezed,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_UndoDeleteSuccess(
-      cupboardItemList == freezed
+      null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -1551,6 +1566,8 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
   final List<CupboardItem> _cupboardItemList;
   @override
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -1575,6 +1592,7 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_UndoDeleteSuccessCopyWith<_$_UndoDeleteSuccess> get copyWith =>
       __$$_UndoDeleteSuccessCopyWithImpl<_$_UndoDeleteSuccess>(
           this, _$identity);
@@ -1603,16 +1621,16 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(List<CupboardItem> cupboardItemList)? initial,
-    TResult Function(List<CupboardItem> cupboardItemList)? loadSuccess,
-    TResult Function(
+    TResult? Function(List<CupboardItem> cupboardItemList)? initial,
+    TResult? Function(List<CupboardItem> cupboardItemList)? loadSuccess,
+    TResult? Function(
             List<CupboardItem> cupboardItemList, DatabaseFailure failure)?
         failure,
-    TResult Function(List<CupboardItem> cupboardItemList)? inProgress,
-    TResult Function(List<CupboardItem> cupboardItemList)? createSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? updateSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
-    TResult Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? inProgress,
+    TResult? Function(List<CupboardItem> cupboardItemList)? createSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? updateSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? deleteSuccess,
+    TResult? Function(List<CupboardItem> cupboardItemList)? undoDeleteSuccess,
   }) {
     return undoDeleteSuccess?.call(cupboardItemList);
   }
@@ -1656,14 +1674,14 @@ class _$_UndoDeleteSuccess extends _UndoDeleteSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
-    TResult Function(_CreateSuccess value)? createSuccess,
-    TResult Function(_UpdateSuccess value)? updateSuccess,
-    TResult Function(_DeleteSuccess value)? deleteSuccess,
-    TResult Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
+    TResult? Function(_CreateSuccess value)? createSuccess,
+    TResult? Function(_UpdateSuccess value)? updateSuccess,
+    TResult? Function(_DeleteSuccess value)? deleteSuccess,
+    TResult? Function(_UndoDeleteSuccess value)? undoDeleteSuccess,
   }) {
     return undoDeleteSuccess?.call(this);
   }

@@ -10,7 +10,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 //Repository
 final fridgeItemRepositoryProvider =
-    Provider<FridgeItemRepository>((ref) => FridgeItemRepository(ref.read));
+    Provider<FridgeItemRepository>((ref) => FridgeItemRepository(ref));
 
 //Images
 //final firebaseStorageFridgeItemProvider =
@@ -37,13 +37,14 @@ abstract class BaseFridgeItemRepository {
 }
 
 class FridgeItemRepository implements BaseFridgeItemRepository {
-  final Reader _read;
-  FridgeItemRepository(this._read);
+  final Ref _ref;
+  FridgeItemRepository(this._ref);
 
   @override
   Future<Either<DatabaseFailure, List<FridgeItem>>> getFridgeItemList() async {
     try {
-      var q = _read(firebaseFirestoreFridgeItemProvider)
+      var q = _ref
+          .read(firebaseFirestoreFridgeItemProvider)
           .collection('fridgeItemList')
           .orderBy('nameInsensitive', descending: false);
       return await q
@@ -64,7 +65,8 @@ class FridgeItemRepository implements BaseFridgeItemRepository {
       {required FridgeItem fridgeItem}) async {
     try {
       final fridgeItemEntry = FridgeItemDTO.fromDomain(fridgeItem);
-      final docRef = _read(firebaseFirestoreFridgeItemProvider)
+      final docRef = _ref
+          .read(firebaseFirestoreFridgeItemProvider)
           .collection('fridgeItemList')
           .doc();
       await docRef.set(fridgeItemEntry.toDocument());
@@ -80,7 +82,8 @@ class FridgeItemRepository implements BaseFridgeItemRepository {
       {required FridgeItem fridgeItem}) async {
     try {
       final fridgeItemEntry = FridgeItemDTO.fromDomain(fridgeItem);
-      final _ = await _read(firebaseFirestoreFridgeItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreFridgeItemProvider)
           .collection('fridgeItemList')
           .doc(fridgeItemEntry.id)
           .update(
@@ -97,7 +100,8 @@ class FridgeItemRepository implements BaseFridgeItemRepository {
       {required FridgeItem fridgeItem}) async {
     try {
       final fridgeItemEntry = FridgeItemDTO.fromDomain(fridgeItem);
-      final _ = await _read(firebaseFirestoreFridgeItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreFridgeItemProvider)
           .collection('fridgeItemList')
           .doc(fridgeItemEntry.id)
           .delete();

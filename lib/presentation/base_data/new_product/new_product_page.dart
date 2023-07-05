@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:food_stock_app/application/overview/almost_out_of_stock_notifier.dart';
@@ -20,6 +21,7 @@ import 'package:food_stock_app/presentation/shared/routes/routes.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+@RoutePage()
 class NewProductPage extends HookConsumerWidget {
   final String barcode;
   const NewProductPage(this.barcode, {Key? key}) : super(key: key);

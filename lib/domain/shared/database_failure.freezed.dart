@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'database_failure.dart';
 
@@ -26,10 +26,10 @@ mixin _$DatabaseFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermissions,
-    TResult Function()? requestedDocumentNotFound,
-    TResult Function()? dataAlreadyExists,
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? requestedDocumentNotFound,
+    TResult? Function()? dataAlreadyExists,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,10 +52,10 @@ mixin _$DatabaseFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Unexpected value)? unexpected,
-    TResult Function(InsufficientPermissions value)? insufficientPermissions,
-    TResult Function(DocNotFound value)? requestedDocumentNotFound,
-    TResult Function(DataExists value)? dataAlreadyExists,
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(DocNotFound value)? requestedDocumentNotFound,
+    TResult? Function(DataExists value)? dataAlreadyExists,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,17 +73,18 @@ mixin _$DatabaseFailure {
 abstract class $DatabaseFailureCopyWith<$Res> {
   factory $DatabaseFailureCopyWith(
           DatabaseFailure value, $Res Function(DatabaseFailure) then) =
-      _$DatabaseFailureCopyWithImpl<$Res>;
+      _$DatabaseFailureCopyWithImpl<$Res, DatabaseFailure>;
 }
 
 /// @nodoc
-class _$DatabaseFailureCopyWithImpl<$Res>
+class _$DatabaseFailureCopyWithImpl<$Res, $Val extends DatabaseFailure>
     implements $DatabaseFailureCopyWith<$Res> {
   _$DatabaseFailureCopyWithImpl(this._value, this._then);
 
-  final DatabaseFailure _value;
   // ignore: unused_field
-  final $Res Function(DatabaseFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -95,14 +96,11 @@ abstract class _$$UnexpectedCopyWith<$Res> {
 
 /// @nodoc
 class __$$UnexpectedCopyWithImpl<$Res>
-    extends _$DatabaseFailureCopyWithImpl<$Res>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$Unexpected>
     implements _$$UnexpectedCopyWith<$Res> {
   __$$UnexpectedCopyWithImpl(
       _$Unexpected _value, $Res Function(_$Unexpected) _then)
-      : super(_value, (v) => _then(v as _$Unexpected));
-
-  @override
-  _$Unexpected get _value => super._value as _$Unexpected;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -138,10 +136,10 @@ class _$Unexpected implements Unexpected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermissions,
-    TResult Function()? requestedDocumentNotFound,
-    TResult Function()? dataAlreadyExists,
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? requestedDocumentNotFound,
+    TResult? Function()? dataAlreadyExists,
   }) {
     return unexpected?.call();
   }
@@ -176,10 +174,10 @@ class _$Unexpected implements Unexpected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Unexpected value)? unexpected,
-    TResult Function(InsufficientPermissions value)? insufficientPermissions,
-    TResult Function(DocNotFound value)? requestedDocumentNotFound,
-    TResult Function(DataExists value)? dataAlreadyExists,
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(DocNotFound value)? requestedDocumentNotFound,
+    TResult? Function(DataExists value)? dataAlreadyExists,
   }) {
     return unexpected?.call(this);
   }
@@ -213,15 +211,11 @@ abstract class _$$InsufficientPermissionsCopyWith<$Res> {
 
 /// @nodoc
 class __$$InsufficientPermissionsCopyWithImpl<$Res>
-    extends _$DatabaseFailureCopyWithImpl<$Res>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$InsufficientPermissions>
     implements _$$InsufficientPermissionsCopyWith<$Res> {
   __$$InsufficientPermissionsCopyWithImpl(_$InsufficientPermissions _value,
       $Res Function(_$InsufficientPermissions) _then)
-      : super(_value, (v) => _then(v as _$InsufficientPermissions));
-
-  @override
-  _$InsufficientPermissions get _value =>
-      super._value as _$InsufficientPermissions;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -258,10 +252,10 @@ class _$InsufficientPermissions implements InsufficientPermissions {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermissions,
-    TResult Function()? requestedDocumentNotFound,
-    TResult Function()? dataAlreadyExists,
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? requestedDocumentNotFound,
+    TResult? Function()? dataAlreadyExists,
   }) {
     return insufficientPermissions?.call();
   }
@@ -296,10 +290,10 @@ class _$InsufficientPermissions implements InsufficientPermissions {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Unexpected value)? unexpected,
-    TResult Function(InsufficientPermissions value)? insufficientPermissions,
-    TResult Function(DocNotFound value)? requestedDocumentNotFound,
-    TResult Function(DataExists value)? dataAlreadyExists,
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(DocNotFound value)? requestedDocumentNotFound,
+    TResult? Function(DataExists value)? dataAlreadyExists,
   }) {
     return insufficientPermissions?.call(this);
   }
@@ -333,14 +327,11 @@ abstract class _$$DocNotFoundCopyWith<$Res> {
 
 /// @nodoc
 class __$$DocNotFoundCopyWithImpl<$Res>
-    extends _$DatabaseFailureCopyWithImpl<$Res>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$DocNotFound>
     implements _$$DocNotFoundCopyWith<$Res> {
   __$$DocNotFoundCopyWithImpl(
       _$DocNotFound _value, $Res Function(_$DocNotFound) _then)
-      : super(_value, (v) => _then(v as _$DocNotFound));
-
-  @override
-  _$DocNotFound get _value => super._value as _$DocNotFound;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -376,10 +367,10 @@ class _$DocNotFound implements DocNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermissions,
-    TResult Function()? requestedDocumentNotFound,
-    TResult Function()? dataAlreadyExists,
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? requestedDocumentNotFound,
+    TResult? Function()? dataAlreadyExists,
   }) {
     return requestedDocumentNotFound?.call();
   }
@@ -414,10 +405,10 @@ class _$DocNotFound implements DocNotFound {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Unexpected value)? unexpected,
-    TResult Function(InsufficientPermissions value)? insufficientPermissions,
-    TResult Function(DocNotFound value)? requestedDocumentNotFound,
-    TResult Function(DataExists value)? dataAlreadyExists,
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(DocNotFound value)? requestedDocumentNotFound,
+    TResult? Function(DataExists value)? dataAlreadyExists,
   }) {
     return requestedDocumentNotFound?.call(this);
   }
@@ -451,14 +442,11 @@ abstract class _$$DataExistsCopyWith<$Res> {
 
 /// @nodoc
 class __$$DataExistsCopyWithImpl<$Res>
-    extends _$DatabaseFailureCopyWithImpl<$Res>
+    extends _$DatabaseFailureCopyWithImpl<$Res, _$DataExists>
     implements _$$DataExistsCopyWith<$Res> {
   __$$DataExistsCopyWithImpl(
       _$DataExists _value, $Res Function(_$DataExists) _then)
-      : super(_value, (v) => _then(v as _$DataExists));
-
-  @override
-  _$DataExists get _value => super._value as _$DataExists;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -494,10 +482,10 @@ class _$DataExists implements DataExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? unexpected,
-    TResult Function()? insufficientPermissions,
-    TResult Function()? requestedDocumentNotFound,
-    TResult Function()? dataAlreadyExists,
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? requestedDocumentNotFound,
+    TResult? Function()? dataAlreadyExists,
   }) {
     return dataAlreadyExists?.call();
   }
@@ -532,10 +520,10 @@ class _$DataExists implements DataExists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(Unexpected value)? unexpected,
-    TResult Function(InsufficientPermissions value)? insufficientPermissions,
-    TResult Function(DocNotFound value)? requestedDocumentNotFound,
-    TResult Function(DataExists value)? dataAlreadyExists,
+    TResult? Function(Unexpected value)? unexpected,
+    TResult? Function(InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(DocNotFound value)? requestedDocumentNotFound,
+    TResult? Function(DataExists value)? dataAlreadyExists,
   }) {
     return dataAlreadyExists?.call(this);
   }

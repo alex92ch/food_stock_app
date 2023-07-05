@@ -9,7 +9,7 @@ part 'fridge_item_notifier.freezed.dart';
 
 final fridgeItemNotifierProvider =
     StateNotifierProvider<FridgeItemNotifier, FridgeItemState>(
-        (ref) => FridgeItemNotifier(ref.read));
+        (ref) => FridgeItemNotifier(ref));
 
 @freezed
 class FridgeItemState with _$FridgeItemState {
@@ -42,14 +42,14 @@ class FridgeItemState with _$FridgeItemState {
 }
 
 class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
-  final Reader _read;
+  final Ref _ref;
 
-  FridgeItemNotifier(this._read) : super(const FridgeItemState.initial([]));
+  FridgeItemNotifier(this._ref) : super(const FridgeItemState.initial([]));
 
   Future<void> getFridgeItemList({bool isloading = false}) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
     final failureOrSuccess =
-        await _read(fridgeItemRepositoryProvider).getFridgeItemList();
+        await _ref.read(fridgeItemRepositoryProvider).getFridgeItemList();
     state = failureOrSuccess.fold(
       (l) => state = FridgeItemState.failure([], l),
       (r) => state = FridgeItemState.loadSuccess(r),
@@ -62,7 +62,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
     bool isloading = false,
   }) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
-    final failureOrSuccess = await _read(fridgeItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(fridgeItemRepositoryProvider)
         .createFridgeItem(fridgeItem: fridgeItem);
     state = failureOrSuccess.fold(
       (l) => state = FridgeItemState.failure([], l),
@@ -80,7 +81,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
     required List<FridgeItem> fridgeItemList,
   }) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
-    final failureOrSuccess = await _read(fridgeItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(fridgeItemRepositoryProvider)
         .updateFridgeItem(
             fridgeItem: fridgeItem.copyWith(
                 product: fridgeItem.product
@@ -102,7 +104,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
     required List<FridgeItem> fridgeItemList,
   }) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
-    final failureOrSuccess = await _read(fridgeItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(fridgeItemRepositoryProvider)
         .updateFridgeItem(
             fridgeItem: fridgeItem.product.amount != 0
                 ? fridgeItem.copyWith(
@@ -126,7 +129,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
       required List<FridgeItem> fridgeItemList,
       bool isloading = false}) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
-    final failureOrSuccess = await _read(fridgeItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(fridgeItemRepositoryProvider)
         .deleteFridgeItem(fridgeItem: fridgeItem);
     state = failureOrSuccess.fold(
       (l) => state = FridgeItemState.failure([], l),
@@ -144,7 +148,8 @@ class FridgeItemNotifier extends StateNotifier<FridgeItemState> {
       bool isloading = false,
       required List<FridgeItem> fridgeItemList}) async {
     if (isloading) state = const FridgeItemState.inProgress([]);
-    final failureOrSuccess = await _read(fridgeItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(fridgeItemRepositoryProvider)
         .undoDeleteFridgeItem(fridgeItem: fridgeItem);
     state = failureOrSuccess.fold(
       (l) => state = FridgeItemState.failure([], l),

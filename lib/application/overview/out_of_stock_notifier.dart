@@ -11,7 +11,7 @@ part 'out_of_stock_notifier.freezed.dart';
 
 final outOfStockNotifierProvider =
     StateNotifierProvider<OutOfStockNotifier, OutOfStockState>(
-        (ref) => OutOfStockNotifier(ref.read));
+        (ref) => OutOfStockNotifier(ref));
 
 @freezed
 class OutOfStockState with _$OutOfStockState {
@@ -32,19 +32,19 @@ class OutOfStockState with _$OutOfStockState {
 }
 
 class OutOfStockNotifier extends StateNotifier<OutOfStockState> {
-  final Reader _read;
+  final Ref _ref;
 
-  OutOfStockNotifier(this._read)
+  OutOfStockNotifier(this._ref)
       : super(const OutOfStockState.initial(StockList()));
 
   Future<void> getOutOfStockList({bool isloading = false}) async {
     if (isloading) state = const OutOfStockState.inProgress(StockList());
     final failureOrSuccessFridgeitemList =
-        await _read(fridgeItemRepositoryProvider).getFridgeItemList();
+        await _ref.read(fridgeItemRepositoryProvider).getFridgeItemList();
     final failureOrSuccessFreezeritemList =
-        await _read(freezerItemRepositoryProvider).getFreezerItemList();
+        await _ref.read(freezerItemRepositoryProvider).getFreezerItemList();
     final failureOrSuccessCupboarditemList =
-        await _read(cupboardItemRepositoryProvider).getCupboardItemList();
+        await _ref.read(cupboardItemRepositoryProvider).getCupboardItemList();
     failureOrSuccessFridgeitemList
         .fold((l) => state = OutOfStockState.failure(const StockList(), l),
             (fridgeItemList) {

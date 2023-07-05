@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:food_stock_app/application/shared/cupboard_item_notifer.dart';
@@ -9,6 +10,7 @@ import 'package:food_stock_app/presentation/stock/widgets/stock_add_item_dialog.
 import 'package:food_stock_app/presentation/stock/widgets/stock_list.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+@RoutePage()
 class StockPage extends HookConsumerWidget {
   const StockPage({Key? key}) : super(key: key);
 

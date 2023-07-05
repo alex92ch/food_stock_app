@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'out_of_stock_notifier.dart';
 
@@ -28,10 +28,10 @@ mixin _$OutOfStockState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(StockList stockList)? initial,
-    TResult Function(StockList stockList)? loadSuccess,
-    TResult Function(StockList stockList, DatabaseFailure failure)? failure,
-    TResult Function(StockList stockList)? inProgress,
+    TResult? Function(StockList stockList)? initial,
+    TResult? Function(StockList stockList)? loadSuccess,
+    TResult? Function(StockList stockList, DatabaseFailure failure)? failure,
+    TResult? Function(StockList stockList)? inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,10 +53,10 @@ mixin _$OutOfStockState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,37 +78,41 @@ mixin _$OutOfStockState {
 abstract class $OutOfStockStateCopyWith<$Res> {
   factory $OutOfStockStateCopyWith(
           OutOfStockState value, $Res Function(OutOfStockState) then) =
-      _$OutOfStockStateCopyWithImpl<$Res>;
+      _$OutOfStockStateCopyWithImpl<$Res, OutOfStockState>;
+  @useResult
   $Res call({StockList stockList});
 
   $StockListCopyWith<$Res> get stockList;
 }
 
 /// @nodoc
-class _$OutOfStockStateCopyWithImpl<$Res>
+class _$OutOfStockStateCopyWithImpl<$Res, $Val extends OutOfStockState>
     implements $OutOfStockStateCopyWith<$Res> {
   _$OutOfStockStateCopyWithImpl(this._value, this._then);
 
-  final OutOfStockState _value;
   // ignore: unused_field
-  final $Res Function(OutOfStockState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stockList = null,
   }) {
     return _then(_value.copyWith(
-      stockList: stockList == freezed
+      stockList: null == stockList
           ? _value.stockList
           : stockList // ignore: cast_nullable_to_non_nullable
               as StockList,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $StockListCopyWith<$Res> get stockList {
     return $StockListCopyWith<$Res>(_value.stockList, (value) {
-      return _then(_value.copyWith(stockList: value));
+      return _then(_value.copyWith(stockList: value) as $Val);
     });
   }
 }
@@ -120,6 +124,7 @@ abstract class _$$_InitialCopyWith<$Res>
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({StockList stockList});
 
   @override
@@ -127,20 +132,19 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$OutOfStockStateCopyWithImpl<$Res>
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$OutOfStockStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
+      : super(_value, _then);
 
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stockList = null,
   }) {
     return _then(_$_Initial(
-      stockList == freezed
+      null == stockList
           ? _value.stockList
           : stockList // ignore: cast_nullable_to_non_nullable
               as StockList,
@@ -166,15 +170,16 @@ class _$_Initial extends _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            const DeepCollectionEquality().equals(other.stockList, stockList));
+            (identical(other.stockList, stockList) ||
+                other.stockList == stockList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(stockList));
+  int get hashCode => Object.hash(runtimeType, stockList);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InitialCopyWith<_$_Initial> get copyWith =>
       __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 
@@ -193,10 +198,10 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(StockList stockList)? initial,
-    TResult Function(StockList stockList)? loadSuccess,
-    TResult Function(StockList stockList, DatabaseFailure failure)? failure,
-    TResult Function(StockList stockList)? inProgress,
+    TResult? Function(StockList stockList)? initial,
+    TResult? Function(StockList stockList)? loadSuccess,
+    TResult? Function(StockList stockList, DatabaseFailure failure)? failure,
+    TResult? Function(StockList stockList)? inProgress,
   }) {
     return initial?.call(stockList);
   }
@@ -230,10 +235,10 @@ class _$_Initial extends _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
   }) {
     return initial?.call(this);
   }
@@ -273,6 +278,7 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
           _$_LoadSuccess value, $Res Function(_$_LoadSuccess) then) =
       __$$_LoadSuccessCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({StockList stockList});
 
   @override
@@ -281,21 +287,19 @@ abstract class _$$_LoadSuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadSuccessCopyWithImpl<$Res>
-    extends _$OutOfStockStateCopyWithImpl<$Res>
+    extends _$OutOfStockStateCopyWithImpl<$Res, _$_LoadSuccess>
     implements _$$_LoadSuccessCopyWith<$Res> {
   __$$_LoadSuccessCopyWithImpl(
       _$_LoadSuccess _value, $Res Function(_$_LoadSuccess) _then)
-      : super(_value, (v) => _then(v as _$_LoadSuccess));
+      : super(_value, _then);
 
-  @override
-  _$_LoadSuccess get _value => super._value as _$_LoadSuccess;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stockList = null,
   }) {
     return _then(_$_LoadSuccess(
-      stockList == freezed
+      null == stockList
           ? _value.stockList
           : stockList // ignore: cast_nullable_to_non_nullable
               as StockList,
@@ -321,15 +325,16 @@ class _$_LoadSuccess extends _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoadSuccess &&
-            const DeepCollectionEquality().equals(other.stockList, stockList));
+            (identical(other.stockList, stockList) ||
+                other.stockList == stockList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(stockList));
+  int get hashCode => Object.hash(runtimeType, stockList);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_LoadSuccessCopyWith<_$_LoadSuccess> get copyWith =>
       __$$_LoadSuccessCopyWithImpl<_$_LoadSuccess>(this, _$identity);
 
@@ -348,10 +353,10 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(StockList stockList)? initial,
-    TResult Function(StockList stockList)? loadSuccess,
-    TResult Function(StockList stockList, DatabaseFailure failure)? failure,
-    TResult Function(StockList stockList)? inProgress,
+    TResult? Function(StockList stockList)? initial,
+    TResult? Function(StockList stockList)? loadSuccess,
+    TResult? Function(StockList stockList, DatabaseFailure failure)? failure,
+    TResult? Function(StockList stockList)? inProgress,
   }) {
     return loadSuccess?.call(stockList);
   }
@@ -385,10 +390,10 @@ class _$_LoadSuccess extends _LoadSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
   }) {
     return loadSuccess?.call(this);
   }
@@ -428,6 +433,7 @@ abstract class _$$_FailureCopyWith<$Res>
           _$_Failure value, $Res Function(_$_Failure) then) =
       __$$_FailureCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({StockList stockList, DatabaseFailure failure});
 
   @override
@@ -436,25 +442,24 @@ abstract class _$$_FailureCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res> extends _$OutOfStockStateCopyWithImpl<$Res>
+class __$$_FailureCopyWithImpl<$Res>
+    extends _$OutOfStockStateCopyWithImpl<$Res, _$_Failure>
     implements _$$_FailureCopyWith<$Res> {
   __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
-      : super(_value, (v) => _then(v as _$_Failure));
+      : super(_value, _then);
 
-  @override
-  _$_Failure get _value => super._value as _$_Failure;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stockList = freezed,
-    Object? failure = freezed,
+    Object? stockList = null,
+    Object? failure = null,
   }) {
     return _then(_$_Failure(
-      stockList == freezed
+      null == stockList
           ? _value.stockList
           : stockList // ignore: cast_nullable_to_non_nullable
               as StockList,
-      failure == freezed
+      null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
               as DatabaseFailure,
@@ -462,6 +467,7 @@ class __$$_FailureCopyWithImpl<$Res> extends _$OutOfStockStateCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $DatabaseFailureCopyWith<$Res> get failure {
     return $DatabaseFailureCopyWith<$Res>(_value.failure, (value) {
       return _then(_value.copyWith(failure: value));
@@ -489,18 +495,17 @@ class _$_Failure extends _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Failure &&
-            const DeepCollectionEquality().equals(other.stockList, stockList) &&
-            const DeepCollectionEquality().equals(other.failure, failure));
+            (identical(other.stockList, stockList) ||
+                other.stockList == stockList) &&
+            (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(stockList),
-      const DeepCollectionEquality().hash(failure));
+  int get hashCode => Object.hash(runtimeType, stockList, failure);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FailureCopyWith<_$_Failure> get copyWith =>
       __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
 
@@ -519,10 +524,10 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(StockList stockList)? initial,
-    TResult Function(StockList stockList)? loadSuccess,
-    TResult Function(StockList stockList, DatabaseFailure failure)? failure,
-    TResult Function(StockList stockList)? inProgress,
+    TResult? Function(StockList stockList)? initial,
+    TResult? Function(StockList stockList)? loadSuccess,
+    TResult? Function(StockList stockList, DatabaseFailure failure)? failure,
+    TResult? Function(StockList stockList)? inProgress,
   }) {
     return failure?.call(stockList, this.failure);
   }
@@ -556,10 +561,10 @@ class _$_Failure extends _Failure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
   }) {
     return failure?.call(this);
   }
@@ -601,6 +606,7 @@ abstract class _$$_InProgressCopyWith<$Res>
           _$_InProgress value, $Res Function(_$_InProgress) then) =
       __$$_InProgressCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({StockList stockList});
 
   @override
@@ -609,21 +615,19 @@ abstract class _$$_InProgressCopyWith<$Res>
 
 /// @nodoc
 class __$$_InProgressCopyWithImpl<$Res>
-    extends _$OutOfStockStateCopyWithImpl<$Res>
+    extends _$OutOfStockStateCopyWithImpl<$Res, _$_InProgress>
     implements _$$_InProgressCopyWith<$Res> {
   __$$_InProgressCopyWithImpl(
       _$_InProgress _value, $Res Function(_$_InProgress) _then)
-      : super(_value, (v) => _then(v as _$_InProgress));
+      : super(_value, _then);
 
-  @override
-  _$_InProgress get _value => super._value as _$_InProgress;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? stockList = freezed,
+    Object? stockList = null,
   }) {
     return _then(_$_InProgress(
-      stockList == freezed
+      null == stockList
           ? _value.stockList
           : stockList // ignore: cast_nullable_to_non_nullable
               as StockList,
@@ -649,15 +653,16 @@ class _$_InProgress extends _InProgress {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_InProgress &&
-            const DeepCollectionEquality().equals(other.stockList, stockList));
+            (identical(other.stockList, stockList) ||
+                other.stockList == stockList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(stockList));
+  int get hashCode => Object.hash(runtimeType, stockList);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_InProgressCopyWith<_$_InProgress> get copyWith =>
       __$$_InProgressCopyWithImpl<_$_InProgress>(this, _$identity);
 
@@ -676,10 +681,10 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(StockList stockList)? initial,
-    TResult Function(StockList stockList)? loadSuccess,
-    TResult Function(StockList stockList, DatabaseFailure failure)? failure,
-    TResult Function(StockList stockList)? inProgress,
+    TResult? Function(StockList stockList)? initial,
+    TResult? Function(StockList stockList)? loadSuccess,
+    TResult? Function(StockList stockList, DatabaseFailure failure)? failure,
+    TResult? Function(StockList stockList)? inProgress,
   }) {
     return inProgress?.call(stockList);
   }
@@ -713,10 +718,10 @@ class _$_InProgress extends _InProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_LoadSuccess value)? loadSuccess,
-    TResult Function(_Failure value)? failure,
-    TResult Function(_InProgress value)? inProgress,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_InProgress value)? inProgress,
   }) {
     return inProgress?.call(this);
   }

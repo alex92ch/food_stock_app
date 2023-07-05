@@ -10,7 +10,7 @@ part 'cupboard_item_notifer.freezed.dart';
 
 final cupboardItemNotifierProvider =
     StateNotifierProvider<CupboardItemNotifier, CupboardItemState>(
-        (ref) => CupboardItemNotifier(ref.read));
+        (ref) => CupboardItemNotifier(ref));
 
 @freezed
 class CupboardItemState with _$CupboardItemState {
@@ -43,14 +43,14 @@ class CupboardItemState with _$CupboardItemState {
 }
 
 class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
-  final Reader _read;
+  final Ref _ref;
 
-  CupboardItemNotifier(this._read) : super(const CupboardItemState.initial([]));
+  CupboardItemNotifier(this._ref) : super(const CupboardItemState.initial([]));
 
   Future<void> getCupboardItemList({bool isloading = false}) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
     final failureOrSuccess =
-        await _read(cupboardItemRepositoryProvider).getCupboardItemList();
+        await _ref.read(cupboardItemRepositoryProvider).getCupboardItemList();
     state = failureOrSuccess.fold(
       (l) => state = CupboardItemState.failure([], l),
       (r) => state = CupboardItemState.loadSuccess(r),
@@ -63,7 +63,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
     bool isloading = false,
   }) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(cupboardItemRepositoryProvider)
         .createCupboardItem(cupboardItem: cupboardItem);
     state = failureOrSuccess.fold(
       (l) => state = CupboardItemState.failure([], l),
@@ -81,7 +82,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
     required List<CupboardItem> cupboardItemList,
   }) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(cupboardItemRepositoryProvider)
         .updateCupboardItem(
             cupboardItem: cupboardItem.copyWith(
                 product: cupboardItem.product
@@ -103,7 +105,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
     required List<CupboardItem> cupboardItemList,
   }) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(cupboardItemRepositoryProvider)
         .updateCupboardItem(
             cupboardItem: cupboardItem.product.amount != 0
                 ? cupboardItem.copyWith(
@@ -127,7 +130,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
       required List<CupboardItem> cupboardItemList,
       bool isloading = false}) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(cupboardItemRepositoryProvider)
         .deleteCupboardItem(cupboardItem: cupboardItem);
     state = failureOrSuccess.fold(
       (l) => state = CupboardItemState.failure([], l),
@@ -145,7 +149,8 @@ class CupboardItemNotifier extends StateNotifier<CupboardItemState> {
       bool isloading = false,
       required List<CupboardItem> cupboardItemList}) async {
     if (isloading) state = const CupboardItemState.inProgress([]);
-    final failureOrSuccess = await _read(cupboardItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(cupboardItemRepositoryProvider)
         .undoDeleteCupboardItem(cupboardItem: cupboardItem);
     state = failureOrSuccess.fold(
       (l) => state = CupboardItemState.failure([], l),

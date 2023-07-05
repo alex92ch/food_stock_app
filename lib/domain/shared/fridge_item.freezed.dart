@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'fridge_item.dart';
 
@@ -27,36 +27,41 @@ mixin _$FridgeItem {
 abstract class $FridgeItemCopyWith<$Res> {
   factory $FridgeItemCopyWith(
           FridgeItem value, $Res Function(FridgeItem) then) =
-      _$FridgeItemCopyWithImpl<$Res>;
+      _$FridgeItemCopyWithImpl<$Res, FridgeItem>;
+  @useResult
   $Res call({Product product});
 
   $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
-class _$FridgeItemCopyWithImpl<$Res> implements $FridgeItemCopyWith<$Res> {
+class _$FridgeItemCopyWithImpl<$Res, $Val extends FridgeItem>
+    implements $FridgeItemCopyWith<$Res> {
   _$FridgeItemCopyWithImpl(this._value, this._then);
 
-  final FridgeItem _value;
   // ignore: unused_field
-  final $Res Function(FridgeItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_value.copyWith(
-      product: product == freezed
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProductCopyWith<$Res> get product {
     return $ProductCopyWith<$Res>(_value.product, (value) {
-      return _then(_value.copyWith(product: value));
+      return _then(_value.copyWith(product: value) as $Val);
     });
   }
 }
@@ -68,6 +73,7 @@ abstract class _$$_FridgeItemCopyWith<$Res>
           _$_FridgeItem value, $Res Function(_$_FridgeItem) then) =
       __$$_FridgeItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Product product});
 
   @override
@@ -75,21 +81,20 @@ abstract class _$$_FridgeItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_FridgeItemCopyWithImpl<$Res> extends _$FridgeItemCopyWithImpl<$Res>
+class __$$_FridgeItemCopyWithImpl<$Res>
+    extends _$FridgeItemCopyWithImpl<$Res, _$_FridgeItem>
     implements _$$_FridgeItemCopyWith<$Res> {
   __$$_FridgeItemCopyWithImpl(
       _$_FridgeItem _value, $Res Function(_$_FridgeItem) _then)
-      : super(_value, (v) => _then(v as _$_FridgeItem));
+      : super(_value, _then);
 
-  @override
-  _$_FridgeItem get _value => super._value as _$_FridgeItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_$_FridgeItem(
-      product: product == freezed
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product,
@@ -115,15 +120,15 @@ class _$_FridgeItem extends _FridgeItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FridgeItem &&
-            const DeepCollectionEquality().equals(other.product, product));
+            (identical(other.product, product) || other.product == product));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+  int get hashCode => Object.hash(runtimeType, product);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FridgeItemCopyWith<_$_FridgeItem> get copyWith =>
       __$$_FridgeItemCopyWithImpl<_$_FridgeItem>(this, _$identity);
 }

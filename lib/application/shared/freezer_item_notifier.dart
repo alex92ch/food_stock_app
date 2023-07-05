@@ -10,7 +10,7 @@ part 'freezer_item_notifier.freezed.dart';
 
 final freezerItemNotifierProvider =
     StateNotifierProvider<FreezerItemNotifier, FreezerItemState>(
-        (ref) => FreezerItemNotifier(ref.read));
+        (ref) => FreezerItemNotifier(ref));
 
 @freezed
 class FreezerItemState with _$FreezerItemState {
@@ -43,14 +43,14 @@ class FreezerItemState with _$FreezerItemState {
 }
 
 class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
-  final Reader _read;
+  final Ref _ref;
 
-  FreezerItemNotifier(this._read) : super(const FreezerItemState.initial([]));
+  FreezerItemNotifier(this._ref) : super(const FreezerItemState.initial([]));
 
   Future<void> getFreezerItemList({bool isloading = false}) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
     final failureOrSuccess =
-        await _read(freezerItemRepositoryProvider).getFreezerItemList();
+        await _ref.read(freezerItemRepositoryProvider).getFreezerItemList();
     state = failureOrSuccess.fold(
       (l) => state = FreezerItemState.failure([], l),
       (r) => state = FreezerItemState.loadSuccess(r),
@@ -63,7 +63,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
     bool isloading = false,
   }) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
-    final failureOrSuccess = await _read(freezerItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(freezerItemRepositoryProvider)
         .createFreezerItem(freezerItem: freezerItem);
     state = failureOrSuccess.fold(
       (l) => state = FreezerItemState.failure([], l),
@@ -81,7 +82,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
     required List<FreezerItem> freezerItemList,
   }) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
-    final failureOrSuccess = await _read(freezerItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(freezerItemRepositoryProvider)
         .updateFreezerItem(
             freezerItem: freezerItem.copyWith(
                 product: freezerItem.product
@@ -103,7 +105,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
     required List<FreezerItem> freezerItemList,
   }) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
-    final failureOrSuccess = await _read(freezerItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(freezerItemRepositoryProvider)
         .updateFreezerItem(
             freezerItem: freezerItem.product.amount != 0
                 ? freezerItem.copyWith(
@@ -127,7 +130,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
       required List<FreezerItem> freezerItemList,
       bool isloading = false}) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
-    final failureOrSuccess = await _read(freezerItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(freezerItemRepositoryProvider)
         .deleteFreezerItem(freezerItem: freezerItem);
     state = failureOrSuccess.fold(
       (l) => state = FreezerItemState.failure([], l),
@@ -145,7 +149,8 @@ class FreezerItemNotifier extends StateNotifier<FreezerItemState> {
       bool isloading = false,
       required List<FreezerItem> freezerItemList}) async {
     if (isloading) state = const FreezerItemState.inProgress([]);
-    final failureOrSuccess = await _read(freezerItemRepositoryProvider)
+    final failureOrSuccess = await _ref
+        .read(freezerItemRepositoryProvider)
         .undoDeleteFreezerItem(freezerItem: freezerItem);
     state = failureOrSuccess.fold(
       (l) => state = FreezerItemState.failure([], l),

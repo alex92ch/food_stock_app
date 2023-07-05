@@ -10,7 +10,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 //Repository
 final cupboardItemRepositoryProvider =
-    Provider<CupboardItemRepository>((ref) => CupboardItemRepository(ref.read));
+    Provider<CupboardItemRepository>((ref) => CupboardItemRepository(ref));
 
 //Images
 //final firebaseStorageCupboardItemProvider =
@@ -37,14 +37,15 @@ abstract class BaseCupboardItemRepository {
 }
 
 class CupboardItemRepository implements BaseCupboardItemRepository {
-  final Reader _read;
-  CupboardItemRepository(this._read);
+  final Ref _ref;
+  CupboardItemRepository(this._ref);
 
   @override
   Future<Either<DatabaseFailure, List<CupboardItem>>>
       getCupboardItemList() async {
     try {
-      var q = _read(firebaseFirestoreCupboardItemProvider)
+      var q = _ref
+          .read(firebaseFirestoreCupboardItemProvider)
           .collection('cupboardItemList')
           .orderBy('nameInsensitive', descending: false);
       return await q
@@ -65,7 +66,8 @@ class CupboardItemRepository implements BaseCupboardItemRepository {
       {required CupboardItem cupboardItem}) async {
     try {
       final cupboardItemEntry = CupboardItemDTO.fromDomain(cupboardItem);
-      final docRef = _read(firebaseFirestoreCupboardItemProvider)
+      final docRef = _ref
+          .read(firebaseFirestoreCupboardItemProvider)
           .collection('cupboardItemList')
           .doc();
       await docRef.set(cupboardItemEntry.toDocument());
@@ -81,7 +83,8 @@ class CupboardItemRepository implements BaseCupboardItemRepository {
       {required CupboardItem cupboardItem}) async {
     try {
       final cupboardItemEntry = CupboardItemDTO.fromDomain(cupboardItem);
-      final _ = await _read(firebaseFirestoreCupboardItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreCupboardItemProvider)
           .collection('cupboardItemList')
           .doc(cupboardItemEntry.id)
           .update(
@@ -98,7 +101,8 @@ class CupboardItemRepository implements BaseCupboardItemRepository {
       {required CupboardItem cupboardItem}) async {
     try {
       final cupboardItemEntry = CupboardItemDTO.fromDomain(cupboardItem);
-      final _ = await _read(firebaseFirestoreCupboardItemProvider)
+      final _ = await _ref
+          .read(firebaseFirestoreCupboardItemProvider)
           .collection('cupboardItemList')
           .doc(cupboardItemEntry.id)
           .delete();

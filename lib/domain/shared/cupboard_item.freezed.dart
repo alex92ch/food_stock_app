@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'cupboard_item.dart';
 
@@ -27,36 +27,41 @@ mixin _$CupboardItem {
 abstract class $CupboardItemCopyWith<$Res> {
   factory $CupboardItemCopyWith(
           CupboardItem value, $Res Function(CupboardItem) then) =
-      _$CupboardItemCopyWithImpl<$Res>;
+      _$CupboardItemCopyWithImpl<$Res, CupboardItem>;
+  @useResult
   $Res call({Product product});
 
   $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
-class _$CupboardItemCopyWithImpl<$Res> implements $CupboardItemCopyWith<$Res> {
+class _$CupboardItemCopyWithImpl<$Res, $Val extends CupboardItem>
+    implements $CupboardItemCopyWith<$Res> {
   _$CupboardItemCopyWithImpl(this._value, this._then);
 
-  final CupboardItem _value;
   // ignore: unused_field
-  final $Res Function(CupboardItem) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_value.copyWith(
-      product: product == freezed
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $ProductCopyWith<$Res> get product {
     return $ProductCopyWith<$Res>(_value.product, (value) {
-      return _then(_value.copyWith(product: value));
+      return _then(_value.copyWith(product: value) as $Val);
     });
   }
 }
@@ -68,6 +73,7 @@ abstract class _$$_CupboardItemCopyWith<$Res>
           _$_CupboardItem value, $Res Function(_$_CupboardItem) then) =
       __$$_CupboardItemCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Product product});
 
   @override
@@ -76,21 +82,19 @@ abstract class _$$_CupboardItemCopyWith<$Res>
 
 /// @nodoc
 class __$$_CupboardItemCopyWithImpl<$Res>
-    extends _$CupboardItemCopyWithImpl<$Res>
+    extends _$CupboardItemCopyWithImpl<$Res, _$_CupboardItem>
     implements _$$_CupboardItemCopyWith<$Res> {
   __$$_CupboardItemCopyWithImpl(
       _$_CupboardItem _value, $Res Function(_$_CupboardItem) _then)
-      : super(_value, (v) => _then(v as _$_CupboardItem));
+      : super(_value, _then);
 
-  @override
-  _$_CupboardItem get _value => super._value as _$_CupboardItem;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? product = freezed,
+    Object? product = null,
   }) {
     return _then(_$_CupboardItem(
-      product: product == freezed
+      product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
               as Product,
@@ -116,15 +120,15 @@ class _$_CupboardItem extends _CupboardItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CupboardItem &&
-            const DeepCollectionEquality().equals(other.product, product));
+            (identical(other.product, product) || other.product == product));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(product));
+  int get hashCode => Object.hash(runtimeType, product);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_CupboardItemCopyWith<_$_CupboardItem> get copyWith =>
       __$$_CupboardItemCopyWithImpl<_$_CupboardItem>(this, _$identity);
 }

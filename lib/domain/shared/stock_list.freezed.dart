@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'stock_list.dart';
 
@@ -28,7 +28,8 @@ mixin _$StockList {
 /// @nodoc
 abstract class $StockListCopyWith<$Res> {
   factory $StockListCopyWith(StockList value, $Res Function(StockList) then) =
-      _$StockListCopyWithImpl<$Res>;
+      _$StockListCopyWithImpl<$Res, StockList>;
+  @useResult
   $Res call(
       {List<FreezerItem> freezerItemList,
       List<FridgeItem> fridgeItemList,
@@ -36,33 +37,36 @@ abstract class $StockListCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StockListCopyWithImpl<$Res> implements $StockListCopyWith<$Res> {
+class _$StockListCopyWithImpl<$Res, $Val extends StockList>
+    implements $StockListCopyWith<$Res> {
   _$StockListCopyWithImpl(this._value, this._then);
 
-  final StockList _value;
   // ignore: unused_field
-  final $Res Function(StockList) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? freezerItemList = freezed,
-    Object? fridgeItemList = freezed,
-    Object? cupboardItemList = freezed,
+    Object? freezerItemList = null,
+    Object? fridgeItemList = null,
+    Object? cupboardItemList = null,
   }) {
     return _then(_value.copyWith(
-      freezerItemList: freezerItemList == freezed
+      freezerItemList: null == freezerItemList
           ? _value.freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
               as List<FreezerItem>,
-      fridgeItemList: fridgeItemList == freezed
+      fridgeItemList: null == fridgeItemList
           ? _value.fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
               as List<FridgeItem>,
-      cupboardItemList: cupboardItemList == freezed
+      cupboardItemList: null == cupboardItemList
           ? _value.cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,6 +76,7 @@ abstract class _$$_StockListCopyWith<$Res> implements $StockListCopyWith<$Res> {
           _$_StockList value, $Res Function(_$_StockList) then) =
       __$$_StockListCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {List<FreezerItem> freezerItemList,
       List<FridgeItem> fridgeItemList,
@@ -79,31 +84,30 @@ abstract class _$$_StockListCopyWith<$Res> implements $StockListCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StockListCopyWithImpl<$Res> extends _$StockListCopyWithImpl<$Res>
+class __$$_StockListCopyWithImpl<$Res>
+    extends _$StockListCopyWithImpl<$Res, _$_StockList>
     implements _$$_StockListCopyWith<$Res> {
   __$$_StockListCopyWithImpl(
       _$_StockList _value, $Res Function(_$_StockList) _then)
-      : super(_value, (v) => _then(v as _$_StockList));
+      : super(_value, _then);
 
-  @override
-  _$_StockList get _value => super._value as _$_StockList;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? freezerItemList = freezed,
-    Object? fridgeItemList = freezed,
-    Object? cupboardItemList = freezed,
+    Object? freezerItemList = null,
+    Object? fridgeItemList = null,
+    Object? cupboardItemList = null,
   }) {
     return _then(_$_StockList(
-      freezerItemList: freezerItemList == freezed
+      freezerItemList: null == freezerItemList
           ? _value._freezerItemList
           : freezerItemList // ignore: cast_nullable_to_non_nullable
               as List<FreezerItem>,
-      fridgeItemList: fridgeItemList == freezed
+      fridgeItemList: null == fridgeItemList
           ? _value._fridgeItemList
           : fridgeItemList // ignore: cast_nullable_to_non_nullable
               as List<FridgeItem>,
-      cupboardItemList: cupboardItemList == freezed
+      cupboardItemList: null == cupboardItemList
           ? _value._cupboardItemList
           : cupboardItemList // ignore: cast_nullable_to_non_nullable
               as List<CupboardItem>,
@@ -127,6 +131,7 @@ class _$_StockList extends _StockList {
   @override
   @JsonKey()
   List<FreezerItem> get freezerItemList {
+    if (_freezerItemList is EqualUnmodifiableListView) return _freezerItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_freezerItemList);
   }
@@ -135,6 +140,7 @@ class _$_StockList extends _StockList {
   @override
   @JsonKey()
   List<FridgeItem> get fridgeItemList {
+    if (_fridgeItemList is EqualUnmodifiableListView) return _fridgeItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_fridgeItemList);
   }
@@ -143,6 +149,8 @@ class _$_StockList extends _StockList {
   @override
   @JsonKey()
   List<CupboardItem> get cupboardItemList {
+    if (_cupboardItemList is EqualUnmodifiableListView)
+      return _cupboardItemList;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_cupboardItemList);
   }
@@ -174,6 +182,7 @@ class _$_StockList extends _StockList {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_StockListCopyWith<_$_StockList> get copyWith =>
       __$$_StockListCopyWithImpl<_$_StockList>(this, _$identity);
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'fridge_item_dto.dart';
 
@@ -42,7 +42,8 @@ mixin _$FridgeItemDTO {
 abstract class $FridgeItemDTOCopyWith<$Res> {
   factory $FridgeItemDTOCopyWith(
           FridgeItemDTO value, $Res Function(FridgeItemDTO) then) =
-      _$FridgeItemDTOCopyWithImpl<$Res>;
+      _$FridgeItemDTOCopyWithImpl<$Res, FridgeItemDTO>;
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -58,70 +59,73 @@ abstract class $FridgeItemDTOCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FridgeItemDTOCopyWithImpl<$Res>
+class _$FridgeItemDTOCopyWithImpl<$Res, $Val extends FridgeItemDTO>
     implements $FridgeItemDTOCopyWith<$Res> {
   _$FridgeItemDTOCopyWithImpl(this._value, this._then);
 
-  final FridgeItemDTO _value;
   // ignore: unused_field
-  final $Res Function(FridgeItemDTO) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? threshold = freezed,
-    Object? unitOfMeasurement = freezed,
-    Object? description = freezed,
-    Object? amount = freezed,
-    Object? image = freezed,
-    Object? barcode = freezed,
-    Object? nameInsensitive = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? threshold = null,
+    Object? unitOfMeasurement = null,
+    Object? description = null,
+    Object? amount = null,
+    Object? image = null,
+    Object? barcode = null,
+    Object? nameInsensitive = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      threshold: threshold == freezed
+      threshold: null == threshold
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
-      unitOfMeasurement: unitOfMeasurement == freezed
+      unitOfMeasurement: null == unitOfMeasurement
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as bool,
-      barcode: barcode == freezed
+      barcode: null == barcode
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as String,
-      nameInsensitive: nameInsensitive == freezed
+      nameInsensitive: null == nameInsensitive
           ? _value.nameInsensitive
           : nameInsensitive // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UnitOfMeasurementCopyWith<$Res> get unitOfMeasurement {
     return $UnitOfMeasurementCopyWith<$Res>(_value.unitOfMeasurement, (value) {
-      return _then(_value.copyWith(unitOfMeasurement: value));
+      return _then(_value.copyWith(unitOfMeasurement: value) as $Val);
     });
   }
 }
@@ -133,6 +137,7 @@ abstract class _$$_FridgeItemDTOCopyWith<$Res>
           _$_FridgeItemDTO value, $Res Function(_$_FridgeItemDTO) then) =
       __$$_FridgeItemDTOCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String id,
       String name,
@@ -150,61 +155,59 @@ abstract class _$$_FridgeItemDTOCopyWith<$Res>
 
 /// @nodoc
 class __$$_FridgeItemDTOCopyWithImpl<$Res>
-    extends _$FridgeItemDTOCopyWithImpl<$Res>
+    extends _$FridgeItemDTOCopyWithImpl<$Res, _$_FridgeItemDTO>
     implements _$$_FridgeItemDTOCopyWith<$Res> {
   __$$_FridgeItemDTOCopyWithImpl(
       _$_FridgeItemDTO _value, $Res Function(_$_FridgeItemDTO) _then)
-      : super(_value, (v) => _then(v as _$_FridgeItemDTO));
+      : super(_value, _then);
 
-  @override
-  _$_FridgeItemDTO get _value => super._value as _$_FridgeItemDTO;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-    Object? threshold = freezed,
-    Object? unitOfMeasurement = freezed,
-    Object? description = freezed,
-    Object? amount = freezed,
-    Object? image = freezed,
-    Object? barcode = freezed,
-    Object? nameInsensitive = freezed,
+    Object? id = null,
+    Object? name = null,
+    Object? threshold = null,
+    Object? unitOfMeasurement = null,
+    Object? description = null,
+    Object? amount = null,
+    Object? image = null,
+    Object? barcode = null,
+    Object? nameInsensitive = null,
   }) {
     return _then(_$_FridgeItemDTO(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      threshold: threshold == freezed
+      threshold: null == threshold
           ? _value.threshold
           : threshold // ignore: cast_nullable_to_non_nullable
               as int,
-      unitOfMeasurement: unitOfMeasurement == freezed
+      unitOfMeasurement: null == unitOfMeasurement
           ? _value.unitOfMeasurement
           : unitOfMeasurement // ignore: cast_nullable_to_non_nullable
               as UnitOfMeasurement,
-      description: description == freezed
+      description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      amount: amount == freezed
+      amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as int,
-      image: image == freezed
+      image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as bool,
-      barcode: barcode == freezed
+      barcode: null == barcode
           ? _value.barcode
           : barcode // ignore: cast_nullable_to_non_nullable
               as String,
-      nameInsensitive: nameInsensitive == freezed
+      nameInsensitive: null == nameInsensitive
           ? _value.nameInsensitive
           : nameInsensitive // ignore: cast_nullable_to_non_nullable
               as String,
@@ -271,36 +274,29 @@ class _$_FridgeItemDTO extends _FridgeItemDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FridgeItemDTO &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.threshold, threshold) &&
-            const DeepCollectionEquality()
-                .equals(other.unitOfMeasurement, unitOfMeasurement) &&
-            const DeepCollectionEquality()
-                .equals(other.description, description) &&
-            const DeepCollectionEquality().equals(other.amount, amount) &&
-            const DeepCollectionEquality().equals(other.image, image) &&
-            const DeepCollectionEquality().equals(other.barcode, barcode) &&
-            const DeepCollectionEquality()
-                .equals(other.nameInsensitive, nameInsensitive));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.threshold, threshold) ||
+                other.threshold == threshold) &&
+            (identical(other.unitOfMeasurement, unitOfMeasurement) ||
+                other.unitOfMeasurement == unitOfMeasurement) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.barcode, barcode) || other.barcode == barcode) &&
+            (identical(other.nameInsensitive, nameInsensitive) ||
+                other.nameInsensitive == nameInsensitive));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(threshold),
-      const DeepCollectionEquality().hash(unitOfMeasurement),
-      const DeepCollectionEquality().hash(description),
-      const DeepCollectionEquality().hash(amount),
-      const DeepCollectionEquality().hash(image),
-      const DeepCollectionEquality().hash(barcode),
-      const DeepCollectionEquality().hash(nameInsensitive));
+  int get hashCode => Object.hash(runtimeType, id, name, threshold,
+      unitOfMeasurement, description, amount, image, barcode, nameInsensitive);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_FridgeItemDTOCopyWith<_$_FridgeItemDTO> get copyWith =>
       __$$_FridgeItemDTOCopyWithImpl<_$_FridgeItemDTO>(this, _$identity);
 

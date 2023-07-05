@@ -1,4 +1,3 @@
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:food_stock_app/domain/base_data/product.dart';
 import 'package:food_stock_app/domain/shared/cupboard_item.dart';
@@ -35,7 +34,7 @@ class CupboardItemDTO with _$CupboardItemDTO {
     @Default(1) int threshold,
     @UnitOfMeasurementConverter()
     @Default(UnitOfMeasurement(amount: 0, measurement: Measurement.liter))
-        UnitOfMeasurement unitOfMeasurement,
+    UnitOfMeasurement unitOfMeasurement,
     @Default('') String description,
     @Default(0) int amount,
     @Default(false) bool image, //TODO needs implementation
